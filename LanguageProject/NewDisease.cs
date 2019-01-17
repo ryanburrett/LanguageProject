@@ -106,5 +106,25 @@ namespace LanguageProject
            
             this.Close();
         }
+
+        private void open_file_browser_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog files = new OpenFileDialog();
+            files.Filter = "All files |*.*";
+            var originalData = Clipboard.GetDataObject();
+
+            if (files.ShowDialog() == DialogResult.OK)
+            {
+                string filename = files.FileName;
+                Bitmap b = new Bitmap(filename);
+                Clipboard.SetDataObject(b);
+                summary_txtbox.Paste();
+
+            }
+
+            Clipboard.SetDataObject(originalData);
+
+            
+        }
     }
 }

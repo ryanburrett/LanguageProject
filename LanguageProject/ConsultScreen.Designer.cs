@@ -28,9 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.consult_screen_search_result_textbox = new System.Windows.Forms.TextBox();
             this.confirm_search_result_btn = new System.Windows.Forms.Button();
-            this.summary_preview_txtbox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.add_new_summary_btn = new System.Windows.Forms.Button();
@@ -39,15 +37,9 @@
             this.display_summary_fullscreen_btn = new System.Windows.Forms.Button();
             this.searchbox_consult_screen = new System.Windows.Forms.ComboBox();
             this.consult_search_btn = new System.Windows.Forms.Button();
+            this.consult_screen_search_result_textbox = new System.Windows.Forms.RichTextBox();
+            this.summary_preview_txtbox = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
-            // 
-            // consult_screen_search_result_textbox
-            // 
-            this.consult_screen_search_result_textbox.Location = new System.Drawing.Point(110, 307);
-            this.consult_screen_search_result_textbox.Multiline = true;
-            this.consult_screen_search_result_textbox.Name = "consult_screen_search_result_textbox";
-            this.consult_screen_search_result_textbox.Size = new System.Drawing.Size(390, 245);
-            this.consult_screen_search_result_textbox.TabIndex = 0;
             // 
             // confirm_search_result_btn
             // 
@@ -59,14 +51,6 @@
             this.confirm_search_result_btn.Text = "Confirm";
             this.confirm_search_result_btn.UseVisualStyleBackColor = true;
             this.confirm_search_result_btn.Click += new System.EventHandler(this.confirm_search_result_btn_Click);
-            // 
-            // summary_preview_txtbox
-            // 
-            this.summary_preview_txtbox.Location = new System.Drawing.Point(768, 75);
-            this.summary_preview_txtbox.Multiline = true;
-            this.summary_preview_txtbox.Name = "summary_preview_txtbox";
-            this.summary_preview_txtbox.Size = new System.Drawing.Size(321, 477);
-            this.summary_preview_txtbox.TabIndex = 2;
             // 
             // label1
             // 
@@ -149,11 +133,29 @@
             this.consult_search_btn.UseVisualStyleBackColor = true;
             this.consult_search_btn.Click += new System.EventHandler(this.consult_search_btn_Click);
             // 
+            // consult_screen_search_result_textbox
+            // 
+            this.consult_screen_search_result_textbox.Location = new System.Drawing.Point(110, 329);
+            this.consult_screen_search_result_textbox.Name = "consult_screen_search_result_textbox";
+            this.consult_screen_search_result_textbox.Size = new System.Drawing.Size(420, 248);
+            this.consult_screen_search_result_textbox.TabIndex = 12;
+            this.consult_screen_search_result_textbox.Text = "";
+            // 
+            // summary_preview_txtbox
+            // 
+            this.summary_preview_txtbox.Location = new System.Drawing.Point(752, 110);
+            this.summary_preview_txtbox.Name = "summary_preview_txtbox";
+            this.summary_preview_txtbox.Size = new System.Drawing.Size(320, 456);
+            this.summary_preview_txtbox.TabIndex = 13;
+            this.summary_preview_txtbox.Text = "";
+            // 
             // ConsultScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1261, 631);
+            this.Controls.Add(this.summary_preview_txtbox);
+            this.Controls.Add(this.consult_screen_search_result_textbox);
             this.Controls.Add(this.consult_search_btn);
             this.Controls.Add(this.searchbox_consult_screen);
             this.Controls.Add(this.display_summary_fullscreen_btn);
@@ -162,9 +164,7 @@
             this.Controls.Add(this.add_new_summary_btn);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.summary_preview_txtbox);
             this.Controls.Add(this.confirm_search_result_btn);
-            this.Controls.Add(this.consult_screen_search_result_textbox);
             this.Name = "ConsultScreen";
             this.Text = "ConsultScreen";
             this.ResumeLayout(false);
@@ -173,10 +173,7 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox consult_screen_search_result_textbox;
         private System.Windows.Forms.Button confirm_search_result_btn;
-        private System.Windows.Forms.TextBox summary_preview_txtbox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button add_new_summary_btn;
@@ -185,5 +182,7 @@
         private System.Windows.Forms.Button display_summary_fullscreen_btn;
         private System.Windows.Forms.ComboBox searchbox_consult_screen;
         private System.Windows.Forms.Button consult_search_btn;
+        private System.Windows.Forms.RichTextBox consult_screen_search_result_textbox;
+        private System.Windows.Forms.RichTextBox summary_preview_txtbox;
     }
 }

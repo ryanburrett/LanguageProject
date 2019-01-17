@@ -37,6 +37,7 @@
             this.cancel_btn = new System.Windows.Forms.Button();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.label4 = new System.Windows.Forms.Label();
+            this.open_file_browser = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -129,11 +130,22 @@
             this.label4.TabIndex = 9;
             this.label4.Text = "Progress bar represents the amount of text deemed appropriate ";
             // 
+            // open_file_browser
+            // 
+            this.open_file_browser.Location = new System.Drawing.Point(79, 295);
+            this.open_file_browser.Name = "open_file_browser";
+            this.open_file_browser.Size = new System.Drawing.Size(75, 23);
+            this.open_file_browser.TabIndex = 10;
+            this.open_file_browser.Text = "Get Symbol";
+            this.open_file_browser.UseVisualStyleBackColor = true;
+            this.open_file_browser.Click += new System.EventHandler(this.open_file_browser_Click);
+            // 
             // NewDisease
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(964, 587);
+            this.Controls.Add(this.open_file_browser);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.cancel_btn);
@@ -162,5 +174,6 @@
         private System.Windows.Forms.Button cancel_btn;
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button open_file_browser;
     }
 }

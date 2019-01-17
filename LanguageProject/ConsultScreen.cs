@@ -25,6 +25,13 @@ namespace LanguageProject
             get_disease_summary(disease);
         }
 
+        public ConsultScreen(List<string> diseases)
+        {
+            InitializeComponent();
+            list_of_diseases = diseases;
+            assign_autocomplete();
+        }
+
         public void get_disease_summary(string disease)
         {
 
@@ -90,6 +97,13 @@ namespace LanguageProject
             
 
 
+        }
+
+        private void add_new_summary_btn_Click(object sender, EventArgs e)
+        {
+            NewDisease newDisease = new NewDisease();
+            newDisease.Show();
+            this.Close();
         }
     }
 }

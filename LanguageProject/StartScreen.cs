@@ -27,6 +27,11 @@ namespace LanguageProject
 
         }
 
+        public List<string> return_List()
+        {
+            return list_of_diseases;
+        }
+
         private void get_list_of_diseases()
         {
             string get_diseases_query = "Select Name from diseases";

@@ -105,5 +105,13 @@ namespace LanguageProject
             newDisease.Show();
             this.Close();
         }
+
+        private void display_summary_fullscreen_btn_Click(object sender, EventArgs e)
+        {
+            //launch new form with only patient summary data and display full screen
+            string summary = summary_preview_txtbox.Text;
+            FullScreenPreview full = new FullScreenPreview(summary);
+            full.Show();
+        }
     }
 }

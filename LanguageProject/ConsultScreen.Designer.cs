@@ -126,6 +126,7 @@
             this.display_summary_fullscreen_btn.TabIndex = 9;
             this.display_summary_fullscreen_btn.Text = "Full Screen Summary";
             this.display_summary_fullscreen_btn.UseVisualStyleBackColor = true;
+            this.display_summary_fullscreen_btn.Click += new System.EventHandler(this.display_summary_fullscreen_btn_Click);
             // 
             // searchbox_consult_screen
             // 

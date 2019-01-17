@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace LanguageProject
 {
-    public partial class StartScreen : Form
+    public partial class ConsultScreen : Form
     {
-        public StartScreen()
+        public ConsultScreen()
         {
             InitializeComponent();
-        }
-
-        private void start_screen_btn_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

@@ -57,6 +57,7 @@
             this.confirm_search_result_btn.TabIndex = 1;
             this.confirm_search_result_btn.Text = "Confirm";
             this.confirm_search_result_btn.UseVisualStyleBackColor = true;
+            this.confirm_search_result_btn.Click += new System.EventHandler(this.confirm_search_result_btn_Click);
             // 
             // summary_preview_txtbox
             // 
@@ -138,6 +139,7 @@
             this.consult_search_btn.TabIndex = 11;
             this.consult_search_btn.Text = "Confirm Search";
             this.consult_search_btn.UseVisualStyleBackColor = true;
+            this.consult_search_btn.Click += new System.EventHandler(this.consult_search_btn_Click);
             // 
             // ConsultScreen
             // 

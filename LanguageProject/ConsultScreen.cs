@@ -30,7 +30,7 @@ namespace LanguageProject
 
             // select Simple_Summary from language_simplification.diseases where Name = "Diabetes";
 
-            string get_disease_summary = "select Simple_Summary from language_simplification.diseases where Name = " + disease + ";" ;
+            string get_disease_summary = "select * from diseases where Name = '" + disease + "';" ;
             ConnectDB newConn = new ConnectDB();
             MySqlConnection conn = newConn.connect_db();
             MySqlCommand command = new MySqlCommand(get_disease_summary, conn);
@@ -43,7 +43,8 @@ namespace LanguageProject
             {
                // list_of_diseases.Add(reader.GetString("Name"));
                 string result = reader.GetString("Simple_Summary");
-                consult_screen_search_result_textbox.AppendText(result);
+                consult_screen_search_result_textbox.Text = result;
+                
 
             }
         }
@@ -58,6 +59,37 @@ namespace LanguageProject
             searchbox_consult_screen.AutoCompleteCustomSource = autoObject;
         }
 
-       
+        private void consult_search_btn_Click(object sender, EventArgs e)
+        {
+            string search = searchbox_consult_screen.Text;
+            if (list_of_diseases.Contains(search))
+            {
+                get_disease_summary(search);
+            }
+            else
+            {
+                Console.WriteLine("invalid");
+                MessageBox.Show("Not Valid Search, Please match search with an autocomplete suggestion.", "Not valid Search", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+        }
+
+        private void confirm_search_result_btn_Click(object sender, EventArgs e)
+        {
+           DialogResult result = MessageBox.Show("Confirm you would like to send this summary to patient summary?", "Confirm Simplified Summary", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+
+            if (result == DialogResult.OK)
+            {
+                string disease_text = consult_screen_search_result_textbox.Text;
+               
+                //eventually needs formatting
+                summary_preview_txtbox.AppendText(disease_text + "\r\n\r\n");
+
+
+            }
+
+            
+
+
+        }
     }
 }

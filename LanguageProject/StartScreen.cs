@@ -46,12 +46,15 @@ namespace LanguageProject
                 
             }
             //checking for valid input
+            //removes any whitespace for empty index in db
+            list_of_diseases = list_of_diseases.Where(s => !string.IsNullOrWhiteSpace(s)).ToList();
             list_of_diseases.ForEach(Console.WriteLine);
-            
+            conn.Close();
         }
 
         void assign_autocomplete()
         {
+            // setting up auto complete using combobox and list of diseases
             var autoObject = new AutoCompleteStringCollection();
             autoObject.AddRange(list_of_diseases.ToArray());
             start_screen_searchbox.AutoCompleteSource = AutoCompleteSource.CustomSource;
@@ -61,11 +64,26 @@ namespace LanguageProject
         }
         private void start_screen_btn_Click(object sender, EventArgs e)
         {
-            //need to pass diagnosis search into consultation constructor at some point
 
-            ConsultScreen newCounsult = new ConsultScreen();
-            newCounsult.Show();
-            this.Hide();
+            //TO-DO add validation on click that the text is valid disease
+            //DONE
+
+            //TO-DO add scrubing of whitespace... maybe 
+
+            //get current text in search box
+            string search = start_screen_searchbox.Text;
+            if (list_of_diseases.Contains(search))
+            {
+                ConsultScreen newCounsult = new ConsultScreen(search, list_of_diseases);
+                newCounsult.Show();
+                this.Hide();
+            }
+            else
+            {
+                Console.WriteLine("invalid");
+                MessageBox.Show("Not Valid Search, Please match search with an autocomplete suggestion.", "Not valid Search", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            
 
         }
 

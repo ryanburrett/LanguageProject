@@ -31,13 +31,14 @@
             this.consult_screen_search_result_textbox = new System.Windows.Forms.TextBox();
             this.confirm_search_result_btn = new System.Windows.Forms.Button();
             this.summary_preview_txtbox = new System.Windows.Forms.TextBox();
-            this.search_box_consult_screen = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.add_new_summary_btn = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.print_summary_btn = new System.Windows.Forms.Button();
             this.display_summary_fullscreen_btn = new System.Windows.Forms.Button();
+            this.searchbox_consult_screen = new System.Windows.Forms.ComboBox();
+            this.consult_search_btn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // consult_screen_search_result_textbox
@@ -59,19 +60,11 @@
             // 
             // summary_preview_txtbox
             // 
-            this.summary_preview_txtbox.Location = new System.Drawing.Point(768, 123);
+            this.summary_preview_txtbox.Location = new System.Drawing.Point(768, 75);
             this.summary_preview_txtbox.Multiline = true;
             this.summary_preview_txtbox.Name = "summary_preview_txtbox";
-            this.summary_preview_txtbox.Size = new System.Drawing.Size(321, 429);
+            this.summary_preview_txtbox.Size = new System.Drawing.Size(321, 477);
             this.summary_preview_txtbox.TabIndex = 2;
-            // 
-            // search_box_consult_screen
-            // 
-            this.search_box_consult_screen.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.search_box_consult_screen.Location = new System.Drawing.Point(110, 155);
-            this.search_box_consult_screen.Name = "search_box_consult_screen";
-            this.search_box_consult_screen.Size = new System.Drawing.Size(205, 26);
-            this.search_box_consult_screen.TabIndex = 3;
             // 
             // label1
             // 
@@ -85,7 +78,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(765, 104);
+            this.label2.Location = new System.Drawing.Point(765, 50);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(116, 13);
             this.label2.TabIndex = 5;
@@ -93,7 +86,7 @@
             // 
             // add_new_summary_btn
             // 
-            this.add_new_summary_btn.Location = new System.Drawing.Point(388, 145);
+            this.add_new_summary_btn.Location = new System.Drawing.Point(388, 50);
             this.add_new_summary_btn.Name = "add_new_summary_btn";
             this.add_new_summary_btn.Size = new System.Drawing.Size(112, 49);
             this.add_new_summary_btn.TabIndex = 6;
@@ -103,7 +96,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(110, 126);
+            this.label3.Location = new System.Drawing.Point(110, 132);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(65, 13);
             this.label3.TabIndex = 7;
@@ -127,18 +120,38 @@
             this.display_summary_fullscreen_btn.Text = "Full Screen Summary";
             this.display_summary_fullscreen_btn.UseVisualStyleBackColor = true;
             // 
+            // searchbox_consult_screen
+            // 
+            this.searchbox_consult_screen.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.searchbox_consult_screen.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchbox_consult_screen.FormattingEnabled = true;
+            this.searchbox_consult_screen.Location = new System.Drawing.Point(110, 178);
+            this.searchbox_consult_screen.Name = "searchbox_consult_screen";
+            this.searchbox_consult_screen.Size = new System.Drawing.Size(202, 32);
+            this.searchbox_consult_screen.TabIndex = 10;
+            // 
+            // consult_search_btn
+            // 
+            this.consult_search_btn.Location = new System.Drawing.Point(388, 178);
+            this.consult_search_btn.Name = "consult_search_btn";
+            this.consult_search_btn.Size = new System.Drawing.Size(91, 32);
+            this.consult_search_btn.TabIndex = 11;
+            this.consult_search_btn.Text = "Confirm Search";
+            this.consult_search_btn.UseVisualStyleBackColor = true;
+            // 
             // ConsultScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1261, 631);
+            this.Controls.Add(this.consult_search_btn);
+            this.Controls.Add(this.searchbox_consult_screen);
             this.Controls.Add(this.display_summary_fullscreen_btn);
             this.Controls.Add(this.print_summary_btn);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.add_new_summary_btn);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.search_box_consult_screen);
             this.Controls.Add(this.summary_preview_txtbox);
             this.Controls.Add(this.confirm_search_result_btn);
             this.Controls.Add(this.consult_screen_search_result_textbox);
@@ -154,12 +167,13 @@
         private System.Windows.Forms.TextBox consult_screen_search_result_textbox;
         private System.Windows.Forms.Button confirm_search_result_btn;
         private System.Windows.Forms.TextBox summary_preview_txtbox;
-        private System.Windows.Forms.TextBox search_box_consult_screen;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button add_new_summary_btn;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button print_summary_btn;
         private System.Windows.Forms.Button display_summary_fullscreen_btn;
+        private System.Windows.Forms.ComboBox searchbox_consult_screen;
+        private System.Windows.Forms.Button consult_search_btn;
     }
 }

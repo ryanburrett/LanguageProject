@@ -30,7 +30,7 @@
         {
             this.start_screen_btn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.start_screen_search_box = new System.Windows.Forms.TextBox();
+            this.start_screen_searchbox = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // start_screen_btn
@@ -53,20 +53,22 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Language Simplification";
             // 
-            // start_screen_search_box
+            // start_screen_searchbox
             // 
-            this.start_screen_search_box.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.start_screen_search_box.Location = new System.Drawing.Point(315, 205);
-            this.start_screen_search_box.Name = "start_screen_search_box";
-            this.start_screen_search_box.Size = new System.Drawing.Size(288, 31);
-            this.start_screen_search_box.TabIndex = 2;
+            this.start_screen_searchbox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.start_screen_searchbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.start_screen_searchbox.FormattingEnabled = true;
+            this.start_screen_searchbox.Location = new System.Drawing.Point(315, 192);
+            this.start_screen_searchbox.Name = "start_screen_searchbox";
+            this.start_screen_searchbox.Size = new System.Drawing.Size(265, 37);
+            this.start_screen_searchbox.TabIndex = 3;
             // 
             // StartScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(941, 478);
-            this.Controls.Add(this.start_screen_search_box);
+            this.Controls.Add(this.start_screen_searchbox);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.start_screen_btn);
             this.Name = "StartScreen";
@@ -80,6 +82,6 @@
 
         private System.Windows.Forms.Button start_screen_btn;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox start_screen_search_box;
+        private System.Windows.Forms.ComboBox start_screen_searchbox;
     }
 }

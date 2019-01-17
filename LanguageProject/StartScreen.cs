@@ -19,6 +19,11 @@ namespace LanguageProject
 
         private void start_screen_btn_Click(object sender, EventArgs e)
         {
+            //need to pass diagnosis search into consultation constructor at some point
+
+            ConsultScreen newCounsult = new ConsultScreen();
+            newCounsult.Show();
+            this.Hide();
 
         }
     }

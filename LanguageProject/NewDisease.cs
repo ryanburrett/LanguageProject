@@ -44,7 +44,8 @@ namespace LanguageProject
         private void write_to_db()
         {
             string condition = condition_txtbox.Text;
-            string summary = summary_txtbox.Text;
+            string summary = summary_txtbox.Rtf;
+            
 
             //INSERT INTO `language_simplification`.`diseases` (`Name`, `Simple_Summary`) VALUES ('dd', 'dd');
 
@@ -109,12 +110,16 @@ namespace LanguageProject
 
         private void open_file_browser_Click(object sender, EventArgs e)
         {
+            //opening file browser 
             OpenFileDialog files = new OpenFileDialog();
             files.Filter = "All files |*.*";
+            //copying current clipboard data 
             var originalData = Clipboard.GetDataObject();
 
             if (files.ShowDialog() == DialogResult.OK)
             {
+                //getting file new and setting it to a bitmap and then setting it to active clipboard
+                //pasting to richtextbox
                 string filename = files.FileName;
                 Bitmap b = new Bitmap(filename);
                 Clipboard.SetDataObject(b);
@@ -122,6 +127,7 @@ namespace LanguageProject
 
             }
 
+            //resetting original data of clipboard
             Clipboard.SetDataObject(originalData);
 
             

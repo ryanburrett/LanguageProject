@@ -113,6 +113,8 @@
             // progressBar1
             // 
             this.progressBar1.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.progressBar1.BackColor = System.Drawing.Color.Maroon;
+            this.progressBar1.ForeColor = System.Drawing.Color.Lime;
             this.progressBar1.Location = new System.Drawing.Point(242, 432);
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.RightToLeft = System.Windows.Forms.RightToLeft.No;

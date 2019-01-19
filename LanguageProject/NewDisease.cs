@@ -4,15 +4,19 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace LanguageProject
 {
     public partial class NewDisease : Form
     {
+        string text;
+
         public NewDisease()
         {
             InitializeComponent();
@@ -45,18 +49,30 @@ namespace LanguageProject
         {
             string condition = condition_txtbox.Text;
             string summary = summary_txtbox.Rtf;
+
+            byte[] bytes = Encoding.Default.GetBytes(summary);
             
+
+
+            MemoryStream ms = new MemoryStream(bytes);
+
+            StreamReader sr = new StreamReader(ms);
+
+            text = sr.ReadToEnd();
+
+            Console.WriteLine(text);
+
 
             //INSERT INTO `language_simplification`.`diseases` (`Name`, `Simple_Summary`) VALUES ('dd', 'dd');
 
-            string write_query = "INSERT INTO `diseases` (`Name`, `Simple_Summary`) VALUES ('"+ condition + "','"+ summary +"')";
+            string write_query = "INSERT INTO `diseases` (`Name`, `Simple_Summary`) VALUES ('" + condition + "','" + bytes.ToString() + "')";
             ConnectDB newConn = new ConnectDB();
             MySqlConnection conn = newConn.connect_db();
             MySqlCommand command = new MySqlCommand(write_query, conn);
 
             conn.Open();
             command.ExecuteNonQuery();
-
+                
             conn.Close();
             
             
@@ -131,6 +147,12 @@ namespace LanguageProject
             Clipboard.SetDataObject(originalData);
 
             
+        }
+
+        private void test_btn_Click(object sender, EventArgs e)
+        {
+            summary_txtbox.Rtf = text;
+
         }
     }
 }

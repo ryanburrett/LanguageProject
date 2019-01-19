@@ -124,10 +124,15 @@
             // 
             // consult_search_btn
             // 
+            this.consult_search_btn.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.consult_search_btn.AutoSize = true;
+            this.consult_search_btn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.consult_search_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.consult_search_btn.Location = new System.Drawing.Point(388, 174);
+            this.consult_search_btn.Location = new System.Drawing.Point(377, 184);
             this.consult_search_btn.Name = "consult_search_btn";
-            this.consult_search_btn.Size = new System.Drawing.Size(91, 42);
+            this.consult_search_btn.Size = new System.Drawing.Size(123, 26);
             this.consult_search_btn.TabIndex = 11;
             this.consult_search_btn.Text = "Confirm Search";
             this.consult_search_btn.UseVisualStyleBackColor = true;
@@ -137,9 +142,10 @@
             // 
             this.consult_screen_search_result_textbox.Location = new System.Drawing.Point(110, 329);
             this.consult_screen_search_result_textbox.Name = "consult_screen_search_result_textbox";
-            this.consult_screen_search_result_textbox.Size = new System.Drawing.Size(420, 248);
+            this.consult_screen_search_result_textbox.Size = new System.Drawing.Size(420, 270);
             this.consult_screen_search_result_textbox.TabIndex = 12;
             this.consult_screen_search_result_textbox.Text = "";
+            this.consult_screen_search_result_textbox.SizeChanged += new System.EventHandler(this.consult_screen_search_result_textbox_SizeChanged);
             // 
             // summary_preview_txtbox
             // 
@@ -151,8 +157,9 @@
             // 
             // ConsultScreen
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1261, 631);
             this.Controls.Add(this.summary_preview_txtbox);
             this.Controls.Add(this.consult_screen_search_result_textbox);
@@ -166,7 +173,10 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.confirm_search_result_btn);
             this.Name = "ConsultScreen";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ConsultScreen";
+            this.ResizeBegin += new System.EventHandler(this.ConsultScreen_ResizeBegin);
+            this.ResizeEnd += new System.EventHandler(this.ConsultScreen_ResizeEnd);
             this.ResumeLayout(false);
             this.PerformLayout();
 

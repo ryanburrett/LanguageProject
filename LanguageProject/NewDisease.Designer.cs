@@ -39,10 +39,15 @@
             this.label4 = new System.Windows.Forms.Label();
             this.open_file_browser = new System.Windows.Forms.Button();
             this.test_btn = new System.Windows.Forms.Button();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel1.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
             // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(97, 92);
@@ -54,6 +59,7 @@
             // 
             // label3
             // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(12, 170);
@@ -64,6 +70,7 @@
             // 
             // condition_txtbox
             // 
+            this.condition_txtbox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.condition_txtbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.condition_txtbox.Location = new System.Drawing.Point(242, 89);
             this.condition_txtbox.Name = "condition_txtbox";
@@ -72,6 +79,7 @@
             // 
             // summary_txtbox
             // 
+            this.summary_txtbox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.summary_txtbox.Location = new System.Drawing.Point(242, 170);
             this.summary_txtbox.Name = "summary_txtbox";
             this.summary_txtbox.Size = new System.Drawing.Size(567, 256);
@@ -81,6 +89,7 @@
             // 
             // label2
             // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(228, 36);
@@ -91,10 +100,11 @@
             // 
             // submit_btn
             // 
+            this.submit_btn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.submit_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.submit_btn.Location = new System.Drawing.Point(379, 491);
+            this.submit_btn.Location = new System.Drawing.Point(3, 30);
             this.submit_btn.Name = "submit_btn";
-            this.submit_btn.Size = new System.Drawing.Size(96, 39);
+            this.submit_btn.Size = new System.Drawing.Size(94, 39);
             this.submit_btn.TabIndex = 6;
             this.submit_btn.Text = "Submit";
             this.submit_btn.UseVisualStyleBackColor = true;
@@ -102,10 +112,11 @@
             // 
             // cancel_btn
             // 
+            this.cancel_btn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.cancel_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cancel_btn.Location = new System.Drawing.Point(583, 491);
+            this.cancel_btn.Location = new System.Drawing.Point(103, 30);
             this.cancel_btn.Name = "cancel_btn";
-            this.cancel_btn.Size = new System.Drawing.Size(96, 39);
+            this.cancel_btn.Size = new System.Drawing.Size(94, 39);
             this.cancel_btn.TabIndex = 7;
             this.cancel_btn.Text = "Cancel";
             this.cancel_btn.UseVisualStyleBackColor = true;
@@ -113,7 +124,7 @@
             // 
             // progressBar1
             // 
-            this.progressBar1.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.progressBar1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.progressBar1.BackColor = System.Drawing.Color.Maroon;
             this.progressBar1.ForeColor = System.Drawing.Color.Lime;
             this.progressBar1.Location = new System.Drawing.Point(242, 432);
@@ -125,6 +136,7 @@
             // label4
             // 
             this.label4.AllowDrop = true;
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(299, 449);
@@ -135,9 +147,10 @@
             // 
             // open_file_browser
             // 
-            this.open_file_browser.Location = new System.Drawing.Point(79, 295);
+            this.open_file_browser.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.open_file_browser.Location = new System.Drawing.Point(3, 63);
             this.open_file_browser.Name = "open_file_browser";
-            this.open_file_browser.Size = new System.Drawing.Size(75, 23);
+            this.open_file_browser.Size = new System.Drawing.Size(91, 23);
             this.open_file_browser.TabIndex = 10;
             this.open_file_browser.Text = "Get Symbol";
             this.open_file_browser.UseVisualStyleBackColor = true;
@@ -145,25 +158,56 @@
             // 
             // test_btn
             // 
-            this.test_btn.Location = new System.Drawing.Point(93, 381);
+            this.test_btn.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.test_btn.Location = new System.Drawing.Point(3, 3);
             this.test_btn.Name = "test_btn";
-            this.test_btn.Size = new System.Drawing.Size(75, 23);
+            this.test_btn.Size = new System.Drawing.Size(91, 44);
             this.test_btn.TabIndex = 11;
             this.test_btn.Text = "button1";
             this.test_btn.UseVisualStyleBackColor = true;
             this.test_btn.Click += new System.EventHandler(this.test_btn_Click);
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.tableLayoutPanel1.ColumnCount = 1;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Controls.Add(this.open_file_browser, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.test_btn, 0, 0);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(102, 270);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(97, 100);
+            this.tableLayoutPanel1.TabIndex = 12;
+            // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel2.ColumnCount = 2;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Controls.Add(this.cancel_btn, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.submit_btn, 0, 0);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(409, 475);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 1;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(200, 100);
+            this.tableLayoutPanel2.TabIndex = 13;
             // 
             // NewDisease
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(964, 587);
-            this.Controls.Add(this.test_btn);
-            this.Controls.Add(this.open_file_browser);
+            this.Controls.Add(this.tableLayoutPanel2);
+            this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.progressBar1);
-            this.Controls.Add(this.cancel_btn);
-            this.Controls.Add(this.submit_btn);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.summary_txtbox);
             this.Controls.Add(this.condition_txtbox);
@@ -172,6 +216,8 @@
             this.Name = "NewDisease";
             this.Text = "NewDisease";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.NewDisease_FormClosing);
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -190,5 +236,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button open_file_browser;
         private System.Windows.Forms.Button test_btn;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
     }
 }

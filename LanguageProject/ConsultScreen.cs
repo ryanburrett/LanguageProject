@@ -78,8 +78,8 @@ namespace LanguageProject
 
                    
                 }
-                Console.WriteLine(content);
-               // consult_screen_search_result_textbox.Rtf = text;
+                Console.WriteLine("Reading into content for selected condition");
+                consult_screen_search_result_textbox.Rtf = content;
             }
         }
 

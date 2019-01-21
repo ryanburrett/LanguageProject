@@ -67,6 +67,7 @@
     <Compile Include="FullScreenPreview.Designer.cs">
       <DependentUpon>FullScreenPreview.cs</DependentUpon>
     </Compile>
+    <Compile Include="List_of_Diseases.cs" />
     <Compile Include="NewDisease.cs">
       <SubType>Form</SubType>
     </Compile>

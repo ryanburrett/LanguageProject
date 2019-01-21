@@ -114,14 +114,13 @@ namespace LanguageProject
 
         private void clean_up()
         {
-            //use startscreen function to get list of diseases. never showing form here
-            StartScreen newStart = new StartScreen();
+            //getting a new instance of the current list of conditions/diseases to send  to new consult screen so it is upto date
+            List_of_Diseases list = new List_of_Diseases();
             List<string> list_of_diseases = new List<string>();
 
-            list_of_diseases = newStart.return_List();
+            list_of_diseases = list.return_list();
 
-            newStart.Close();
-
+          
             ConsultScreen consult = new ConsultScreen(list_of_diseases);
             consult.Show();
         }

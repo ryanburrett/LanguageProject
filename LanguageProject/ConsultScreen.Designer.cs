@@ -43,6 +43,9 @@
             // 
             // confirm_search_result_btn
             // 
+            this.confirm_search_result_btn.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.confirm_search_result_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.confirm_search_result_btn.Location = new System.Drawing.Point(578, 398);
             this.confirm_search_result_btn.Name = "confirm_search_result_btn";
@@ -54,6 +57,9 @@
             // 
             // label1
             // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(110, 288);
@@ -64,6 +70,9 @@
             // 
             // label2
             // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(765, 50);
@@ -74,6 +83,9 @@
             // 
             // add_new_summary_btn
             // 
+            this.add_new_summary_btn.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.add_new_summary_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.add_new_summary_btn.Location = new System.Drawing.Point(388, 50);
             this.add_new_summary_btn.Name = "add_new_summary_btn";
@@ -85,6 +97,9 @@
             // 
             // label3
             // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(110, 132);
@@ -95,6 +110,9 @@
             // 
             // print_summary_btn
             // 
+            this.print_summary_btn.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.print_summary_btn.Location = new System.Drawing.Point(1135, 307);
             this.print_summary_btn.Name = "print_summary_btn";
             this.print_summary_btn.Size = new System.Drawing.Size(75, 23);
@@ -104,6 +122,9 @@
             // 
             // display_summary_fullscreen_btn
             // 
+            this.display_summary_fullscreen_btn.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.display_summary_fullscreen_btn.Location = new System.Drawing.Point(1135, 388);
             this.display_summary_fullscreen_btn.Name = "display_summary_fullscreen_btn";
             this.display_summary_fullscreen_btn.Size = new System.Drawing.Size(75, 37);
@@ -114,6 +135,9 @@
             // 
             // searchbox_consult_screen
             // 
+            this.searchbox_consult_screen.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.searchbox_consult_screen.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.searchbox_consult_screen.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchbox_consult_screen.FormattingEnabled = true;
@@ -140,6 +164,9 @@
             // 
             // consult_screen_search_result_textbox
             // 
+            this.consult_screen_search_result_textbox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.consult_screen_search_result_textbox.Location = new System.Drawing.Point(110, 329);
             this.consult_screen_search_result_textbox.Name = "consult_screen_search_result_textbox";
             this.consult_screen_search_result_textbox.Size = new System.Drawing.Size(420, 270);
@@ -149,6 +176,7 @@
             // 
             // summary_preview_txtbox
             // 
+            this.summary_preview_txtbox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.summary_preview_txtbox.Location = new System.Drawing.Point(752, 110);
             this.summary_preview_txtbox.Name = "summary_preview_txtbox";
             this.summary_preview_txtbox.Size = new System.Drawing.Size(320, 456);

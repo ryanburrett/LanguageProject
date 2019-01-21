@@ -15,6 +15,9 @@ namespace LanguageProject
         public FullScreenPreview(string a)
         {
             InitializeComponent();
+            this.CenterToScreen();
+
+
             fullscreen_txtbox.Text = a;
             string b = fullscreen_txtbox.Rtf;
             Console.WriteLine(b);

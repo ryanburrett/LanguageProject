@@ -23,6 +23,7 @@ namespace LanguageProject
         public ConsultScreen(string disease, List<string> diseases)
         {
             InitializeComponent();
+            this.CenterToScreen();
             list_of_diseases = diseases;
             searchbox_consult_screen.Text = disease;
             assign_autocomplete();
@@ -34,6 +35,7 @@ namespace LanguageProject
         public ConsultScreen(List<string> diseases)
         {
             InitializeComponent();
+            this.CenterToScreen();
             list_of_diseases = diseases;
             assign_autocomplete();
         }

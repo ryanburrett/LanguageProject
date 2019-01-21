@@ -20,6 +20,7 @@ namespace LanguageProject
         public NewDisease()
         {
             InitializeComponent();
+            this.CenterToScreen();
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -60,20 +61,27 @@ namespace LanguageProject
 
             text = sr.ReadToEnd();
 
-            Console.WriteLine(text);
+            Console.WriteLine(bytes.Length);
 
+            Console.WriteLine("");
 
             //INSERT INTO `language_simplification`.`diseases` (`Name`, `Simple_Summary`) VALUES ('dd', 'dd');
 
-            string write_query = "INSERT INTO `diseases` (`Name`, `Simple_Summary`) VALUES ('" + condition + "','" + bytes.ToString() + "')";
+            //appears to correctly write to database
+
             ConnectDB newConn = new ConnectDB();
             MySqlConnection conn = newConn.connect_db();
-            MySqlCommand command = new MySqlCommand(write_query, conn);
+            MySqlCommand command = new MySqlCommand();
+            command.CommandText = "INSERT INTO diseases (Name, Simple_Summary) VALUES (@condition, @summary)";
+            command.Parameters.AddWithValue("condition", condition);
+            command.Parameters.AddWithValue("summary", bytes);
+            command.Connection = conn;
 
             conn.Open();
             command.ExecuteNonQuery();
                 
             conn.Close();
+            
             
             
         }

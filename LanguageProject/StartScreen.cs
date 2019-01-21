@@ -19,6 +19,7 @@ namespace LanguageProject
         public StartScreen()
         {
             InitializeComponent();
+            this.CenterToScreen();
             //connection to database and pull all disease titles and allow them to be easily searched with smart autofilling 
             get_list_of_diseases();
 

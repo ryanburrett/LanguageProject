@@ -153,7 +153,7 @@ namespace LanguageProject
         {
             int change = this.Size.Height - current_form_height;
 
-            consult_screen_search_result_textbox.Height += change;
+           // consult_screen_search_result_textbox.Height += change;
 
             Console.WriteLine("form height change : " + change);
         }
@@ -163,6 +163,11 @@ namespace LanguageProject
            // current_form_height = this.Size.Height;
 
             
+        }
+
+        private void print_summary_btn_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

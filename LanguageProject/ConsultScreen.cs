@@ -143,19 +143,19 @@ namespace LanguageProject
 
         private void ConsultScreen_ResizeBegin(object sender, EventArgs e)
         {
-             current_form_height = this.Size.Height;
-             current_textbox_height = consult_screen_search_result_textbox.Height;
+            // current_form_height = this.Size.Height;
+            // current_textbox_height = consult_screen_search_result_textbox.Height;
 
             
         }
 
         private void ConsultScreen_ResizeEnd(object sender, EventArgs e)
         {
-            int change = this.Size.Height - current_form_height;
+           // int change = this.Size.Height - current_form_height;
 
            // consult_screen_search_result_textbox.Height += change;
 
-            Console.WriteLine("form height change : " + change);
+          //  Console.WriteLine("form height change : " + change);
         }
 
         private void consult_screen_search_result_textbox_SizeChanged(object sender, EventArgs e)

@@ -52,12 +52,11 @@
             // 
             // confirm_search_result_btn
             // 
-            this.confirm_search_result_btn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.confirm_search_result_btn.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.confirm_search_result_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.confirm_search_result_btn.Location = new System.Drawing.Point(380, 520);
+            this.confirm_search_result_btn.Location = new System.Drawing.Point(571, 115);
             this.confirm_search_result_btn.Name = "confirm_search_result_btn";
-            this.confirm_search_result_btn.Size = new System.Drawing.Size(112, 96);
+            this.confirm_search_result_btn.Size = new System.Drawing.Size(126, 40);
             this.confirm_search_result_btn.TabIndex = 1;
             this.confirm_search_result_btn.Text = "Confirm";
             this.confirm_search_result_btn.UseVisualStyleBackColor = true;
@@ -65,8 +64,8 @@
             // 
             // print_summary_btn
             // 
-            this.print_summary_btn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.print_summary_btn.Location = new System.Drawing.Point(1103, 584);
+            this.print_summary_btn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.print_summary_btn.Location = new System.Drawing.Point(1077, 81);
             this.print_summary_btn.Name = "print_summary_btn";
             this.print_summary_btn.Size = new System.Drawing.Size(75, 23);
             this.print_summary_btn.TabIndex = 8;
@@ -76,8 +75,8 @@
             // 
             // display_summary_fullscreen_btn
             // 
-            this.display_summary_fullscreen_btn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.display_summary_fullscreen_btn.Location = new System.Drawing.Point(1002, 577);
+            this.display_summary_fullscreen_btn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.display_summary_fullscreen_btn.Location = new System.Drawing.Point(899, 24);
             this.display_summary_fullscreen_btn.Name = "display_summary_fullscreen_btn";
             this.display_summary_fullscreen_btn.Size = new System.Drawing.Size(75, 37);
             this.display_summary_fullscreen_btn.TabIndex = 9;
@@ -90,15 +89,15 @@
             this.summary_preview_txtbox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.summary_preview_txtbox.Location = new System.Drawing.Point(3, 20);
             this.summary_preview_txtbox.Name = "summary_preview_txtbox";
-            this.summary_preview_txtbox.Size = new System.Drawing.Size(555, 312);
+            this.summary_preview_txtbox.Size = new System.Drawing.Size(555, 404);
             this.summary_preview_txtbox.TabIndex = 13;
             this.summary_preview_txtbox.Text = "";
             // 
             // add_new_summary_btn
             // 
-            this.add_new_summary_btn.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.add_new_summary_btn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.add_new_summary_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.add_new_summary_btn.Location = new System.Drawing.Point(550, 78);
+            this.add_new_summary_btn.Location = new System.Drawing.Point(1066, 12);
             this.add_new_summary_btn.Name = "add_new_summary_btn";
             this.add_new_summary_btn.Size = new System.Drawing.Size(112, 49);
             this.add_new_summary_btn.TabIndex = 6;
@@ -111,7 +110,7 @@
             this.consult_screen_search_result_textbox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.consult_screen_search_result_textbox.Location = new System.Drawing.Point(3, 20);
             this.consult_screen_search_result_textbox.Name = "consult_screen_search_result_textbox";
-            this.consult_screen_search_result_textbox.Size = new System.Drawing.Size(591, 312);
+            this.consult_screen_search_result_textbox.Size = new System.Drawing.Size(591, 404);
             this.consult_screen_search_result_textbox.TabIndex = 12;
             this.consult_screen_search_result_textbox.Text = "";
             this.consult_screen_search_result_textbox.SizeChanged += new System.EventHandler(this.consult_screen_search_result_textbox_SizeChanged);
@@ -173,24 +172,26 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.groupBox2.Controls.Add(this.consult_screen_search_result_textbox);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(0, 0);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(597, 335);
+            this.groupBox2.Size = new System.Drawing.Size(597, 427);
             this.groupBox2.TabIndex = 16;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Search Results";
             // 
             // groupBox3
             // 
+            this.groupBox3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.groupBox3.Controls.Add(this.summary_preview_txtbox);
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.Location = new System.Drawing.Point(0, 0);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(561, 335);
+            this.groupBox3.Size = new System.Drawing.Size(561, 427);
             this.groupBox3.TabIndex = 17;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Summary Preview";
@@ -210,7 +211,7 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.groupBox3);
-            this.splitContainer1.Size = new System.Drawing.Size(1162, 335);
+            this.splitContainer1.Size = new System.Drawing.Size(1162, 427);
             this.splitContainer1.SplitterDistance = 597;
             this.splitContainer1.TabIndex = 18;
             // 
@@ -218,7 +219,6 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1243, 628);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.groupBox1);

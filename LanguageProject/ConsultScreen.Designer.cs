@@ -53,13 +53,14 @@
             // confirm_search_result_btn
             // 
             this.confirm_search_result_btn.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.confirm_search_result_btn.BackColor = System.Drawing.Color.CadetBlue;
             this.confirm_search_result_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.confirm_search_result_btn.Location = new System.Drawing.Point(571, 115);
             this.confirm_search_result_btn.Name = "confirm_search_result_btn";
             this.confirm_search_result_btn.Size = new System.Drawing.Size(126, 40);
             this.confirm_search_result_btn.TabIndex = 1;
             this.confirm_search_result_btn.Text = "Confirm";
-            this.confirm_search_result_btn.UseVisualStyleBackColor = true;
+            this.confirm_search_result_btn.UseVisualStyleBackColor = false;
             this.confirm_search_result_btn.Click += new System.EventHandler(this.confirm_search_result_btn_Click);
             // 
             // print_summary_btn
@@ -164,9 +165,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.AutoSize = true;
             this.groupBox1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.groupBox1.Location = new System.Drawing.Point(36, 609);
+            this.groupBox1.Location = new System.Drawing.Point(36, 623);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(6, 19);
+            this.groupBox1.Size = new System.Drawing.Size(6, 5);
             this.groupBox1.TabIndex = 15;
             this.groupBox1.TabStop = false;
             // 
@@ -219,6 +220,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.BackColor = System.Drawing.Color.SlateGray;
             this.ClientSize = new System.Drawing.Size(1243, 628);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.groupBox1);

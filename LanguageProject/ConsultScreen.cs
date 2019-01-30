@@ -113,8 +113,9 @@ namespace LanguageProject
 
             if (result == DialogResult.OK)
             {
-                string disease_text = consult_screen_search_result_textbox.Text;
+                string disease_text = consult_screen_search_result_textbox.Rtf;
                
+
                 //eventually needs formatting
                 summary_preview_txtbox.AppendText(disease_text + "\r\n\r\n");
 

@@ -91,7 +91,7 @@
             this.summary_preview_txtbox.Location = new System.Drawing.Point(3, 20);
             this.summary_preview_txtbox.Name = "summary_preview_txtbox";
             this.summary_preview_txtbox.ReadOnly = true;
-            this.summary_preview_txtbox.Size = new System.Drawing.Size(555, 404);
+            this.summary_preview_txtbox.Size = new System.Drawing.Size(571, 404);
             this.summary_preview_txtbox.TabIndex = 13;
             this.summary_preview_txtbox.Text = "";
             // 
@@ -112,7 +112,7 @@
             this.consult_screen_search_result_textbox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.consult_screen_search_result_textbox.Location = new System.Drawing.Point(3, 20);
             this.consult_screen_search_result_textbox.Name = "consult_screen_search_result_textbox";
-            this.consult_screen_search_result_textbox.Size = new System.Drawing.Size(591, 404);
+            this.consult_screen_search_result_textbox.Size = new System.Drawing.Size(575, 404);
             this.consult_screen_search_result_textbox.TabIndex = 12;
             this.consult_screen_search_result_textbox.Text = "";
             this.consult_screen_search_result_textbox.SizeChanged += new System.EventHandler(this.consult_screen_search_result_textbox_SizeChanged);
@@ -180,7 +180,7 @@
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(0, 0);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(597, 427);
+            this.groupBox2.Size = new System.Drawing.Size(581, 427);
             this.groupBox2.TabIndex = 16;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Search Results";
@@ -193,7 +193,7 @@
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.Location = new System.Drawing.Point(0, 0);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(561, 427);
+            this.groupBox3.Size = new System.Drawing.Size(577, 427);
             this.groupBox3.TabIndex = 17;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Summary Preview";
@@ -214,7 +214,7 @@
             // 
             this.splitContainer1.Panel2.Controls.Add(this.groupBox3);
             this.splitContainer1.Size = new System.Drawing.Size(1162, 427);
-            this.splitContainer1.SplitterDistance = 597;
+            this.splitContainer1.SplitterDistance = 581;
             this.splitContainer1.TabIndex = 18;
             // 
             // ConsultScreen

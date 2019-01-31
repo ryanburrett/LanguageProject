@@ -36,6 +36,8 @@
             // start_screen_btn
             // 
             this.start_screen_btn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.start_screen_btn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.start_screen_btn.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.start_screen_btn.Location = new System.Drawing.Point(401, 345);
             this.start_screen_btn.MaximumSize = new System.Drawing.Size(109, 41);
             this.start_screen_btn.Name = "start_screen_btn";
@@ -49,10 +51,13 @@
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(310, 80);
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.label1.Font = new System.Drawing.Font("Calibri", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(189, 48);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(270, 29);
+            this.label1.Size = new System.Drawing.Size(500, 59);
             this.label1.TabIndex = 1;
             this.label1.Text = "Language Simplification";
             // 
@@ -60,6 +65,7 @@
             // 
             this.start_screen_searchbox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.start_screen_searchbox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.start_screen_searchbox.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.start_screen_searchbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.start_screen_searchbox.FormattingEnabled = true;
             this.start_screen_searchbox.Location = new System.Drawing.Point(315, 192);
@@ -71,10 +77,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::LanguageProject.Properties.Resources.abstract_art_business_249348;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(941, 478);
             this.Controls.Add(this.start_screen_searchbox);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.start_screen_btn);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "StartScreen";
             this.Text = "StartScreen";
             this.ResumeLayout(false);

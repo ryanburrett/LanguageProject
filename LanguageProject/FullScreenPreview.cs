@@ -18,9 +18,9 @@ namespace LanguageProject
             this.CenterToScreen();
 
 
-            fullscreen_txtbox.Text = a;
-            string b = fullscreen_txtbox.Rtf;
-            Console.WriteLine(b);
+            fullscreen_txtbox.Rtf = a;
+            
+            
         }
     }
 }

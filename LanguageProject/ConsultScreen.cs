@@ -113,18 +113,80 @@ namespace LanguageProject
 
             if (result == DialogResult.OK)
             {
-                string disease_text = consult_screen_search_result_textbox.Rtf;
+                //look for existing text within the summary screen
+                // if existing text is there then combine rtf files and format 
+                // else just append text to rtb
+                //
+                // note that any reference to text is within rtb and includes images, otherwise this would be alot easier...
+
+
+                if (string.IsNullOrWhiteSpace(summary_preview_txtbox.Text))
+                {
+                    // empty summary preview... add text.
+                    string disease_text = consult_screen_search_result_textbox.Rtf;
+                    summary_preview_txtbox.Rtf = disease_text;
+                }
+                else
+                {
+                    //combine rtf files, to allow multiple submissions to summary box
+                    Console.WriteLine("running, combine rtf files...");
+                    string current_summary_text = summary_preview_txtbox.Rtf;
+                    string new_text = consult_screen_search_result_textbox.Rtf;
+
+                    string combined_rtfs = combine_rtf(current_summary_text, new_text);
+                    summary_preview_txtbox.Rtf = combined_rtfs;
+                }
+                
                
 
-                //eventually needs formatting
-                summary_preview_txtbox.AppendText(disease_text + "\r\n\r\n");
-
+                
 
             }
 
             
 
 
+        }
+
+        private string combine_rtf(string current_summary_text, string new_text)
+        {
+            // combine rtf files 
+            string summary_text = current_summary_text;
+            string text_to_add = new_text;
+
+            
+
+            try
+            {
+
+
+                int firstPar = text_to_add.IndexOf(@"\par");
+                int lastPar = text_to_add.LastIndexOf(@"\par") - 1;
+
+                int end_of_summary = summary_text.LastIndexOf("}");
+
+                string formatted_new_text = text_to_add.Substring(firstPar, lastPar - firstPar + 1);
+
+                formatted_new_text = @"\par\par" + formatted_new_text.Remove(0, 5);
+
+                summary_text = summary_text.Insert(end_of_summary, formatted_new_text);
+
+                return summary_text;
+
+
+
+
+
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+
+
+
+
+            
         }
 
         private void add_new_summary_btn_Click(object sender, EventArgs e)
@@ -137,7 +199,7 @@ namespace LanguageProject
         private void display_summary_fullscreen_btn_Click(object sender, EventArgs e)
         {
             //launch new form with only patient summary data and display full screen
-            string summary = summary_preview_txtbox.Text;
+            string summary = summary_preview_txtbox.Rtf;
             FullScreenPreview full = new FullScreenPreview(summary);
             full.Show();
         }

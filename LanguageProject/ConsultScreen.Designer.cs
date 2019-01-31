@@ -90,6 +90,7 @@
             this.summary_preview_txtbox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.summary_preview_txtbox.Location = new System.Drawing.Point(3, 20);
             this.summary_preview_txtbox.Name = "summary_preview_txtbox";
+            this.summary_preview_txtbox.ReadOnly = true;
             this.summary_preview_txtbox.Size = new System.Drawing.Size(555, 404);
             this.summary_preview_txtbox.TabIndex = 13;
             this.summary_preview_txtbox.Text = "";

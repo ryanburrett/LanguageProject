@@ -80,6 +80,7 @@
             // summary_txtbox
             // 
             this.summary_txtbox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.summary_txtbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.summary_txtbox.Location = new System.Drawing.Point(242, 170);
             this.summary_txtbox.Name = "summary_txtbox";
             this.summary_txtbox.Size = new System.Drawing.Size(567, 256);

@@ -18,21 +18,40 @@ namespace LanguageProject
 
         //insert button 
 
+        List<string> tag_list = new List<string>();
+
         public InsertNewImageDB()
         {
             InitializeComponent();
             this.CenterToScreen();
+            //get current tags 
+            Get_Current_Tags current_tags = new Get_Current_Tags();
+            tag_list = current_tags.get_tags();
+            //set list data to checked listbox
+            fill_checkedListbox();
+        }
+
+        private void fill_checkedListbox()
+        {
+            foreach (string tag in tag_list)
+            {
+                list_of_tags_checked_listbox.Items.Add(tag);
+            }
         }
 
         private void insert_btn_Click(object sender, EventArgs e)
         {
             //send to db 
+
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
 
         }
+
+
+       
 
         private void button1_Click(object sender, EventArgs e)
         {

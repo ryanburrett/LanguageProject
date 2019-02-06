@@ -67,6 +67,7 @@
     <Compile Include="FullScreenPreview.Designer.cs">
       <DependentUpon>FullScreenPreview.cs</DependentUpon>
     </Compile>
+    <Compile Include="Get_Current_Tags.cs" />
     <Compile Include="InsertNewImageDB.cs">
       <SubType>Form</SubType>
     </Compile>

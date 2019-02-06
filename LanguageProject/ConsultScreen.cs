@@ -167,7 +167,7 @@ namespace LanguageProject
 
                 string formatted_new_text = text_to_add.Substring(firstPar, lastPar - firstPar + 1);
 
-                formatted_new_text = @"\par\par" + formatted_new_text.Remove(0, 5);
+                formatted_new_text = @"\par\par" + formatted_new_text;
 
                 summary_text = summary_text.Insert(end_of_summary, formatted_new_text);
 

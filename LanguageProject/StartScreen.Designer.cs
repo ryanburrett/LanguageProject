@@ -31,6 +31,7 @@
             this.start_screen_btn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.start_screen_searchbox = new System.Windows.Forms.ComboBox();
+            this.start_scrn_insert_image_btn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // start_screen_btn
@@ -73,6 +74,16 @@
             this.start_screen_searchbox.Size = new System.Drawing.Size(265, 37);
             this.start_screen_searchbox.TabIndex = 3;
             // 
+            // start_scrn_insert_image_btn
+            // 
+            this.start_scrn_insert_image_btn.Location = new System.Drawing.Point(782, 390);
+            this.start_scrn_insert_image_btn.Name = "start_scrn_insert_image_btn";
+            this.start_scrn_insert_image_btn.Size = new System.Drawing.Size(75, 23);
+            this.start_scrn_insert_image_btn.TabIndex = 4;
+            this.start_scrn_insert_image_btn.Text = "Add Image";
+            this.start_scrn_insert_image_btn.UseVisualStyleBackColor = true;
+            this.start_scrn_insert_image_btn.Click += new System.EventHandler(this.start_scrn_insert_image_btn_Click);
+            // 
             // StartScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -80,6 +91,7 @@
             this.BackgroundImage = global::LanguageProject.Properties.Resources.abstract_art_business_249348;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(941, 478);
+            this.Controls.Add(this.start_scrn_insert_image_btn);
             this.Controls.Add(this.start_screen_searchbox);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.start_screen_btn);
@@ -96,5 +108,6 @@
         private System.Windows.Forms.Button start_screen_btn;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox start_screen_searchbox;
+        private System.Windows.Forms.Button start_scrn_insert_image_btn;
     }
 }

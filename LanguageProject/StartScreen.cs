@@ -69,6 +69,10 @@ namespace LanguageProject
 
         }
 
-        
+        private void start_scrn_insert_image_btn_Click(object sender, EventArgs e)
+        {
+            InsertNewImageDB newImage = new InsertNewImageDB();
+            newImage.Show();
+        }
     }
 }

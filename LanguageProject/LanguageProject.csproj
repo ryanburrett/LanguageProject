@@ -67,6 +67,12 @@
     <Compile Include="FullScreenPreview.Designer.cs">
       <DependentUpon>FullScreenPreview.cs</DependentUpon>
     </Compile>
+    <Compile Include="InsertNewImageDB.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InsertNewImageDB.Designer.cs">
+      <DependentUpon>InsertNewImageDB.cs</DependentUpon>
+    </Compile>
     <Compile Include="List_of_Diseases.cs" />
     <Compile Include="NewDisease.cs">
       <SubType>Form</SubType>
@@ -90,6 +96,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FullScreenPreview.resx">
       <DependentUpon>FullScreenPreview.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InsertNewImageDB.resx">
+      <DependentUpon>InsertNewImageDB.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NewDisease.resx">
       <DependentUpon>NewDisease.cs</DependentUpon>

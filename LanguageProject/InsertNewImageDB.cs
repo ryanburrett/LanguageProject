@@ -42,7 +42,57 @@ namespace LanguageProject
         private void insert_btn_Click(object sender, EventArgs e)
         {
             //send to db 
+            // pass image, checked marked tags, any additional tags
+            List<string> selected_tags = new List<string>();  
+            Bitmap loaded_image = null; //passing this to new form
+            //getting image that was loaded
+            try
+            {
+                Image image = pictureBox1.Image;
+                loaded_image = new Bitmap(image);  
+            }
+            catch (Exception ex)
+            {
 
+
+                MessageBox.Show("No Image Selected: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+            if (loaded_image != null)
+            {
+                //getting checked tags from list
+                foreach (object item_checked in list_of_tags_checked_listbox.CheckedItems)
+                {
+                    selected_tags.Add(item_checked.ToString());
+
+                }
+               
+
+                //getting any additional tags 
+                string addi_tags = additional_tags_txtbox.Text;
+
+                List<string> addi_tag_list = new List<string>(addi_tags.Split(',').ToList<string>());  
+                                                                                                       //removing whitespace 
+                addi_tag_list = addi_tag_list.Select(s => s.Trim()).ToList();
+
+               
+
+
+                //combine lists of tags
+
+                List<string> combined_tag_list = new List<string>();
+                combined_tag_list = selected_tags.Concat(addi_tag_list).ToList();
+                combined_tag_list.ForEach(Console.WriteLine);
+
+                DialogResult result = MessageBox.Show("Confirm you would like to add this image and tags to database", "Confirm Image Addition", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+
+                if (result == DialogResult.OK)
+                {
+                    Add_Image_To_DB newImage = new Add_Image_To_DB(loaded_image, combined_tag_list);
+                }
+            }
+            
+           
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)

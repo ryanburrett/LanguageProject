@@ -28,13 +28,13 @@ namespace LanguageProject
             database_tag_list.ForEach(Console.WriteLine);
             compare_tags(tag_list);
             add_image(b);
-            update_iamge_tag_mapping();
+            update_image_tag_mapping();
             
             
 
         }
 
-        private void update_iamge_tag_mapping()
+        private void update_image_tag_mapping()
         {
 
             foreach (uint tag in tag_id_list)

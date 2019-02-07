@@ -219,6 +219,24 @@ namespace LanguageProject
             //send that tag search away ayy
             //search for any images that have that tag 
 
+            string search_term = tag_search_txtbox.Text;
+            List<Image> tagged_images = new List<Image>();
+
+            Get_Images_From_DB get_tagged = new Get_Images_From_DB();
+            try
+            {
+                tagged_images = get_tagged.get_by_tag(search_term);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Error retrieving images ", "Not valid", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+
+        
+            
+
+            Console.WriteLine("tagged image length: " + tagged_images.Count);
+
             string a = "SELECT i.image from images i inner join image_tag_map tm on i.id = tm.image_id inner join tags t on tm.tag_id = t.id where t.tag_name = 'Ryan7'";
 
 

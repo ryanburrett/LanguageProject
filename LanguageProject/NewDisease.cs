@@ -21,6 +21,58 @@ namespace LanguageProject
         {
             InitializeComponent();
             this.CenterToScreen();
+            symbol_list_logic();
+        }
+
+        private void symbol_list_logic()
+        {
+           
+            symbol_listview.Columns.Add("Symbols", 150);
+            symbol_listview.AutoResizeColumn(0, ColumnHeaderAutoResizeStyle.HeaderSize);
+            
+            
+            //populate list
+            //get images from db
+
+            ImageList symbols = new ImageList();
+            symbols.ImageSize = new Size(100, 100);
+
+            Get_Images_From_DB get_images = new Get_Images_From_DB();
+            
+
+            List<Image> image_list = new List<Image>();
+            image_list = get_images.get_all_images();
+
+            foreach (Image image in image_list)
+            {
+
+                try
+                {
+                    symbols.Images.Add(image);
+
+                }
+                catch (Exception ex)
+                {
+
+                    MessageBox.Show(ex.ToString(), "Not valid", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                
+
+                }
+
+                
+
+            }
+
+
+            symbol_listview.LargeImageList = symbols;
+            Console.WriteLine("symbol count : " + symbols.Images.Count);
+            for (int i = 0; i < symbols.Images.Count; i++)
+            {
+                ListViewItem item = new ListViewItem();
+                item.ImageIndex = i;
+                symbol_listview.Items.Add(item);
+                
+            }
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -159,6 +211,16 @@ namespace LanguageProject
         private void test_btn_Click(object sender, EventArgs e)
         {
             summary_txtbox.Rtf = text;
+
+        }
+
+        private void tag_search_btn_Click(object sender, EventArgs e)
+        {
+            //send that tag search away ayy
+            //search for any images that have that tag 
+
+            string a = "SELECT i.image from images i inner join image_tag_map tm on i.id = tm.image_id inner join tags t on tm.tag_id = t.id where t.tag_name = 'Ryan7'";
+
 
         }
     }

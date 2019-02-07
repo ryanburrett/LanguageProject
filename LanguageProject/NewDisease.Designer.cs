@@ -41,12 +41,11 @@
             this.test_btn = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.label5 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.symbol_listview = new System.Windows.Forms.ListView();
+            this.tag_search_txtbox = new System.Windows.Forms.TextBox();
+            this.tag_search_btn = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
-            this.tableLayoutPanel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -78,7 +77,7 @@
             this.condition_txtbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.condition_txtbox.Location = new System.Drawing.Point(242, 89);
             this.condition_txtbox.Name = "condition_txtbox";
-            this.condition_txtbox.Size = new System.Drawing.Size(223, 35);
+            this.condition_txtbox.Size = new System.Drawing.Size(382, 35);
             this.condition_txtbox.TabIndex = 3;
             // 
             // summary_txtbox
@@ -87,7 +86,7 @@
             this.summary_txtbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.summary_txtbox.Location = new System.Drawing.Point(242, 170);
             this.summary_txtbox.Name = "summary_txtbox";
-            this.summary_txtbox.Size = new System.Drawing.Size(567, 256);
+            this.summary_txtbox.Size = new System.Drawing.Size(588, 256);
             this.summary_txtbox.TabIndex = 4;
             this.summary_txtbox.Text = "";
             this.summary_txtbox.TextChanged += new System.EventHandler(this.summary_txtbox_TextChanged);
@@ -109,7 +108,7 @@
             this.submit_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.submit_btn.Location = new System.Drawing.Point(3, 30);
             this.submit_btn.Name = "submit_btn";
-            this.submit_btn.Size = new System.Drawing.Size(94, 39);
+            this.submit_btn.Size = new System.Drawing.Size(173, 39);
             this.submit_btn.TabIndex = 6;
             this.submit_btn.Text = "Submit";
             this.submit_btn.UseVisualStyleBackColor = true;
@@ -119,9 +118,9 @@
             // 
             this.cancel_btn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.cancel_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cancel_btn.Location = new System.Drawing.Point(103, 30);
+            this.cancel_btn.Location = new System.Drawing.Point(182, 30);
             this.cancel_btn.Name = "cancel_btn";
-            this.cancel_btn.Size = new System.Drawing.Size(94, 39);
+            this.cancel_btn.Size = new System.Drawing.Size(174, 39);
             this.cancel_btn.TabIndex = 7;
             this.cancel_btn.Text = "Cancel";
             this.cancel_btn.UseVisualStyleBackColor = true;
@@ -135,7 +134,7 @@
             this.progressBar1.Location = new System.Drawing.Point(242, 432);
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.progressBar1.Size = new System.Drawing.Size(567, 14);
+            this.progressBar1.Size = new System.Drawing.Size(588, 10);
             this.progressBar1.TabIndex = 8;
             // 
             // label4
@@ -201,46 +200,44 @@
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(200, 100);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(359, 100);
             this.tableLayoutPanel2.TabIndex = 13;
             // 
-            // tableLayoutPanel3
+            // symbol_listview
             // 
-            this.tableLayoutPanel3.ColumnCount = 1;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.Controls.Add(this.label5, 0, 0);
-            this.tableLayoutPanel3.Controls.Add(this.textBox1, 0, 1);
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(815, 233);
-            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            this.tableLayoutPanel3.RowCount = 3;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 49.01961F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.98039F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 115F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(142, 164);
-            this.tableLayoutPanel3.TabIndex = 14;
+            this.symbol_listview.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.symbol_listview.Location = new System.Drawing.Point(848, 170);
+            this.symbol_listview.Name = "symbol_listview";
+            this.symbol_listview.Size = new System.Drawing.Size(250, 256);
+            this.symbol_listview.TabIndex = 14;
+            this.symbol_listview.UseCompatibleStateImageBehavior = false;
             // 
-            // label5
+            // tag_search_txtbox
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(3, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(35, 13);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "label5";
+            this.tag_search_txtbox.Location = new System.Drawing.Point(848, 144);
+            this.tag_search_txtbox.Name = "tag_search_txtbox";
+            this.tag_search_txtbox.Size = new System.Drawing.Size(146, 20);
+            this.tag_search_txtbox.TabIndex = 15;
             // 
-            // textBox1
+            // tag_search_btn
             // 
-            this.textBox1.Location = new System.Drawing.Point(3, 27);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 1;
+            this.tag_search_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tag_search_btn.Location = new System.Drawing.Point(1024, 143);
+            this.tag_search_btn.Name = "tag_search_btn";
+            this.tag_search_btn.Size = new System.Drawing.Size(74, 20);
+            this.tag_search_btn.TabIndex = 16;
+            this.tag_search_btn.Text = "Search";
+            this.tag_search_btn.UseVisualStyleBackColor = true;
+            this.tag_search_btn.Click += new System.EventHandler(this.tag_search_btn_Click);
             // 
             // NewDisease
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(964, 587);
-            this.Controls.Add(this.tableLayoutPanel3);
+            this.ClientSize = new System.Drawing.Size(1123, 587);
+            this.Controls.Add(this.tag_search_btn);
+            this.Controls.Add(this.tag_search_txtbox);
+            this.Controls.Add(this.symbol_listview);
             this.Controls.Add(this.tableLayoutPanel2);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.label4);
@@ -255,8 +252,6 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.NewDisease_FormClosing);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
-            this.tableLayoutPanel3.ResumeLayout(false);
-            this.tableLayoutPanel3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -277,8 +272,8 @@
         private System.Windows.Forms.Button test_btn;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.ListView symbol_listview;
+        private System.Windows.Forms.TextBox tag_search_txtbox;
+        private System.Windows.Forms.Button tag_search_btn;
     }
 }

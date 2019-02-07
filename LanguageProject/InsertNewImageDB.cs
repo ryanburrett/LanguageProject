@@ -82,17 +82,30 @@ namespace LanguageProject
 
                 List<string> combined_tag_list = new List<string>();
                 combined_tag_list = selected_tags.Concat(addi_tag_list).ToList();
-                combined_tag_list.ForEach(Console.WriteLine);
+                //combined_tag_list.ForEach(Console.WriteLine);
+                if (!combined_tag_list.Any()) {
+                    DialogResult result = MessageBox.Show("Confirm you would like to add this image and tags to database", "Confirm Image Addition", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
 
-                DialogResult result = MessageBox.Show("Confirm you would like to add this image and tags to database", "Confirm Image Addition", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                    if (result == DialogResult.OK)
+                    {
+                        clear_form(); //to add fucntion
+                        Add_Image_To_DB newImage = new Add_Image_To_DB(loaded_image, combined_tag_list);
 
-                if (result == DialogResult.OK)
+                    }
+                }
+                else
                 {
-                    Add_Image_To_DB newImage = new Add_Image_To_DB(loaded_image, combined_tag_list);
+                    DialogResult result = MessageBox.Show("ADD SOME TAGS SO THE IMAGE IS SEARCHABLE", "ADD TAGS", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
                 }
             }
             
            
+        }
+
+        private void clear_form()
+        {
+            
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)

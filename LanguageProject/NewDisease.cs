@@ -35,7 +35,7 @@ namespace LanguageProject
             //get images from db
 
             ImageList symbols = new ImageList();
-            symbols.ImageSize = new Size(100, 100);
+            symbols.ImageSize = new Size(200, 200);
 
             Get_Images_From_DB get_images = new Get_Images_From_DB();
             
@@ -226,20 +226,66 @@ namespace LanguageProject
             try
             {
                 tagged_images = get_tagged.get_by_tag(search_term);
+                symbol_listview.Clear();
             }
             catch (Exception)
             {
                 MessageBox.Show("Error retrieving images ", "Not valid", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
 
-        
-            
+            //get tags of neeeded tags
+
+            ImageList symbols = new ImageList();
+            symbols.ImageSize = new Size(200, 200);
+
+            foreach (Image image in tagged_images)
+            {
+
+                try
+                {
+                    symbols.Images.Add(image);
+
+                }
+                catch (Exception ex)
+                {
+
+                    MessageBox.Show(ex.ToString(), "Not valid", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+
+                }
+
+
+
+            }
+
+
+            symbol_listview.LargeImageList = symbols;
+            Console.WriteLine("symbol count : " + symbols.Images.Count);
+            for (int i = 0; i < symbols.Images.Count; i++)
+            {
+                ListViewItem item = new ListViewItem();
+                item.ImageIndex = i;
+                symbol_listview.Items.Add(item);
+
+            }
+
+
 
             Console.WriteLine("tagged image length: " + tagged_images.Count);
 
-            string a = "SELECT i.image from images i inner join image_tag_map tm on i.id = tm.image_id inner join tags t on tm.tag_id = t.id where t.tag_name = 'Ryan7'";
+            //clear current listview elements and display matches to tag search 
+
+           // symbol_listview.Clear();
 
 
+        }
+
+        private void tag_search_txtbox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Enter)
+            {
+                tag_search_btn_Click(sender, e);
+            }
         }
     }
 }

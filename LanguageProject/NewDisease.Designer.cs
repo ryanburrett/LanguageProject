@@ -44,6 +44,7 @@
             this.symbol_listview = new System.Windows.Forms.ListView();
             this.tag_search_txtbox = new System.Windows.Forms.TextBox();
             this.tag_search_btn = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
@@ -84,7 +85,7 @@
             // 
             this.summary_txtbox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.summary_txtbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.summary_txtbox.Location = new System.Drawing.Point(242, 170);
+            this.summary_txtbox.Location = new System.Drawing.Point(242, 155);
             this.summary_txtbox.Name = "summary_txtbox";
             this.summary_txtbox.Size = new System.Drawing.Size(588, 256);
             this.summary_txtbox.TabIndex = 4;
@@ -205,8 +206,9 @@
             // 
             // symbol_listview
             // 
-            this.symbol_listview.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.symbol_listview.Location = new System.Drawing.Point(848, 170);
+            this.symbol_listview.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.symbol_listview.Location = new System.Drawing.Point(848, 169);
             this.symbol_listview.Name = "symbol_listview";
             this.symbol_listview.Size = new System.Drawing.Size(250, 256);
             this.symbol_listview.TabIndex = 14;
@@ -214,13 +216,16 @@
             // 
             // tag_search_txtbox
             // 
+            this.tag_search_txtbox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.tag_search_txtbox.Location = new System.Drawing.Point(848, 144);
             this.tag_search_txtbox.Name = "tag_search_txtbox";
-            this.tag_search_txtbox.Size = new System.Drawing.Size(146, 20);
+            this.tag_search_txtbox.Size = new System.Drawing.Size(151, 20);
             this.tag_search_txtbox.TabIndex = 15;
+            this.tag_search_txtbox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tag_search_txtbox_KeyDown);
             // 
             // tag_search_btn
             // 
+            this.tag_search_btn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.tag_search_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tag_search_btn.Location = new System.Drawing.Point(1024, 143);
             this.tag_search_btn.Name = "tag_search_btn";
@@ -230,11 +235,23 @@
             this.tag_search_btn.UseVisualStyleBackColor = true;
             this.tag_search_btn.Click += new System.EventHandler(this.tag_search_btn_Click);
             // 
+            // label5
+            // 
+            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(845, 126);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(154, 15);
+            this.label5.TabIndex = 17;
+            this.label5.Text = "Search Images By Tag:";
+            // 
             // NewDisease
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1123, 587);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.tag_search_btn);
             this.Controls.Add(this.tag_search_txtbox);
             this.Controls.Add(this.symbol_listview);
@@ -275,5 +292,6 @@
         private System.Windows.Forms.ListView symbol_listview;
         private System.Windows.Forms.TextBox tag_search_txtbox;
         private System.Windows.Forms.Button tag_search_btn;
+        private System.Windows.Forms.Label label5;
     }
 }

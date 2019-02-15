@@ -84,6 +84,7 @@
             // summary_txtbox
             // 
             this.summary_txtbox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.summary_txtbox.EnableAutoDragDrop = true;
             this.summary_txtbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.summary_txtbox.Location = new System.Drawing.Point(242, 155);
             this.summary_txtbox.Name = "summary_txtbox";
@@ -213,6 +214,7 @@
             this.symbol_listview.Size = new System.Drawing.Size(250, 256);
             this.symbol_listview.TabIndex = 14;
             this.symbol_listview.UseCompatibleStateImageBehavior = false;
+            this.symbol_listview.ItemDrag += new System.Windows.Forms.ItemDragEventHandler(this.symbol_listview_ItemDrag);
             // 
             // tag_search_txtbox
             // 
@@ -250,6 +252,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.SlateGray;
             this.ClientSize = new System.Drawing.Size(1123, 587);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.tag_search_btn);

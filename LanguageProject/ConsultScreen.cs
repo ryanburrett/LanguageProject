@@ -27,10 +27,14 @@ namespace LanguageProject
             list_of_diseases = diseases;
             searchbox_consult_screen.Text = disease;
             assign_autocomplete();
+            symbol_list_logic();
 
             //pull summary data about disease
             get_disease_summary(disease);
+            this.consult_screen_search_result_textbox.DragDrop += new DragEventHandler(this.consult_screen_search_result_textbox_DragDrop);
         }
+
+       
 
         public ConsultScreen(List<string> diseases)
         {
@@ -38,7 +42,136 @@ namespace LanguageProject
             this.CenterToScreen();
             list_of_diseases = diseases;
             assign_autocomplete();
+            symbol_list_logic();
+            this.consult_screen_search_result_textbox.DragDrop += new DragEventHandler(this.consult_screen_search_result_textbox_DragDrop);
         }
+
+        private void symbol_list_logic()
+        {
+
+            symbol_listview.Columns.Add("Symbols", 150);
+            symbol_listview.AutoResizeColumn(0, ColumnHeaderAutoResizeStyle.HeaderSize);
+
+
+            //populate list
+            //get images from db
+
+            ImageList symbols = new ImageList();
+            symbols.ImageSize = new Size(200, 200);
+
+            Get_Images_From_DB get_images = new Get_Images_From_DB();
+
+
+            List<Image> image_list = new List<Image>();
+            image_list = get_images.get_all_images();
+
+            foreach (Image image in image_list)
+            {
+
+                try
+                {
+                    symbols.Images.Add(image);
+
+                }
+                catch (Exception ex)
+                {
+
+                    MessageBox.Show(ex.ToString(), "Not valid", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+
+                }
+
+
+
+            }
+
+
+            symbol_listview.LargeImageList = symbols;
+            Console.WriteLine("symbol count : " + symbols.Images.Count);
+            for (int i = 0; i < symbols.Images.Count; i++)
+            {
+                ListViewItem item = new ListViewItem();
+                item.ImageIndex = i;
+                symbol_listview.Items.Add(item);
+
+            }
+        }
+
+
+        private void tag_search_btn_Click(object sender, EventArgs e)
+        {
+            //send that tag search away ayy
+            //search for any images that have that tag 
+
+            string search_term = tag_search_txtbox.Text;
+            List<Image> tagged_images = new List<Image>();
+
+            Get_Images_From_DB get_tagged = new Get_Images_From_DB();
+            try
+            {
+                tagged_images = get_tagged.get_by_tag(search_term);
+                symbol_listview.Clear();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Error retrieving images ", "Not valid", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+
+            //get tags of neeeded tags
+
+            ImageList symbols = new ImageList();
+            symbols.ImageSize = new Size(200, 200);
+
+            foreach (Image image in tagged_images)
+            {
+
+                try
+                {
+                    symbols.Images.Add(image);
+
+                }
+                catch (Exception ex)
+                {
+
+                    MessageBox.Show(ex.ToString(), "Not valid", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+
+                }
+
+
+
+            }
+
+
+            symbol_listview.LargeImageList = symbols;
+            Console.WriteLine("symbol count : " + symbols.Images.Count);
+            for (int i = 0; i < symbols.Images.Count; i++)
+            {
+                ListViewItem item = new ListViewItem();
+                item.ImageIndex = i;
+                symbol_listview.Items.Add(item);
+
+            }
+
+
+
+            Console.WriteLine("tagged image length: " + tagged_images.Count);
+
+            //clear current listview elements and display matches to tag search 
+
+            // symbol_listview.Clear();
+
+
+        }
+
+        private void tag_search_txtbox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Enter)
+            {
+                tag_search_btn_Click(sender, e);
+            }
+        }
+
 
         public void get_disease_summary(string disease)
         {
@@ -230,6 +363,43 @@ namespace LanguageProject
 
         private void print_summary_btn_Click(object sender, EventArgs e)
         {
+
+        }
+
+
+        private void symbol_listview_ItemDrag(object sender, ItemDragEventArgs e)
+        {
+
+            //  var image = new ListViewItem();
+
+
+
+            DoDragDrop(e.Item, DragDropEffects.Move);
+        }
+
+
+
+        private void consult_screen_search_result_textbox_DragDrop(object sender, DragEventArgs e)
+        {
+            var originalData = Clipboard.GetDataObject();
+            Console.WriteLine("called me1");
+            ListViewItem img;
+
+
+            if (e.Data.GetDataPresent(typeof(ListViewItem)))
+            {
+                img = (ListViewItem)e.Data.GetData(typeof(ListViewItem));
+
+                int index = img.ImageIndex;
+
+                Image b = img.ImageList.Images[index];
+
+                Clipboard.SetDataObject(b);
+                consult_screen_search_result_textbox.Paste();
+                Console.WriteLine("called me");
+            }
+
+            Clipboard.SetDataObject(originalData);
 
         }
     }

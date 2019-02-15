@@ -83,12 +83,12 @@ namespace LanguageProject
                 List<string> combined_tag_list = new List<string>();
                 combined_tag_list = selected_tags.Concat(addi_tag_list).ToList();
                 //combined_tag_list.ForEach(Console.WriteLine);
-                if (!combined_tag_list.Any()) {
+                if (combined_tag_list.Any()) {
                     DialogResult result = MessageBox.Show("Confirm you would like to add this image and tags to database", "Confirm Image Addition", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
 
                     if (result == DialogResult.OK)
                     {
-                        clear_form(); //to add fucntion
+                        //clear_form(); //to add fucntion
                         Add_Image_To_DB newImage = new Add_Image_To_DB(loaded_image, combined_tag_list);
 
                     }

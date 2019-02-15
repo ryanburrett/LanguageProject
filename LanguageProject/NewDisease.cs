@@ -22,7 +22,10 @@ namespace LanguageProject
             InitializeComponent();
             this.CenterToScreen();
             symbol_list_logic();
+            this.summary_txtbox.DragDrop += new DragEventHandler(this.summary_txtbox_DragDrop);
         }
+
+        
 
         private void symbol_list_logic()
         {
@@ -205,12 +208,14 @@ namespace LanguageProject
             //resetting original data of clipboard
             Clipboard.SetDataObject(originalData);
 
+            //to be deleted
             
         }
 
         private void test_btn_Click(object sender, EventArgs e)
         {
             summary_txtbox.Rtf = text;
+            //to be deleted
 
         }
 
@@ -286,6 +291,42 @@ namespace LanguageProject
             {
                 tag_search_btn_Click(sender, e);
             }
+        }
+
+        private void symbol_listview_ItemDrag(object sender, ItemDragEventArgs e)
+        {
+
+          //  var image = new ListViewItem();
+            
+
+
+            DoDragDrop(e.Item, DragDropEffects.Move);
+        }
+
+      
+
+        private void summary_txtbox_DragDrop(object sender, DragEventArgs e)
+        {
+            var originalData = Clipboard.GetDataObject();
+            Console.WriteLine("called me1");
+            ListViewItem img;
+
+
+            if (e.Data.GetDataPresent(typeof(ListViewItem)))
+            {
+                img = (ListViewItem)e.Data.GetData(typeof(ListViewItem));
+
+                int index = img.ImageIndex;
+
+                Image b = img.ImageList.Images[index];
+                
+                Clipboard.SetDataObject(b);
+                summary_txtbox.Paste();
+                Console.WriteLine("called me");
+            }
+
+            Clipboard.SetDataObject(originalData);
+            
         }
     }
 }

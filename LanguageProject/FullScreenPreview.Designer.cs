@@ -33,11 +33,14 @@
             // 
             // fullscreen_txtbox
             // 
+            this.fullscreen_txtbox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.fullscreen_txtbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fullscreen_txtbox.Location = new System.Drawing.Point(581, 32);
+            this.fullscreen_txtbox.Location = new System.Drawing.Point(306, 32);
             this.fullscreen_txtbox.Name = "fullscreen_txtbox";
             this.fullscreen_txtbox.ReadOnly = true;
-            this.fullscreen_txtbox.Size = new System.Drawing.Size(642, 760);
+            this.fullscreen_txtbox.Size = new System.Drawing.Size(917, 760);
             this.fullscreen_txtbox.TabIndex = 0;
             this.fullscreen_txtbox.Text = "";
             // 

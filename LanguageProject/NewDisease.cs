@@ -21,7 +21,7 @@ namespace LanguageProject
         {
             InitializeComponent();
             this.CenterToScreen();
-            symbol_list_logic();
+           // symbol_list_logic();
             this.summary_txtbox.DragDrop += new DragEventHandler(this.summary_txtbox_DragDrop);
         }
 
@@ -38,7 +38,7 @@ namespace LanguageProject
             //get images from db
 
             ImageList symbols = new ImageList();
-            symbols.ImageSize = new Size(200, 200);
+            symbols.ImageSize = new Size(125, 125);
 
             Get_Images_From_DB get_images = new Get_Images_From_DB();
             
@@ -96,7 +96,12 @@ namespace LanguageProject
             else
             {
                 //execute commands
-                write_to_db();
+                DialogResult dr = MessageBox.Show("Confirm you want to submit this created summary", "Confirm", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation);
+
+                if (dr == DialogResult.OK)
+                {
+                    write_to_db();
+                }
             }
 
         }
@@ -241,7 +246,7 @@ namespace LanguageProject
             //get tags of neeeded tags
 
             ImageList symbols = new ImageList();
-            symbols.ImageSize = new Size(200, 200);
+            symbols.ImageSize = new Size(125, 125);
 
             foreach (Image image in tagged_images)
             {
@@ -327,6 +332,49 @@ namespace LanguageProject
 
             Clipboard.SetDataObject(originalData);
             
+        }
+
+        private void menuItem5_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void add_images_to_db_menu_item_Click(object sender, EventArgs e)
+        {
+            InsertNewImageDB newImage = new InsertNewImageDB();
+            newImage.Show();
+        }
+
+        private void about_menu_item_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Developed By: Ryan Burrett." + "  " + "Email: rburrett@dundee.ac.uk with any questions/issues. ", "About", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+        }
+
+        private void exit_program_fully_menu_item_Click(object sender, EventArgs e)
+        {
+            //Application.Exit();
+        }
+
+        private void tag_search_txtbox_MouseHover(object sender, EventArgs e)
+        {
+            ToolTip tt1 = new ToolTip();
+            tt1.SetToolTip(tag_search_txtbox, "This is where to search for images to add to your summary. Search by keyword e.g 'Doctor'.");
+        
+        }
+
+        private void condition_txtbox_MouseHover(object sender, EventArgs e)
+        {
+            ToolTip tt1 = new ToolTip();
+            tt1.SetToolTip(condition_txtbox, "This is for the name of the condition for which you are creating the summary for.");
+
+        }
+
+        private void summary_txtbox_MouseHover(object sender, EventArgs e)
+        {
+            ToolTip tt1 = new ToolTip();
+            tt1.SetToolTip(summary_txtbox, "This is where to type the simplified summary explaining the condition. You are encouraged to use images and keep difficult words to a minimum.");
+
         }
     }
 }

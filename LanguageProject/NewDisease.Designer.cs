@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.condition_txtbox = new System.Windows.Forms.TextBox();
@@ -37,15 +38,19 @@
             this.cancel_btn = new System.Windows.Forms.Button();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.label4 = new System.Windows.Forms.Label();
-            this.open_file_browser = new System.Windows.Forms.Button();
-            this.test_btn = new System.Windows.Forms.Button();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.symbol_listview = new System.Windows.Forms.ListView();
             this.tag_search_txtbox = new System.Windows.Forms.TextBox();
             this.tag_search_btn = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
-            this.tableLayoutPanel1.SuspendLayout();
+            this.mainMenu1 = new System.Windows.Forms.MainMenu(this.components);
+            this.menuItem1 = new System.Windows.Forms.MenuItem();
+            this.menuItem2 = new System.Windows.Forms.MenuItem();
+            this.about_menu_item = new System.Windows.Forms.MenuItem();
+            this.tutorial_menu_item = new System.Windows.Forms.MenuItem();
+            this.exit_2_consult_screen_menu_item = new System.Windows.Forms.MenuItem();
+            this.exit_program_fully_menu_item = new System.Windows.Forms.MenuItem();
+            this.add_images_to_db_menu_item = new System.Windows.Forms.MenuItem();
             this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -80,6 +85,7 @@
             this.condition_txtbox.Name = "condition_txtbox";
             this.condition_txtbox.Size = new System.Drawing.Size(382, 35);
             this.condition_txtbox.TabIndex = 3;
+            this.condition_txtbox.MouseHover += new System.EventHandler(this.condition_txtbox_MouseHover);
             // 
             // summary_txtbox
             // 
@@ -92,13 +98,14 @@
             this.summary_txtbox.TabIndex = 4;
             this.summary_txtbox.Text = "";
             this.summary_txtbox.TextChanged += new System.EventHandler(this.summary_txtbox_TextChanged);
+            this.summary_txtbox.MouseHover += new System.EventHandler(this.summary_txtbox_MouseHover);
             // 
             // label2
             // 
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(284, 9);
+            this.label2.Location = new System.Drawing.Point(321, 21);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(478, 29);
             this.label2.TabIndex = 5;
@@ -151,45 +158,6 @@
             this.label4.TabIndex = 9;
             this.label4.Text = "Progress bar represents the amount of text deemed appropriate ";
             // 
-            // open_file_browser
-            // 
-            this.open_file_browser.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.open_file_browser.Location = new System.Drawing.Point(3, 63);
-            this.open_file_browser.Name = "open_file_browser";
-            this.open_file_browser.Size = new System.Drawing.Size(91, 23);
-            this.open_file_browser.TabIndex = 10;
-            this.open_file_browser.Text = "Get Symbol";
-            this.open_file_browser.UseVisualStyleBackColor = true;
-            this.open_file_browser.Click += new System.EventHandler(this.open_file_browser_Click);
-            // 
-            // test_btn
-            // 
-            this.test_btn.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.test_btn.Location = new System.Drawing.Point(3, 3);
-            this.test_btn.Name = "test_btn";
-            this.test_btn.Size = new System.Drawing.Size(91, 44);
-            this.test_btn.TabIndex = 11;
-            this.test_btn.Text = "button1";
-            this.test_btn.UseVisualStyleBackColor = true;
-            this.test_btn.Click += new System.EventHandler(this.test_btn_Click);
-            // 
-            // tableLayoutPanel1
-            // 
-            this.tableLayoutPanel1.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.tableLayoutPanel1.ColumnCount = 1;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Controls.Add(this.open_file_browser, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.test_btn, 0, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(102, 270);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(97, 100);
-            this.tableLayoutPanel1.TabIndex = 12;
-            // 
             // tableLayoutPanel2
             // 
             this.tableLayoutPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
@@ -221,17 +189,18 @@
             this.tag_search_txtbox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.tag_search_txtbox.Location = new System.Drawing.Point(848, 144);
             this.tag_search_txtbox.Name = "tag_search_txtbox";
-            this.tag_search_txtbox.Size = new System.Drawing.Size(151, 20);
+            this.tag_search_txtbox.Size = new System.Drawing.Size(181, 20);
             this.tag_search_txtbox.TabIndex = 15;
             this.tag_search_txtbox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tag_search_txtbox_KeyDown);
+            this.tag_search_txtbox.MouseHover += new System.EventHandler(this.tag_search_txtbox_MouseHover);
             // 
             // tag_search_btn
             // 
             this.tag_search_btn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.tag_search_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tag_search_btn.Location = new System.Drawing.Point(1024, 143);
+            this.tag_search_btn.Location = new System.Drawing.Point(1036, 143);
             this.tag_search_btn.Name = "tag_search_btn";
-            this.tag_search_btn.Size = new System.Drawing.Size(74, 20);
+            this.tag_search_btn.Size = new System.Drawing.Size(62, 20);
             this.tag_search_btn.TabIndex = 16;
             this.tag_search_btn.Text = "Search";
             this.tag_search_btn.UseVisualStyleBackColor = true;
@@ -244,9 +213,61 @@
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(845, 126);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(154, 15);
+            this.label5.Size = new System.Drawing.Size(184, 15);
             this.label5.TabIndex = 17;
-            this.label5.Text = "Search Images By Tag:";
+            this.label5.Text = "Search Images By Keyword:";
+            // 
+            // mainMenu1
+            // 
+            this.mainMenu1.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
+            this.menuItem2,
+            this.menuItem1});
+            // 
+            // menuItem1
+            // 
+            this.menuItem1.Index = 1;
+            this.menuItem1.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
+            this.about_menu_item,
+            this.tutorial_menu_item});
+            this.menuItem1.Text = "Help";
+            // 
+            // menuItem2
+            // 
+            this.menuItem2.Index = 0;
+            this.menuItem2.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
+            this.exit_2_consult_screen_menu_item,
+            this.exit_program_fully_menu_item,
+            this.add_images_to_db_menu_item});
+            this.menuItem2.Text = "Options";
+            // 
+            // about_menu_item
+            // 
+            this.about_menu_item.Index = 0;
+            this.about_menu_item.Text = "About";
+            this.about_menu_item.Click += new System.EventHandler(this.about_menu_item_Click);
+            // 
+            // tutorial_menu_item
+            // 
+            this.tutorial_menu_item.Index = 1;
+            this.tutorial_menu_item.Text = "Tutorial";
+            // 
+            // exit_2_consult_screen_menu_item
+            // 
+            this.exit_2_consult_screen_menu_item.Index = 0;
+            this.exit_2_consult_screen_menu_item.Text = "Exit to Consoltation Screen";
+            this.exit_2_consult_screen_menu_item.Click += new System.EventHandler(this.menuItem5_Click);
+            // 
+            // exit_program_fully_menu_item
+            // 
+            this.exit_program_fully_menu_item.Index = 1;
+            this.exit_program_fully_menu_item.Text = "Exit Program";
+            this.exit_program_fully_menu_item.Click += new System.EventHandler(this.exit_program_fully_menu_item_Click);
+            // 
+            // add_images_to_db_menu_item
+            // 
+            this.add_images_to_db_menu_item.Index = 2;
+            this.add_images_to_db_menu_item.Text = "Add External Images(Admin)";
+            this.add_images_to_db_menu_item.Click += new System.EventHandler(this.add_images_to_db_menu_item_Click);
             // 
             // NewDisease
             // 
@@ -259,7 +280,6 @@
             this.Controls.Add(this.tag_search_txtbox);
             this.Controls.Add(this.symbol_listview);
             this.Controls.Add(this.tableLayoutPanel2);
-            this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.label2);
@@ -267,10 +287,10 @@
             this.Controls.Add(this.condition_txtbox);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
+            this.Menu = this.mainMenu1;
             this.Name = "NewDisease";
             this.Text = "NewDisease";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.NewDisease_FormClosing);
-            this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -288,13 +308,18 @@
         private System.Windows.Forms.Button cancel_btn;
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button open_file_browser;
-        private System.Windows.Forms.Button test_btn;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.ListView symbol_listview;
         private System.Windows.Forms.TextBox tag_search_txtbox;
         private System.Windows.Forms.Button tag_search_btn;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.MainMenu mainMenu1;
+        private System.Windows.Forms.MenuItem menuItem2;
+        private System.Windows.Forms.MenuItem exit_2_consult_screen_menu_item;
+        private System.Windows.Forms.MenuItem menuItem1;
+        private System.Windows.Forms.MenuItem about_menu_item;
+        private System.Windows.Forms.MenuItem tutorial_menu_item;
+        private System.Windows.Forms.MenuItem exit_program_fully_menu_item;
+        private System.Windows.Forms.MenuItem add_images_to_db_menu_item;
     }
 }

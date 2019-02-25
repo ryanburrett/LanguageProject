@@ -27,7 +27,7 @@ namespace LanguageProject
             list_of_diseases = diseases;
             searchbox_consult_screen.Text = disease;
             assign_autocomplete();
-            symbol_list_logic();
+           // symbol_list_logic();
 
             //pull summary data about disease
             get_disease_summary(disease);
@@ -42,7 +42,7 @@ namespace LanguageProject
             this.CenterToScreen();
             list_of_diseases = diseases;
             assign_autocomplete();
-            symbol_list_logic();
+          //  symbol_list_logic();
             this.consult_screen_search_result_textbox.DragDrop += new DragEventHandler(this.consult_screen_search_result_textbox_DragDrop);
         }
 
@@ -57,7 +57,7 @@ namespace LanguageProject
             //get images from db
 
             ImageList symbols = new ImageList();
-            symbols.ImageSize = new Size(200, 200);
+            symbols.ImageSize = new Size(125, 125);
 
             Get_Images_From_DB get_images = new Get_Images_From_DB();
 
@@ -363,7 +363,12 @@ namespace LanguageProject
 
         private void print_summary_btn_Click(object sender, EventArgs e)
         {
+            PrintDialog pd = new PrintDialog();
 
+            pd.ShowDialog();
+
+            
+           
         }
 
 
@@ -400,6 +405,47 @@ namespace LanguageProject
             }
 
             Clipboard.SetDataObject(originalData);
+
+        }
+
+        private void tag_search_txtbox_MouseHover(object sender, EventArgs e)
+        {
+            ToolTip tt1 = new ToolTip();
+            tt1.SetToolTip(tag_search_txtbox, "Search for images to add to already created summaries using this searchbox.");
+        }
+
+        private void searchbox_consult_screen_MouseHover(object sender, EventArgs e)
+        {
+            ToolTip tt2 = new ToolTip();
+            tt2.SetToolTip(searchbox_consult_screen, "Search for a condition, with an already created simplified summary, in this searchbox.");
+            //not working
+            
+        }
+
+        private void confirm_search_result_btn_MouseHover(object sender, EventArgs e)
+        {
+            ToolTip tt1 = new ToolTip();
+            tt1.SetToolTip(confirm_search_result_btn, "This button confirms you are happy with the left side summary and will send it to the right handed textbox ready to be given to patient.");
+        }
+
+       
+
+        private void menuItem5_Click(object sender, EventArgs e)
+        {
+            NewDisease newDisease = new NewDisease();
+            newDisease.Show();
+            this.Close();
+        }
+
+        private void add_external_image_menu_item_Click(object sender, EventArgs e)
+        {
+            InsertNewImageDB newImage = new InsertNewImageDB();
+            newImage.Show();
+        }
+
+        private void about_menu_item_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Developed By: Ryan Burrett." +"  "+"Email: rburrett@dundee.ac.uk with any questions/issues. ", "About", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
         }
     }

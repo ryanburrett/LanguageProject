@@ -34,6 +34,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="MySql.Data, Version=8.0.13.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="RichTextBoxPrintCtrl">
+      <HintPath>..\..\RichTextBoxPrintCtrl\RichTextBoxPrintCtrl\bin\Debug\RichTextBoxPrintCtrl.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />

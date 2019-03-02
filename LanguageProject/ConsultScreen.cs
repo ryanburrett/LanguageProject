@@ -18,6 +18,7 @@ namespace LanguageProject
         List<string> list_of_diseases = new List<string>();
         int current_form_height;
         int current_textbox_height;
+        private int checkPrint;
 
 
         public ConsultScreen(string disease, List<string> diseases)
@@ -120,7 +121,7 @@ namespace LanguageProject
             //get tags of neeeded tags
 
             ImageList symbols = new ImageList();
-            symbols.ImageSize = new Size(200, 200);
+            symbols.ImageSize = new Size(125, 125);
 
             foreach (Image image in tagged_images)
             {
@@ -363,9 +364,13 @@ namespace LanguageProject
 
         private void print_summary_btn_Click(object sender, EventArgs e)
         {
-            PrintDialog pd = new PrintDialog();
+            // PrintDialog pd = new PrintDialog();
 
-            pd.ShowDialog();
+            //  pd.ShowDialog();
+
+            // pageSetupDialog1.ShowDialog();
+            checkPrint = 0;
+            printPreviewDialog1.ShowDialog();
 
             
            
@@ -447,6 +452,26 @@ namespace LanguageProject
         {
             DialogResult result = MessageBox.Show("Developed By: Ryan Burrett." +"  "+"Email: rburrett@dundee.ac.uk with any questions/issues. ", "About", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+        }
+
+        private void printDocument1_BeginPrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        {
+             checkPrint = 0;
+        }
+
+        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            // Print the content of RichTextBox. Store the last character printed.
+            checkPrint = consult_screen_search_result_textbox.Print(checkPrint, consult_screen_search_result_textbox.TextLength, e);
+
+            
+
+            // Check for more pages
+            if (checkPrint < consult_screen_search_result_textbox.TextLength)
+                e.HasMorePages = true;
+            else
+                e.HasMorePages = false;
+            
         }
     }
 }

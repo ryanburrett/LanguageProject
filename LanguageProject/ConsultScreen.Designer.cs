@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConsultScreen));
             this.confirm_search_result_btn = new System.Windows.Forms.Button();
             this.print_summary_btn = new System.Windows.Forms.Button();
             this.display_summary_fullscreen_btn = new System.Windows.Forms.Button();
             this.summary_preview_txtbox = new System.Windows.Forms.RichTextBox();
             this.add_new_summary_btn = new System.Windows.Forms.Button();
-            this.consult_screen_search_result_textbox = new System.Windows.Forms.RichTextBox();
             this.consult_search_btn = new System.Windows.Forms.Button();
             this.searchbox_consult_screen = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -55,6 +55,9 @@
             this.about_menu_item = new System.Windows.Forms.MenuItem();
             this.Tutorial_menu_item = new System.Windows.Forms.MenuItem();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.consult_screen_search_result_textbox = new RichTextBoxPrintCtrl.RichTextBoxPrintCtrl();
+            this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
+            this.pageSetupDialog1 = new System.Windows.Forms.PageSetupDialog();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -122,7 +125,7 @@
             this.summary_preview_txtbox.Location = new System.Drawing.Point(3, 20);
             this.summary_preview_txtbox.Name = "summary_preview_txtbox";
             this.summary_preview_txtbox.ReadOnly = true;
-            this.summary_preview_txtbox.Size = new System.Drawing.Size(462, 458);
+            this.summary_preview_txtbox.Size = new System.Drawing.Size(173, 458);
             this.summary_preview_txtbox.TabIndex = 13;
             this.summary_preview_txtbox.Text = "";
             // 
@@ -143,18 +146,6 @@
             this.add_new_summary_btn.Text = "Create New Summary";
             this.add_new_summary_btn.UseVisualStyleBackColor = false;
             this.add_new_summary_btn.Click += new System.EventHandler(this.add_new_summary_btn_Click);
-            // 
-            // consult_screen_search_result_textbox
-            // 
-            this.consult_screen_search_result_textbox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.consult_screen_search_result_textbox.EnableAutoDragDrop = true;
-            this.consult_screen_search_result_textbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.consult_screen_search_result_textbox.Location = new System.Drawing.Point(3, 20);
-            this.consult_screen_search_result_textbox.Name = "consult_screen_search_result_textbox";
-            this.consult_screen_search_result_textbox.Size = new System.Drawing.Size(520, 458);
-            this.consult_screen_search_result_textbox.TabIndex = 12;
-            this.consult_screen_search_result_textbox.Text = "";
-            this.consult_screen_search_result_textbox.SizeChanged += new System.EventHandler(this.consult_screen_search_result_textbox_SizeChanged);
             // 
             // consult_search_btn
             // 
@@ -198,7 +189,7 @@
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(0, 0);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(526, 481);
+            this.groupBox2.Size = new System.Drawing.Size(815, 481);
             this.groupBox2.TabIndex = 16;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Search Results";
@@ -211,7 +202,7 @@
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.Location = new System.Drawing.Point(0, 0);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(468, 481);
+            this.groupBox3.Size = new System.Drawing.Size(179, 481);
             this.groupBox3.TabIndex = 17;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Summary Preview";
@@ -232,7 +223,7 @@
             // 
             this.splitContainer1.Panel2.Controls.Add(this.groupBox3);
             this.splitContainer1.Size = new System.Drawing.Size(998, 481);
-            this.splitContainer1.SplitterDistance = 526;
+            this.splitContainer1.SplitterDistance = 815;
             this.splitContainer1.TabIndex = 18;
             // 
             // panel1
@@ -285,6 +276,10 @@
             this.tag_search_txtbox.TabIndex = 20;
             this.tag_search_txtbox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tag_search_txtbox_KeyDown);
             this.tag_search_txtbox.MouseHover += new System.EventHandler(this.tag_search_txtbox_MouseHover);
+            // 
+            // printDocument1
+            // 
+            this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
             // 
             // mainMenu1
             // 
@@ -342,6 +337,32 @@
             this.groupBox1.TabIndex = 23;
             this.groupBox1.TabStop = false;
             // 
+            // consult_screen_search_result_textbox
+            // 
+            this.consult_screen_search_result_textbox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.consult_screen_search_result_textbox.EnableAutoDragDrop = true;
+            this.consult_screen_search_result_textbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.consult_screen_search_result_textbox.Location = new System.Drawing.Point(3, 20);
+            this.consult_screen_search_result_textbox.Name = "consult_screen_search_result_textbox";
+            this.consult_screen_search_result_textbox.Size = new System.Drawing.Size(809, 458);
+            this.consult_screen_search_result_textbox.TabIndex = 0;
+            this.consult_screen_search_result_textbox.Text = "";
+            // 
+            // printPreviewDialog1
+            // 
+            this.printPreviewDialog1.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.ClientSize = new System.Drawing.Size(400, 300);
+            this.printPreviewDialog1.Document = this.printDocument1;
+            this.printPreviewDialog1.Enabled = true;
+            this.printPreviewDialog1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog1.Icon")));
+            this.printPreviewDialog1.Name = "printPreviewDialog1";
+            this.printPreviewDialog1.Visible = false;
+            // 
+            // pageSetupDialog1
+            // 
+            this.pageSetupDialog1.Document = this.printDocument1;
+            // 
             // ConsultScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -383,7 +404,6 @@
         private System.Windows.Forms.Button display_summary_fullscreen_btn;
         private System.Windows.Forms.RichTextBox summary_preview_txtbox;
         private System.Windows.Forms.Button add_new_summary_btn;
-        private System.Windows.Forms.RichTextBox consult_screen_search_result_textbox;
         private System.Windows.Forms.Button consult_search_btn;
         private System.Windows.Forms.ComboBox searchbox_consult_screen;
         private System.Windows.Forms.Label label3;
@@ -404,5 +424,8 @@
         private System.Windows.Forms.MenuItem about_menu_item;
         private System.Windows.Forms.MenuItem Tutorial_menu_item;
         private System.Windows.Forms.GroupBox groupBox1;
+        private RichTextBoxPrintCtrl.RichTextBoxPrintCtrl consult_screen_search_result_textbox;
+        private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
+        private System.Windows.Forms.PageSetupDialog pageSetupDialog1;
     }
 }

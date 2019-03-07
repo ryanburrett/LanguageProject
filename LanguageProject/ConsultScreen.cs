@@ -19,6 +19,7 @@ namespace LanguageProject
         int current_form_height;
         int current_textbox_height;
         private int checkPrint;
+        Dictionary<string, string> dictionary_conditions = new Dictionary<string, string>();
 
 
         public ConsultScreen(string disease, List<string> diseases)
@@ -270,9 +271,18 @@ namespace LanguageProject
                     string combined_rtfs = combine_rtf(current_summary_text, new_text);
                     summary_preview_txtbox.Rtf = combined_rtfs;
                 }
-                
-               
 
+
+
+
+                var text =  new string[] { searchbox_consult_screen.Text, "Ready to Print" };
+
+                var add = new ListViewItem(text);
+
+                ready_4_print_listview.Items.Add(add);
+
+                manage_dictionary(searchbox_consult_screen.Text, consult_screen_search_result_textbox.Rtf);
+                
                 
 
             }
@@ -281,6 +291,23 @@ namespace LanguageProject
 
 
         }
+
+        private void manage_dictionary(string condition_name, string condition_summary)
+        {
+           
+           
+
+            dictionary_conditions.Add(condition_name, condition_summary);
+            //needs validation to make sure 2 conditions cannot be added twice
+            Console.WriteLine("added to dictionary");
+
+            
+
+        }
+
+        
+
+
 
         private string combine_rtf(string current_summary_text, string new_text)
         {
@@ -472,6 +499,80 @@ namespace LanguageProject
             else
                 e.HasMorePages = false;
             
+        }
+
+        private void print_selected_btn_Click(object sender, EventArgs e)
+        {
+
+            if (ready_4_print_listview.SelectedItems.Count > 0)
+            {
+                var item = ready_4_print_listview.SelectedItems[0].Text;
+                Console.WriteLine(item);
+                //get condition summary from dictionary using name
+
+                if (dictionary_conditions.TryGetValue(item, out string summary))
+                {
+                    //assign it to an invisible rtb
+
+                    
+
+                    print_waiting_zone_rtb.Rtf = summary;
+                    Console.WriteLine(summary);
+                }
+            }
+
+
+
+            checkPrint = 0;
+            printPreviewDialog2.ShowDialog();
+        }
+
+        private void print_selected_document_BeginPrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        {
+            checkPrint = 0;
+        }
+
+        private void print_selected_document_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+
+            // Print the content of RichTextBox. Store the last character printed.
+            checkPrint = print_waiting_zone_rtb.Print(checkPrint, print_waiting_zone_rtb.TextLength, e);
+
+
+
+            // Check for more pages
+            if (checkPrint < print_waiting_zone_rtb.TextLength)
+                e.HasMorePages = true;
+            else
+                e.HasMorePages = false;
+
+
+
+
+
+
+        }
+
+        private void view_selected_btn_Click(object sender, EventArgs e)
+        {
+
+            if (ready_4_print_listview.SelectedItems.Count > 0)
+            {
+                var item = ready_4_print_listview.SelectedItems[0].Text;
+                Console.WriteLine(item);
+                //get condition summary from dictionary using name
+
+                if (dictionary_conditions.TryGetValue(item, out string summary))
+                {
+                    
+
+
+
+                    consult_screen_search_result_textbox.Rtf = summary;
+                   // Console.WriteLine(summary);
+                }
+            }
+
         }
     }
 }

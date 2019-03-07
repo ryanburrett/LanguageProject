@@ -58,6 +58,14 @@
             this.consult_screen_search_result_textbox = new RichTextBoxPrintCtrl.RichTextBoxPrintCtrl();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             this.pageSetupDialog1 = new System.Windows.Forms.PageSetupDialog();
+            this.ready_4_print_listview = new System.Windows.Forms.ListView();
+            this.condition_column = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.status_column = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.print_selected_btn = new System.Windows.Forms.Button();
+            this.print_selected_document = new System.Drawing.Printing.PrintDocument();
+            this.printPreviewDialog2 = new System.Windows.Forms.PrintPreviewDialog();
+            this.print_waiting_zone_rtb = new RichTextBoxPrintCtrl.RichTextBoxPrintCtrl();
+            this.view_selected_btn = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -363,12 +371,84 @@
             // 
             this.pageSetupDialog1.Document = this.printDocument1;
             // 
+            // ready_4_print_listview
+            // 
+            this.ready_4_print_listview.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ready_4_print_listview.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.condition_column,
+            this.status_column});
+            this.ready_4_print_listview.Location = new System.Drawing.Point(990, 4);
+            this.ready_4_print_listview.MultiSelect = false;
+            this.ready_4_print_listview.Name = "ready_4_print_listview";
+            this.ready_4_print_listview.Size = new System.Drawing.Size(274, 97);
+            this.ready_4_print_listview.TabIndex = 24;
+            this.ready_4_print_listview.UseCompatibleStateImageBehavior = false;
+            this.ready_4_print_listview.View = System.Windows.Forms.View.Details;
+            // 
+            // condition_column
+            // 
+            this.condition_column.Text = "Condition";
+            this.condition_column.Width = 170;
+            // 
+            // status_column
+            // 
+            this.status_column.Text = "Status";
+            this.status_column.Width = 98;
+            // 
+            // print_selected_btn
+            // 
+            this.print_selected_btn.Location = new System.Drawing.Point(899, 12);
+            this.print_selected_btn.Name = "print_selected_btn";
+            this.print_selected_btn.Size = new System.Drawing.Size(85, 23);
+            this.print_selected_btn.TabIndex = 25;
+            this.print_selected_btn.Text = "Print Selected";
+            this.print_selected_btn.UseVisualStyleBackColor = true;
+            this.print_selected_btn.Click += new System.EventHandler(this.print_selected_btn_Click);
+            // 
+            // print_selected_document
+            // 
+            this.print_selected_document.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.print_selected_document_PrintPage);
+            // 
+            // printPreviewDialog2
+            // 
+            this.printPreviewDialog2.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog2.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog2.ClientSize = new System.Drawing.Size(400, 300);
+            this.printPreviewDialog2.Document = this.print_selected_document;
+            this.printPreviewDialog2.Enabled = true;
+            this.printPreviewDialog2.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog2.Icon")));
+            this.printPreviewDialog2.Name = "printPreviewDialog2";
+            this.printPreviewDialog2.Visible = false;
+            // 
+            // print_waiting_zone_rtb
+            // 
+            this.print_waiting_zone_rtb.Location = new System.Drawing.Point(611, 12);
+            this.print_waiting_zone_rtb.Name = "print_waiting_zone_rtb";
+            this.print_waiting_zone_rtb.Size = new System.Drawing.Size(100, 96);
+            this.print_waiting_zone_rtb.TabIndex = 26;
+            this.print_waiting_zone_rtb.Text = "";
+            this.print_waiting_zone_rtb.Visible = false;
+            // 
+            // view_selected_btn
+            // 
+            this.view_selected_btn.Location = new System.Drawing.Point(899, 45);
+            this.view_selected_btn.Name = "view_selected_btn";
+            this.view_selected_btn.Size = new System.Drawing.Size(85, 23);
+            this.view_selected_btn.TabIndex = 27;
+            this.view_selected_btn.Text = "View Selected";
+            this.view_selected_btn.UseVisualStyleBackColor = true;
+            this.view_selected_btn.Click += new System.EventHandler(this.view_selected_btn_Click);
+            // 
             // ConsultScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.SlateGray;
             this.ClientSize = new System.Drawing.Size(1297, 628);
+            this.Controls.Add(this.view_selected_btn);
+            this.Controls.Add(this.print_waiting_zone_rtb);
+            this.Controls.Add(this.print_selected_btn);
+            this.Controls.Add(this.ready_4_print_listview);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.tag_search_txtbox);
@@ -427,5 +507,13 @@
         private RichTextBoxPrintCtrl.RichTextBoxPrintCtrl consult_screen_search_result_textbox;
         private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
         private System.Windows.Forms.PageSetupDialog pageSetupDialog1;
+        private System.Windows.Forms.ListView ready_4_print_listview;
+        private System.Windows.Forms.ColumnHeader condition_column;
+        private System.Windows.Forms.ColumnHeader status_column;
+        private System.Windows.Forms.Button print_selected_btn;
+        private System.Drawing.Printing.PrintDocument print_selected_document;
+        private System.Windows.Forms.PrintPreviewDialog printPreviewDialog2;
+        private RichTextBoxPrintCtrl.RichTextBoxPrintCtrl print_waiting_zone_rtb;
+        private System.Windows.Forms.Button view_selected_btn;
     }
 }

@@ -44,13 +44,13 @@
             this.tag_search_btn = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.mainMenu1 = new System.Windows.Forms.MainMenu(this.components);
-            this.menuItem1 = new System.Windows.Forms.MenuItem();
             this.menuItem2 = new System.Windows.Forms.MenuItem();
-            this.about_menu_item = new System.Windows.Forms.MenuItem();
-            this.tutorial_menu_item = new System.Windows.Forms.MenuItem();
             this.exit_2_consult_screen_menu_item = new System.Windows.Forms.MenuItem();
             this.exit_program_fully_menu_item = new System.Windows.Forms.MenuItem();
             this.add_images_to_db_menu_item = new System.Windows.Forms.MenuItem();
+            this.menuItem1 = new System.Windows.Forms.MenuItem();
+            this.about_menu_item = new System.Windows.Forms.MenuItem();
+            this.tutorial_menu_item = new System.Windows.Forms.MenuItem();
             this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -91,7 +91,7 @@
             // 
             this.summary_txtbox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.summary_txtbox.EnableAutoDragDrop = true;
-            this.summary_txtbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.summary_txtbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.summary_txtbox.Location = new System.Drawing.Point(242, 155);
             this.summary_txtbox.Name = "summary_txtbox";
             this.summary_txtbox.Size = new System.Drawing.Size(588, 256);
@@ -223,14 +223,6 @@
             this.menuItem2,
             this.menuItem1});
             // 
-            // menuItem1
-            // 
-            this.menuItem1.Index = 1;
-            this.menuItem1.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-            this.about_menu_item,
-            this.tutorial_menu_item});
-            this.menuItem1.Text = "Help";
-            // 
             // menuItem2
             // 
             this.menuItem2.Index = 0;
@@ -239,17 +231,6 @@
             this.exit_program_fully_menu_item,
             this.add_images_to_db_menu_item});
             this.menuItem2.Text = "Options";
-            // 
-            // about_menu_item
-            // 
-            this.about_menu_item.Index = 0;
-            this.about_menu_item.Text = "About";
-            this.about_menu_item.Click += new System.EventHandler(this.about_menu_item_Click);
-            // 
-            // tutorial_menu_item
-            // 
-            this.tutorial_menu_item.Index = 1;
-            this.tutorial_menu_item.Text = "Tutorial";
             // 
             // exit_2_consult_screen_menu_item
             // 
@@ -268,6 +249,25 @@
             this.add_images_to_db_menu_item.Index = 2;
             this.add_images_to_db_menu_item.Text = "Add External Images(Admin)";
             this.add_images_to_db_menu_item.Click += new System.EventHandler(this.add_images_to_db_menu_item_Click);
+            // 
+            // menuItem1
+            // 
+            this.menuItem1.Index = 1;
+            this.menuItem1.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
+            this.about_menu_item,
+            this.tutorial_menu_item});
+            this.menuItem1.Text = "Help";
+            // 
+            // about_menu_item
+            // 
+            this.about_menu_item.Index = 0;
+            this.about_menu_item.Text = "About";
+            this.about_menu_item.Click += new System.EventHandler(this.about_menu_item_Click);
+            // 
+            // tutorial_menu_item
+            // 
+            this.tutorial_menu_item.Index = 1;
+            this.tutorial_menu_item.Text = "Tutorial";
             // 
             // NewDisease
             // 

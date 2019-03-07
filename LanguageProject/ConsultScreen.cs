@@ -255,7 +255,7 @@ namespace LanguageProject
                 // note that any reference to text is within rtb and includes images, otherwise this would be alot easier...
 
 
-                if (string.IsNullOrWhiteSpace(summary_preview_txtbox.Text))
+             /*   if (string.IsNullOrWhiteSpace(summary_preview_txtbox.Text))
                 {
                     // empty summary preview... add text.
                     string disease_text = consult_screen_search_result_textbox.Rtf;
@@ -272,7 +272,7 @@ namespace LanguageProject
                     summary_preview_txtbox.Rtf = combined_rtfs;
                 }
 
-
+    */
 
 
                 var text =  new string[] { searchbox_consult_screen.Text, "Ready to Print" };
@@ -360,7 +360,7 @@ namespace LanguageProject
         private void display_summary_fullscreen_btn_Click(object sender, EventArgs e)
         {
             //launch new form with only patient summary data and display full screen
-            string summary = summary_preview_txtbox.Rtf;
+            string summary = consult_screen_search_result_textbox.Rtf;
             FullScreenPreview full = new FullScreenPreview(summary);
             full.Show();
         }
@@ -457,7 +457,7 @@ namespace LanguageProject
         private void confirm_search_result_btn_MouseHover(object sender, EventArgs e)
         {
             ToolTip tt1 = new ToolTip();
-            tt1.SetToolTip(confirm_search_result_btn, "This button confirms you are happy with the left side summary and will send it to the right handed textbox ready to be given to patient.");
+            tt1.SetToolTip(confirm_search_result_btn, "This button confirms you are happy with the summary and will send it to be printed.");
         }
 
        
@@ -572,6 +572,29 @@ namespace LanguageProject
                    // Console.WriteLine(summary);
                 }
             }
+
+        }
+
+        private void edit_btn_Click(object sender, EventArgs e)
+        {
+            if (tag_search_groupbox.Visible == false)
+            {
+                tag_search_groupbox.Visible = true;
+                consult_screen_search_result_textbox.ReadOnly = false;
+                edit_btn.BackColor = Color.PaleGreen;
+                edit_btn.Text = "Edit Active";
+            }
+            else
+            {
+                tag_search_groupbox.Visible = false;
+                consult_screen_search_result_textbox.ReadOnly = true;
+                edit_btn.BackColor = Color.IndianRed;
+                edit_btn.Text = "Edit Inactive";
+            }
+        }
+
+        private void consult_screen_search_result_textbox_TextChanged(object sender, EventArgs e)
+        {
 
         }
     }

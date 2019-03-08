@@ -41,7 +41,6 @@
             this.symbol_listview = new System.Windows.Forms.ListView();
             this.label5 = new System.Windows.Forms.Label();
             this.tag_search_btn = new System.Windows.Forms.Button();
-            this.tag_search_txtbox = new System.Windows.Forms.TextBox();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.mainMenu1 = new System.Windows.Forms.MainMenu(this.components);
             this.menuItem1 = new System.Windows.Forms.MenuItem();
@@ -63,12 +62,16 @@
             this.view_selected_btn = new System.Windows.Forms.Button();
             this.edit_btn = new System.Windows.Forms.Button();
             this.tag_search_groupbox = new System.Windows.Forms.GroupBox();
+            this.tag_search_autobox = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.edit_btn_flash_timer = new System.Windows.Forms.Timer(this.components);
+            this.tag_returns_label = new System.Windows.Forms.Label();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.tag_search_groupbox.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // confirm_search_result_btn
@@ -128,7 +131,7 @@
             this.add_new_summary_btn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.add_new_summary_btn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray;
             this.add_new_summary_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.add_new_summary_btn.Location = new System.Drawing.Point(228, 12);
+            this.add_new_summary_btn.Location = new System.Drawing.Point(219, 9);
             this.add_new_summary_btn.Name = "add_new_summary_btn";
             this.add_new_summary_btn.Size = new System.Drawing.Size(94, 28);
             this.add_new_summary_btn.TabIndex = 6;
@@ -140,7 +143,7 @@
             // 
             this.consult_search_btn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.consult_search_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.consult_search_btn.Location = new System.Drawing.Point(228, 46);
+            this.consult_search_btn.Location = new System.Drawing.Point(219, 40);
             this.consult_search_btn.Name = "consult_search_btn";
             this.consult_search_btn.Size = new System.Drawing.Size(62, 28);
             this.consult_search_btn.TabIndex = 11;
@@ -153,7 +156,7 @@
             this.searchbox_consult_screen.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.searchbox_consult_screen.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchbox_consult_screen.FormattingEnabled = true;
-            this.searchbox_consult_screen.Location = new System.Drawing.Point(20, 46);
+            this.searchbox_consult_screen.Location = new System.Drawing.Point(6, 40);
             this.searchbox_consult_screen.Name = "searchbox_consult_screen";
             this.searchbox_consult_screen.Size = new System.Drawing.Size(202, 28);
             this.searchbox_consult_screen.TabIndex = 10;
@@ -163,7 +166,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(18, 20);
+            this.label3.Location = new System.Drawing.Point(2, 13);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(135, 20);
             this.label3.TabIndex = 7;
@@ -174,7 +177,7 @@
             this.panel1.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.panel1.AutoSize = true;
             this.panel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.panel1.Location = new System.Drawing.Point(83, 91);
+            this.panel1.Location = new System.Drawing.Point(83, 80);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(0, 0);
             this.panel1.TabIndex = 14;
@@ -183,9 +186,9 @@
             // 
             this.symbol_listview.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.symbol_listview.Location = new System.Drawing.Point(8, 60);
+            this.symbol_listview.Location = new System.Drawing.Point(8, 82);
             this.symbol_listview.Name = "symbol_listview";
-            this.symbol_listview.Size = new System.Drawing.Size(250, 426);
+            this.symbol_listview.Size = new System.Drawing.Size(250, 383);
             this.symbol_listview.TabIndex = 19;
             this.symbol_listview.UseCompatibleStateImageBehavior = false;
             this.symbol_listview.ItemDrag += new System.Windows.Forms.ItemDragEventHandler(this.symbol_listview_ItemDrag);
@@ -194,7 +197,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(6, 16);
+            this.label5.Location = new System.Drawing.Point(3, 16);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(176, 16);
             this.label5.TabIndex = 22;
@@ -203,22 +206,13 @@
             // tag_search_btn
             // 
             this.tag_search_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tag_search_btn.Location = new System.Drawing.Point(195, 32);
+            this.tag_search_btn.Location = new System.Drawing.Point(187, 32);
             this.tag_search_btn.Name = "tag_search_btn";
             this.tag_search_btn.Size = new System.Drawing.Size(57, 22);
             this.tag_search_btn.TabIndex = 21;
             this.tag_search_btn.Text = "Search";
             this.tag_search_btn.UseVisualStyleBackColor = true;
             this.tag_search_btn.Click += new System.EventHandler(this.tag_search_btn_Click);
-            // 
-            // tag_search_txtbox
-            // 
-            this.tag_search_txtbox.Location = new System.Drawing.Point(8, 34);
-            this.tag_search_txtbox.Name = "tag_search_txtbox";
-            this.tag_search_txtbox.Size = new System.Drawing.Size(181, 20);
-            this.tag_search_txtbox.TabIndex = 20;
-            this.tag_search_txtbox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tag_search_txtbox_KeyDown);
-            this.tag_search_txtbox.MouseHover += new System.EventHandler(this.tag_search_txtbox_MouseHover);
             // 
             // printDocument1
             // 
@@ -277,7 +271,7 @@
             this.consult_screen_search_result_textbox.Location = new System.Drawing.Point(3, 16);
             this.consult_screen_search_result_textbox.Name = "consult_screen_search_result_textbox";
             this.consult_screen_search_result_textbox.ReadOnly = true;
-            this.consult_screen_search_result_textbox.Size = new System.Drawing.Size(781, 539);
+            this.consult_screen_search_result_textbox.Size = new System.Drawing.Size(781, 518);
             this.consult_screen_search_result_textbox.TabIndex = 0;
             this.consult_screen_search_result_textbox.Text = "";
             this.consult_screen_search_result_textbox.TextChanged += new System.EventHandler(this.consult_screen_search_result_textbox_TextChanged);
@@ -304,9 +298,12 @@
             this.ready_4_print_listview.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.condition_column,
             this.status_column});
+            this.ready_4_print_listview.FullRowSelect = true;
+            this.ready_4_print_listview.HideSelection = false;
             this.ready_4_print_listview.Location = new System.Drawing.Point(119, 13);
             this.ready_4_print_listview.MultiSelect = false;
             this.ready_4_print_listview.Name = "ready_4_print_listview";
+            this.ready_4_print_listview.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.ready_4_print_listview.Size = new System.Drawing.Size(309, 104);
             this.ready_4_print_listview.TabIndex = 24;
             this.ready_4_print_listview.UseCompatibleStateImageBehavior = false;
@@ -385,17 +382,28 @@
             // 
             this.tag_search_groupbox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.tag_search_groupbox.Controls.Add(this.tag_returns_label);
+            this.tag_search_groupbox.Controls.Add(this.tag_search_autobox);
             this.tag_search_groupbox.Controls.Add(this.print_summary_btn);
             this.tag_search_groupbox.Controls.Add(this.tag_search_btn);
-            this.tag_search_groupbox.Controls.Add(this.tag_search_txtbox);
             this.tag_search_groupbox.Controls.Add(this.label5);
             this.tag_search_groupbox.Controls.Add(this.symbol_listview);
             this.tag_search_groupbox.Location = new System.Drawing.Point(816, 207);
             this.tag_search_groupbox.Name = "tag_search_groupbox";
-            this.tag_search_groupbox.Size = new System.Drawing.Size(269, 492);
+            this.tag_search_groupbox.Size = new System.Drawing.Size(269, 471);
             this.tag_search_groupbox.TabIndex = 29;
             this.tag_search_groupbox.TabStop = false;
             this.tag_search_groupbox.Visible = false;
+            // 
+            // tag_search_autobox
+            // 
+            this.tag_search_autobox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.tag_search_autobox.FormattingEnabled = true;
+            this.tag_search_autobox.Location = new System.Drawing.Point(8, 35);
+            this.tag_search_autobox.Name = "tag_search_autobox";
+            this.tag_search_autobox.Size = new System.Drawing.Size(173, 21);
+            this.tag_search_autobox.TabIndex = 32;
+            this.tag_search_autobox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tag_search_autobox_KeyDown);
             // 
             // groupBox2
             // 
@@ -405,7 +413,7 @@
             this.groupBox2.Controls.Add(this.consult_screen_search_result_textbox);
             this.groupBox2.Location = new System.Drawing.Point(12, 141);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(787, 558);
+            this.groupBox2.Size = new System.Drawing.Size(787, 537);
             this.groupBox2.TabIndex = 30;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Summary";
@@ -426,25 +434,46 @@
             // 
             this.edit_btn_flash_timer.Enabled = true;
             this.edit_btn_flash_timer.Interval = 150;
+            this.edit_btn_flash_timer.Tick += new System.EventHandler(this.edit_btn_flash_timer_Tick);
+            // 
+            // tag_returns_label
+            // 
+            this.tag_returns_label.AutoSize = true;
+            this.tag_returns_label.Location = new System.Drawing.Point(6, 66);
+            this.tag_returns_label.Name = "tag_returns_label";
+            this.tag_returns_label.Size = new System.Drawing.Size(83, 13);
+            this.tag_returns_label.TabIndex = 33;
+            this.tag_returns_label.Text = "Images Fround: ";
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.searchbox_consult_screen);
+            this.groupBox3.Controls.Add(this.label3);
+            this.groupBox3.Controls.Add(this.add_new_summary_btn);
+            this.groupBox3.Controls.Add(this.consult_search_btn);
+            this.groupBox3.Location = new System.Drawing.Point(12, 12);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(324, 83);
+            this.groupBox3.TabIndex = 32;
+            this.groupBox3.TabStop = false;
             // 
             // ConsultScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.SlateGray;
-            this.ClientSize = new System.Drawing.Size(1114, 740);
+            this.ClientSize = new System.Drawing.Size(1114, 719);
+            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.tag_search_groupbox);
             this.Controls.Add(this.display_summary_fullscreen_btn);
             this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.add_new_summary_btn);
             this.Controls.Add(this.edit_btn);
             this.Controls.Add(this.print_waiting_zone_rtb);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.consult_search_btn);
             this.Controls.Add(this.confirm_search_result_btn);
-            this.Controls.Add(this.searchbox_consult_screen);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(1280, 1080);
             this.Menu = this.mainMenu1;
             this.Name = "ConsultScreen";
@@ -457,6 +486,8 @@
             this.tag_search_groupbox.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -474,7 +505,6 @@
         private System.Windows.Forms.ListView symbol_listview;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button tag_search_btn;
-        private System.Windows.Forms.TextBox tag_search_txtbox;
         private System.Drawing.Printing.PrintDocument printDocument1;
         private System.Windows.Forms.MainMenu mainMenu1;
         private System.Windows.Forms.MenuItem menuItem1;
@@ -499,5 +529,8 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Timer edit_btn_flash_timer;
+        private System.Windows.Forms.ComboBox tag_search_autobox;
+        private System.Windows.Forms.Label tag_returns_label;
+        private System.Windows.Forms.GroupBox groupBox3;
     }
 }

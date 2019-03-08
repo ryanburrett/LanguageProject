@@ -16,6 +16,7 @@ namespace LanguageProject
     public partial class ConsultScreen : Form
     {
         List<string> list_of_diseases = new List<string>();
+        
         int current_form_height;
         int current_textbox_height;
         private int checkPrint;
@@ -105,7 +106,7 @@ namespace LanguageProject
             //send that tag search away ayy
             //search for any images that have that tag 
 
-            string search_term = tag_search_txtbox.Text;
+            string search_term = tag_search_autobox.Text;
             List<Image> tagged_images = new List<Image>();
 
             Get_Images_From_DB get_tagged = new Get_Images_From_DB();
@@ -155,9 +156,11 @@ namespace LanguageProject
 
             }
 
+            int number_images_return = tagged_images.Count();
 
+            tag_returns_label.Text = "Images Found: "+number_images_return;
 
-            Console.WriteLine("tagged image length: " + tagged_images.Count);
+            Console.WriteLine("tagged image length: " + number_images_return);
 
             //clear current listview elements and display matches to tag search 
 
@@ -221,11 +224,24 @@ namespace LanguageProject
         void assign_autocomplete()
         {
             // setting up auto complete using combobox and list of diseases
-            var autoObject = new AutoCompleteStringCollection();
-            autoObject.AddRange(list_of_diseases.ToArray());
+            var condition_collection = new AutoCompleteStringCollection();
+            condition_collection.AddRange(list_of_diseases.ToArray());
             searchbox_consult_screen.AutoCompleteSource = AutoCompleteSource.CustomSource;
 
-            searchbox_consult_screen.AutoCompleteCustomSource = autoObject;
+            searchbox_consult_screen.AutoCompleteCustomSource = condition_collection;
+
+
+            //setting up autocomplete for image tags
+            Get_Current_Tags get_tag_instance = new Get_Current_Tags();
+            List<string> list_of_tags = new List<string>();
+            list_of_tags = get_tag_instance.get_tags();
+
+            var tag_collection = new AutoCompleteStringCollection();
+            tag_collection.AddRange(list_of_tags.ToArray());
+            tag_search_autobox.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            tag_search_autobox.AutoCompleteCustomSource = tag_collection;
+
+
         }
 
         private void consult_search_btn_Click(object sender, EventArgs e)
@@ -294,13 +310,23 @@ namespace LanguageProject
 
         private void manage_dictionary(string condition_name, string condition_summary)
         {
-           
-           
 
-            dictionary_conditions.Add(condition_name, condition_summary);
-            //needs validation to make sure 2 conditions cannot be added twice
-            Console.WriteLine("added to dictionary");
+            //check for already existing dictionary 
 
+            if (dictionary_conditions.ContainsKey(condition_name))
+            {
+                //condtion already is submitted by user
+                dictionary_conditions.Remove(condition_name);
+                // adding the same condition name but it will now have the updated summary 
+                dictionary_conditions.Add(condition_name, condition_summary);
+            }
+            else
+            {
+
+                dictionary_conditions.Add(condition_name, condition_summary);
+                //needs validation to make sure 2 conditions cannot be added twice
+                Console.WriteLine("added to dictionary");
+            }
             
 
         }
@@ -443,7 +469,7 @@ namespace LanguageProject
         private void tag_search_txtbox_MouseHover(object sender, EventArgs e)
         {
             ToolTip tt1 = new ToolTip();
-            tt1.SetToolTip(tag_search_txtbox, "Search for images to add to already created summaries using this searchbox.");
+            tt1.SetToolTip(tag_search_autobox, "Search for images to add to already created summaries using this searchbox.");
         }
 
         private void searchbox_consult_screen_MouseHover(object sender, EventArgs e)
@@ -616,15 +642,15 @@ namespace LanguageProject
             {
 
 
-
-                e.Handled = true;
+                edit_btn_flash_timer.Start();
+                
 
                 edit_btn_flash_timer.Tick += new EventHandler(timer_Tick);
 
                 
-                
 
-                
+
+
             }
         }
 
@@ -639,6 +665,19 @@ namespace LanguageProject
             {
                 edit_btn.BackColor = Color.IndianRed;
             }
+        }
+
+        private void tag_search_autobox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Enter)
+            {
+                tag_search_btn_Click(sender, e);
+            }
+        }
+
+        private void edit_btn_flash_timer_Tick(object sender, EventArgs e)
+        {
+
         }
     }
 }

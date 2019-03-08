@@ -7,6 +7,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace LanguageProject
 {
@@ -29,8 +30,9 @@ namespace LanguageProject
             compare_tags(tag_list);
             add_image(b);
             update_image_tag_mapping();
-            
-            
+
+            MessageBox.Show("Image Uploaded Successfully ", "Image Upload", MessageBoxButtons.OK, MessageBoxIcon.None);
+
 
         }
 
@@ -81,8 +83,9 @@ namespace LanguageProject
             command.Connection = conn;
 
             conn.Open();
+            Console.WriteLine("STARTING TO WRITE IMAGE");
             command.ExecuteNonQuery();
-
+            Console.WriteLine("fINISHED WRITING IMAGE");
             MySqlCommand getIdCommand = new MySqlCommand();
             getIdCommand.CommandText = "SELECT last_insert_id()";
             getIdCommand.Connection = conn;

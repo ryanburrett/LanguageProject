@@ -74,5 +74,13 @@ namespace LanguageProject
             InsertNewImageDB newImage = new InsertNewImageDB();
             newImage.Show();
         }
+
+        private void new_condition_btn_Click(object sender, EventArgs e)
+        {
+            NewDisease d = new NewDisease();
+
+            d.Show();
+            this.Hide();
+        }
     }
 }

@@ -32,13 +32,14 @@
             this.label1 = new System.Windows.Forms.Label();
             this.start_screen_searchbox = new System.Windows.Forms.ComboBox();
             this.start_scrn_insert_image_btn = new System.Windows.Forms.Button();
+            this.new_condition_btn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // start_screen_btn
             // 
             this.start_screen_btn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.start_screen_btn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.start_screen_btn.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.start_screen_btn.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.start_screen_btn.Location = new System.Drawing.Point(401, 345);
             this.start_screen_btn.MaximumSize = new System.Drawing.Size(109, 41);
             this.start_screen_btn.Name = "start_screen_btn";
@@ -84,6 +85,20 @@
             this.start_scrn_insert_image_btn.UseVisualStyleBackColor = true;
             this.start_scrn_insert_image_btn.Click += new System.EventHandler(this.start_scrn_insert_image_btn_Click);
             // 
+            // new_condition_btn
+            // 
+            this.new_condition_btn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.new_condition_btn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.new_condition_btn.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.new_condition_btn.Location = new System.Drawing.Point(401, 402);
+            this.new_condition_btn.MaximumSize = new System.Drawing.Size(109, 41);
+            this.new_condition_btn.Name = "new_condition_btn";
+            this.new_condition_btn.Size = new System.Drawing.Size(109, 41);
+            this.new_condition_btn.TabIndex = 5;
+            this.new_condition_btn.Text = "Create New";
+            this.new_condition_btn.UseVisualStyleBackColor = true;
+            this.new_condition_btn.Click += new System.EventHandler(this.new_condition_btn_Click);
+            // 
             // StartScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -91,6 +106,7 @@
             this.BackgroundImage = global::LanguageProject.Properties.Resources.abstract_art_business_249348;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(941, 478);
+            this.Controls.Add(this.new_condition_btn);
             this.Controls.Add(this.start_scrn_insert_image_btn);
             this.Controls.Add(this.start_screen_searchbox);
             this.Controls.Add(this.label1);
@@ -109,5 +125,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox start_screen_searchbox;
         private System.Windows.Forms.Button start_scrn_insert_image_btn;
+        private System.Windows.Forms.Button new_condition_btn;
     }
 }

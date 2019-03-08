@@ -49,7 +49,9 @@ namespace LanguageProject
             try
             {
                 Image image = pictureBox1.Image;
-                loaded_image = new Bitmap(image);  
+
+             
+                loaded_image = new Bitmap(image, 125,125);  
             }
             catch (Exception ex)
             {

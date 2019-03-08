@@ -244,7 +244,7 @@ namespace LanguageProject
 
         private void confirm_search_result_btn_Click(object sender, EventArgs e)
         {
-           DialogResult result = MessageBox.Show("Confirm you would like to send this summary to patient summary?", "Confirm Simplified Summary", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+           DialogResult result = MessageBox.Show("Confirm you happy with the summary and it is ready to print?", "Confirm Simplified Summary", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
 
             if (result == DialogResult.OK)
             {
@@ -580,13 +580,17 @@ namespace LanguageProject
             if (tag_search_groupbox.Visible == false)
             {
                 tag_search_groupbox.Visible = true;
+                
                 consult_screen_search_result_textbox.ReadOnly = false;
+                edit_btn_flash_timer.Stop();
                 edit_btn.BackColor = Color.PaleGreen;
                 edit_btn.Text = "Edit Active";
+                
             }
             else
             {
                 tag_search_groupbox.Visible = false;
+                
                 consult_screen_search_result_textbox.ReadOnly = true;
                 edit_btn.BackColor = Color.IndianRed;
                 edit_btn.Text = "Edit Inactive";
@@ -596,6 +600,45 @@ namespace LanguageProject
         private void consult_screen_search_result_textbox_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void ConsultScreen_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void consult_screen_search_result_textbox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+          
+
+            if (consult_screen_search_result_textbox.ReadOnly == true)
+            {
+
+
+
+                e.Handled = true;
+
+                edit_btn_flash_timer.Tick += new EventHandler(timer_Tick);
+
+                
+                
+
+                
+            }
+        }
+
+        void timer_Tick(object sender, EventArgs e)
+        {
+            if (edit_btn.BackColor == Color.IndianRed)
+            {
+                //make it redder
+                edit_btn.BackColor = Color.Red;
+            }
+            else
+            {
+                edit_btn.BackColor = Color.IndianRed;
+            }
         }
     }
 }

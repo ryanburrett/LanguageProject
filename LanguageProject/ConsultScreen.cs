@@ -34,6 +34,7 @@ namespace LanguageProject
 
             //pull summary data about disease
             get_disease_summary(disease);
+            displaying_condition_label.Text = "Displaying Condition: " + disease;
             this.consult_screen_search_result_textbox.DragDrop += new DragEventHandler(this.consult_screen_search_result_textbox_DragDrop);
         }
 
@@ -250,6 +251,7 @@ namespace LanguageProject
             if (list_of_diseases.Contains(search))
             {
                 get_disease_summary(search);
+                displaying_condition_label.Text = "Displaying Condition: " + search;
             }
             else
             {
@@ -260,55 +262,80 @@ namespace LanguageProject
 
         private void confirm_search_result_btn_Click(object sender, EventArgs e)
         {
-           DialogResult result = MessageBox.Show("Confirm you happy with the summary and it is ready to print?", "Confirm Simplified Summary", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-
-            if (result == DialogResult.OK)
+            if (consult_screen_search_result_textbox.Text != "")
             {
-                //look for existing text within the summary screen
-                // if existing text is there then combine rtf files and format 
-                // else just append text to rtb
-                //
-                // note that any reference to text is within rtb and includes images, otherwise this would be alot easier...
+                DialogResult result = MessageBox.Show("Confirm you happy with the summary and it is ready to print?", "Confirm Simplified Summary", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
 
-
-             /*   if (string.IsNullOrWhiteSpace(summary_preview_txtbox.Text))
+                if (result == DialogResult.OK)
                 {
-                    // empty summary preview... add text.
-                    string disease_text = consult_screen_search_result_textbox.Rtf;
-                    summary_preview_txtbox.Rtf = disease_text;
+                    //look for existing text within the summary screen
+                    // if existing text is there then combine rtf files and format 
+                    // else just append text to rtb
+                    //
+                    // note that any reference to text is within rtb and includes images, otherwise this would be alot easier...
+
+
+                    /*   if (string.IsNullOrWhiteSpace(summary_preview_txtbox.Text))
+                       {
+                           // empty summary preview... add text.
+                           string disease_text = consult_screen_search_result_textbox.Rtf;
+                           summary_preview_txtbox.Rtf = disease_text;
+                       }
+                       else
+                       {
+                           //combine rtf files, to allow multiple submissions to summary box
+                           Console.WriteLine("running, combine rtf files...");
+                           string current_summary_text = summary_preview_txtbox.Rtf;
+                           string new_text = consult_screen_search_result_textbox.Rtf;
+
+                           string combined_rtfs = combine_rtf(current_summary_text, new_text);
+                           summary_preview_txtbox.Rtf = combined_rtfs;
+                       }
+
+           */
+
+
+                    //getting the current condition summary that is displayed 
+                    string full_label_text = displaying_condition_label.Text;
+
+                    string[] word = full_label_text.Split(':');
+
+                    //always is 1st index with current implementation 
+                    string current_condition_name = word[1];
+                    current_condition_name = current_condition_name.Substring(1);
+
+
+                    var text = new string[] { current_condition_name, "Ready to Print" };
+                    var add = new ListViewItem(text);
+
+
+                    bool add_text_to_list = manage_dictionary(current_condition_name, consult_screen_search_result_textbox.Rtf);
+
+                    if (add_text_to_list == true)
+                    {
+
+
+
+
+                        ready_4_print_listview.Items.Add(add);
+
+                    }
+                    else
+                    {
+                        Console.WriteLine("i got a match with an already placed condtion");
+
+                    }
+
+
+
                 }
-                else
-                {
-                    //combine rtf files, to allow multiple submissions to summary box
-                    Console.WriteLine("running, combine rtf files...");
-                    string current_summary_text = summary_preview_txtbox.Rtf;
-                    string new_text = consult_screen_search_result_textbox.Rtf;
-
-                    string combined_rtfs = combine_rtf(current_summary_text, new_text);
-                    summary_preview_txtbox.Rtf = combined_rtfs;
-                }
-
-    */
-
-
-                var text =  new string[] { searchbox_consult_screen.Text, "Ready to Print" };
-
-                var add = new ListViewItem(text);
-
-                ready_4_print_listview.Items.Add(add);
-
-                manage_dictionary(searchbox_consult_screen.Text, consult_screen_search_result_textbox.Rtf);
-                
-                
-
             }
-
             
 
 
         }
 
-        private void manage_dictionary(string condition_name, string condition_summary)
+        private bool manage_dictionary(string condition_name, string condition_summary)
         {
 
             //check for already existing dictionary 
@@ -319,6 +346,8 @@ namespace LanguageProject
                 dictionary_conditions.Remove(condition_name);
                 // adding the same condition name but it will now have the updated summary 
                 dictionary_conditions.Add(condition_name, condition_summary);
+                Console.WriteLine("deleted and readded a dictionary entry");
+                return false;
             }
             else
             {
@@ -326,6 +355,7 @@ namespace LanguageProject
                 dictionary_conditions.Add(condition_name, condition_summary);
                 //needs validation to make sure 2 conditions cannot be added twice
                 Console.WriteLine("added to dictionary");
+                return true;
             }
             
 
@@ -533,7 +563,9 @@ namespace LanguageProject
             if (ready_4_print_listview.SelectedItems.Count > 0)
             {
                 var item = ready_4_print_listview.SelectedItems[0].Text;
+              
                 Console.WriteLine(item);
+                
                 //get condition summary from dictionary using name
 
                 if (dictionary_conditions.TryGetValue(item, out string summary))
@@ -543,7 +575,7 @@ namespace LanguageProject
                     
 
                     print_waiting_zone_rtb.Rtf = summary;
-                    Console.WriteLine(summary);
+                   // Console.WriteLine(summary);
                 }
             }
 
@@ -551,6 +583,8 @@ namespace LanguageProject
 
             checkPrint = 0;
             printPreviewDialog2.ShowDialog();
+
+            
         }
 
         private void print_selected_document_BeginPrint(object sender, System.Drawing.Printing.PrintEventArgs e)
@@ -595,6 +629,8 @@ namespace LanguageProject
 
 
                     consult_screen_search_result_textbox.Rtf = summary;
+                    displaying_condition_label.Text = "Displaying Condition: " + item;
+
                    // Console.WriteLine(summary);
                 }
             }
@@ -635,23 +671,6 @@ namespace LanguageProject
 
         private void consult_screen_search_result_textbox_KeyPress(object sender, KeyPressEventArgs e)
         {
-
-          
-
-            if (consult_screen_search_result_textbox.ReadOnly == true)
-            {
-
-
-                edit_btn_flash_timer.Start();
-                
-
-                edit_btn_flash_timer.Tick += new EventHandler(timer_Tick);
-
-                
-
-
-
-            }
         }
 
         void timer_Tick(object sender, EventArgs e)
@@ -678,6 +697,24 @@ namespace LanguageProject
         private void edit_btn_flash_timer_Tick(object sender, EventArgs e)
         {
 
+        }
+
+        private void consult_screen_search_result_textbox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (consult_screen_search_result_textbox.ReadOnly == true)
+            {
+
+
+                edit_btn_flash_timer.Start();
+
+
+                edit_btn_flash_timer.Tick += new EventHandler(timer_Tick);
+
+
+
+
+
+            }
         }
     }
 }

@@ -23,9 +23,20 @@ namespace LanguageProject
             this.CenterToScreen();
            // symbol_list_logic();
             this.summary_txtbox.DragDrop += new DragEventHandler(this.summary_txtbox_DragDrop);
+            assign_autocomplete();
         }
 
-        
+        private void assign_autocomplete()
+        {
+            Get_Current_Tags get_tag_instance = new Get_Current_Tags();
+            List<string> list_of_tags = new List<string>();
+            list_of_tags = get_tag_instance.get_tags();
+
+            var tag_collection = new AutoCompleteStringCollection();
+            tag_collection.AddRange(list_of_tags.ToArray());
+            tag_search_autobox.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            tag_search_autobox.AutoCompleteCustomSource = tag_collection;
+        }
 
         private void symbol_list_logic()
         {
@@ -161,9 +172,25 @@ namespace LanguageProject
                 
             }
 
-           
-           
+            //check for word count and display
+            char[] delimiters = new char[] { ' ', '\r', '\n' };
+            int word_count;
+            string[] words = summary_txtbox.Text.Split(delimiters, StringSplitOptions.RemoveEmptyEntries);
+            word_count = words.Length;
+            summary_word_count_lebel.Text = "Word Count: " + word_count;
 
+            //checking for long words that are >above certain char count threshold
+            int hard_words = 0;
+            foreach (string word in words)
+            {
+                if (word.Length > 7)
+                {
+                    // any word above 7 characters is considered hard 
+                    hard_words++;
+                }
+            }
+
+            hard_word_label.Text = "Hard Words: " + hard_words;
 
         }
 
@@ -229,7 +256,7 @@ namespace LanguageProject
             //send that tag search away ayy
             //search for any images that have that tag 
 
-            string search_term = tag_search_txtbox.Text;
+            string search_term = tag_search_autobox.Text;
             List<Image> tagged_images = new List<Image>();
 
             Get_Images_From_DB get_tagged = new Get_Images_From_DB();
@@ -279,7 +306,9 @@ namespace LanguageProject
 
             }
 
+            int number_images_return = tagged_images.Count();
 
+            images_found_label.Text = "Images Found: " + number_images_return;
 
             Console.WriteLine("tagged image length: " + tagged_images.Count);
 
@@ -290,13 +319,7 @@ namespace LanguageProject
 
         }
 
-        private void tag_search_txtbox_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyData == Keys.Enter)
-            {
-                tag_search_btn_Click(sender, e);
-            }
-        }
+       
 
         private void symbol_listview_ItemDrag(object sender, ItemDragEventArgs e)
         {
@@ -356,12 +379,7 @@ namespace LanguageProject
             //Application.Exit();
         }
 
-        private void tag_search_txtbox_MouseHover(object sender, EventArgs e)
-        {
-            ToolTip tt1 = new ToolTip();
-            tt1.SetToolTip(tag_search_txtbox, "This is where to search for images to add to your summary. Search by keyword e.g 'Doctor'.");
         
-        }
 
         private void condition_txtbox_MouseHover(object sender, EventArgs e)
         {
@@ -374,6 +392,26 @@ namespace LanguageProject
         {
             ToolTip tt1 = new ToolTip();
             tt1.SetToolTip(summary_txtbox, "This is where to type the simplified summary explaining the condition. You are encouraged to use images and keep difficult words to a minimum.");
+
+        }
+
+        private void tag_search_autobox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Enter)
+            {
+                tag_search_btn_Click(sender, e);
+            }
+        }
+
+        private void tag_search_autobox_MouseHover(object sender, EventArgs e)
+        {
+            ToolTip tt1 = new ToolTip();
+            tt1.SetToolTip(tag_search_autobox, "This is where to search for images to add to your summary. Search by keyword e.g 'Doctor'.");
+
+        }
+
+        private void tag_search_autobox_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
         }
     }

@@ -68,6 +68,7 @@
             this.edit_btn_flash_timer = new System.Windows.Forms.Timer(this.components);
             this.tag_returns_label = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.displaying_condition_label = new System.Windows.Forms.Label();
             this.tag_search_groupbox.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -275,6 +276,7 @@
             this.consult_screen_search_result_textbox.TabIndex = 0;
             this.consult_screen_search_result_textbox.Text = "";
             this.consult_screen_search_result_textbox.TextChanged += new System.EventHandler(this.consult_screen_search_result_textbox_TextChanged);
+            this.consult_screen_search_result_textbox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.consult_screen_search_result_textbox_KeyDown);
             this.consult_screen_search_result_textbox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.consult_screen_search_result_textbox_KeyPress);
             // 
             // printPreviewDialog1
@@ -457,12 +459,22 @@
             this.groupBox3.TabIndex = 32;
             this.groupBox3.TabStop = false;
             // 
+            // displaying_condition_label
+            // 
+            this.displaying_condition_label.AutoSize = true;
+            this.displaying_condition_label.Location = new System.Drawing.Point(12, 115);
+            this.displaying_condition_label.Name = "displaying_condition_label";
+            this.displaying_condition_label.Size = new System.Drawing.Size(105, 13);
+            this.displaying_condition_label.TabIndex = 33;
+            this.displaying_condition_label.Text = "Displaying Condition:";
+            // 
             // ConsultScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.SlateGray;
             this.ClientSize = new System.Drawing.Size(1114, 719);
+            this.Controls.Add(this.displaying_condition_label);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.tag_search_groupbox);
@@ -532,5 +544,6 @@
         private System.Windows.Forms.ComboBox tag_search_autobox;
         private System.Windows.Forms.Label tag_returns_label;
         private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Label displaying_condition_label;
     }
 }

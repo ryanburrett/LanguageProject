@@ -62,11 +62,11 @@
             this.view_selected_btn = new System.Windows.Forms.Button();
             this.edit_btn = new System.Windows.Forms.Button();
             this.tag_search_groupbox = new System.Windows.Forms.GroupBox();
+            this.tag_returns_label = new System.Windows.Forms.Label();
             this.tag_search_autobox = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.edit_btn_flash_timer = new System.Windows.Forms.Timer(this.components);
-            this.tag_returns_label = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.displaying_condition_label = new System.Windows.Forms.Label();
             this.tag_search_groupbox.SuspendLayout();
@@ -79,13 +79,12 @@
             // 
             this.confirm_search_result_btn.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.confirm_search_result_btn.BackColor = System.Drawing.Color.ForestGreen;
-            this.confirm_search_result_btn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.confirm_search_result_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.confirm_search_result_btn.Location = new System.Drawing.Point(388, 101);
+            this.confirm_search_result_btn.Location = new System.Drawing.Point(388, 90);
             this.confirm_search_result_btn.Name = "confirm_search_result_btn";
-            this.confirm_search_result_btn.Size = new System.Drawing.Size(126, 40);
+            this.confirm_search_result_btn.Size = new System.Drawing.Size(126, 51);
             this.confirm_search_result_btn.TabIndex = 1;
-            this.confirm_search_result_btn.Text = "Summary Ready";
+            this.confirm_search_result_btn.Text = "Submit Summary";
             this.confirm_search_result_btn.UseVisualStyleBackColor = false;
             this.confirm_search_result_btn.Click += new System.EventHandler(this.confirm_search_result_btn_Click);
             this.confirm_search_result_btn.MouseHover += new System.EventHandler(this.confirm_search_result_btn_MouseHover);
@@ -178,7 +177,7 @@
             this.panel1.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.panel1.AutoSize = true;
             this.panel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.panel1.Location = new System.Drawing.Point(83, 80);
+            this.panel1.Location = new System.Drawing.Point(83, 66);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(0, 0);
             this.panel1.TabIndex = 14;
@@ -189,7 +188,7 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.symbol_listview.Location = new System.Drawing.Point(8, 82);
             this.symbol_listview.Name = "symbol_listview";
-            this.symbol_listview.Size = new System.Drawing.Size(250, 383);
+            this.symbol_listview.Size = new System.Drawing.Size(250, 354);
             this.symbol_listview.TabIndex = 19;
             this.symbol_listview.UseCompatibleStateImageBehavior = false;
             this.symbol_listview.ItemDrag += new System.Windows.Forms.ItemDragEventHandler(this.symbol_listview_ItemDrag);
@@ -272,7 +271,7 @@
             this.consult_screen_search_result_textbox.Location = new System.Drawing.Point(3, 16);
             this.consult_screen_search_result_textbox.Name = "consult_screen_search_result_textbox";
             this.consult_screen_search_result_textbox.ReadOnly = true;
-            this.consult_screen_search_result_textbox.Size = new System.Drawing.Size(781, 518);
+            this.consult_screen_search_result_textbox.Size = new System.Drawing.Size(781, 489);
             this.consult_screen_search_result_textbox.TabIndex = 0;
             this.consult_screen_search_result_textbox.Text = "";
             this.consult_screen_search_result_textbox.TextChanged += new System.EventHandler(this.consult_screen_search_result_textbox_TextChanged);
@@ -370,7 +369,6 @@
             // edit_btn
             // 
             this.edit_btn.BackColor = System.Drawing.Color.IndianRed;
-            this.edit_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.edit_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.edit_btn.Location = new System.Drawing.Point(816, 170);
             this.edit_btn.Name = "edit_btn";
@@ -392,10 +390,19 @@
             this.tag_search_groupbox.Controls.Add(this.symbol_listview);
             this.tag_search_groupbox.Location = new System.Drawing.Point(816, 207);
             this.tag_search_groupbox.Name = "tag_search_groupbox";
-            this.tag_search_groupbox.Size = new System.Drawing.Size(269, 471);
+            this.tag_search_groupbox.Size = new System.Drawing.Size(269, 442);
             this.tag_search_groupbox.TabIndex = 29;
             this.tag_search_groupbox.TabStop = false;
             this.tag_search_groupbox.Visible = false;
+            // 
+            // tag_returns_label
+            // 
+            this.tag_returns_label.AutoSize = true;
+            this.tag_returns_label.Location = new System.Drawing.Point(6, 66);
+            this.tag_returns_label.Name = "tag_returns_label";
+            this.tag_returns_label.Size = new System.Drawing.Size(83, 13);
+            this.tag_returns_label.TabIndex = 33;
+            this.tag_returns_label.Text = "Images Fround: ";
             // 
             // tag_search_autobox
             // 
@@ -415,7 +422,7 @@
             this.groupBox2.Controls.Add(this.consult_screen_search_result_textbox);
             this.groupBox2.Location = new System.Drawing.Point(12, 141);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(787, 537);
+            this.groupBox2.Size = new System.Drawing.Size(787, 508);
             this.groupBox2.TabIndex = 30;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Summary";
@@ -437,15 +444,6 @@
             this.edit_btn_flash_timer.Enabled = true;
             this.edit_btn_flash_timer.Interval = 150;
             this.edit_btn_flash_timer.Tick += new System.EventHandler(this.edit_btn_flash_timer_Tick);
-            // 
-            // tag_returns_label
-            // 
-            this.tag_returns_label.AutoSize = true;
-            this.tag_returns_label.Location = new System.Drawing.Point(6, 66);
-            this.tag_returns_label.Name = "tag_returns_label";
-            this.tag_returns_label.Size = new System.Drawing.Size(83, 13);
-            this.tag_returns_label.TabIndex = 33;
-            this.tag_returns_label.Text = "Images Fround: ";
             // 
             // groupBox3
             // 
@@ -473,7 +471,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.SlateGray;
-            this.ClientSize = new System.Drawing.Size(1114, 719);
+            this.ClientSize = new System.Drawing.Size(1114, 690);
             this.Controls.Add(this.displaying_condition_label);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox1);

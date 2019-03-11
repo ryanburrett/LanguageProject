@@ -52,15 +52,15 @@
             this.tutorial_menu_item = new System.Windows.Forms.MenuItem();
             this.tag_search_autobox = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.images_found_label = new System.Windows.Forms.Label();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.summary_word_count_lebel = new System.Windows.Forms.Label();
             this.hard_word_label = new System.Windows.Forms.Label();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.images_found_label = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -294,6 +294,37 @@
             this.groupBox1.TabIndex = 34;
             this.groupBox1.TabStop = false;
             // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.summary_word_count_lebel);
+            this.groupBox3.Controls.Add(this.hard_word_label);
+            this.groupBox3.Location = new System.Drawing.Point(6, 175);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(153, 100);
+            this.groupBox3.TabIndex = 37;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Summary Info";
+            // 
+            // summary_word_count_lebel
+            // 
+            this.summary_word_count_lebel.AutoSize = true;
+            this.summary_word_count_lebel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.summary_word_count_lebel.Location = new System.Drawing.Point(6, 31);
+            this.summary_word_count_lebel.Name = "summary_word_count_lebel";
+            this.summary_word_count_lebel.Size = new System.Drawing.Size(81, 16);
+            this.summary_word_count_lebel.TabIndex = 9;
+            this.summary_word_count_lebel.Text = "Word Count:";
+            // 
+            // hard_word_label
+            // 
+            this.hard_word_label.AutoSize = true;
+            this.hard_word_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.hard_word_label.Location = new System.Drawing.Point(6, 56);
+            this.hard_word_label.Name = "hard_word_label";
+            this.hard_word_label.Size = new System.Drawing.Size(84, 16);
+            this.hard_word_label.TabIndex = 10;
+            this.hard_word_label.Text = "Hard Words:";
+            // 
             // images_found_label
             // 
             this.images_found_label.AutoSize = true;
@@ -316,37 +347,6 @@
             this.groupBox2.TabIndex = 36;
             this.groupBox2.TabStop = false;
             // 
-            // summary_word_count_lebel
-            // 
-            this.summary_word_count_lebel.AutoSize = true;
-            this.summary_word_count_lebel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.summary_word_count_lebel.Location = new System.Drawing.Point(6, 31);
-            this.summary_word_count_lebel.Name = "summary_word_count_lebel";
-            this.summary_word_count_lebel.Size = new System.Drawing.Size(81, 16);
-            this.summary_word_count_lebel.TabIndex = 9;
-            this.summary_word_count_lebel.Text = "Word Count:";
-            // 
-            // hard_word_label
-            // 
-            this.hard_word_label.AutoSize = true;
-            this.hard_word_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.hard_word_label.Location = new System.Drawing.Point(6, 56);
-            this.hard_word_label.Name = "hard_word_label";
-            this.hard_word_label.Size = new System.Drawing.Size(84, 16);
-            this.hard_word_label.TabIndex = 10;
-            this.hard_word_label.Text = "Hard Words:";
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.summary_word_count_lebel);
-            this.groupBox3.Controls.Add(this.hard_word_label);
-            this.groupBox3.Location = new System.Drawing.Point(6, 175);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(153, 100);
-            this.groupBox3.TabIndex = 37;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Summary Info";
-            // 
             // NewDisease
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -365,10 +365,10 @@
             this.tableLayoutPanel2.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 

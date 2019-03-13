@@ -125,8 +125,22 @@ namespace LanguageProject
                 if (dr == DialogResult.OK)
                 {
                     write_to_db();
-                    consult_instance.Show();
-                    this.Close();
+                    // this crashes if consult screen has not been opened, going directly to creating a new summary will crash
+
+                    if (consult_instance == null)
+                    {
+                        List<string> conditions = new List<string>();
+                        List_of_Diseases list = new List_of_Diseases();
+                        conditions = list.return_list();
+                        ConsultScreen consultScreen = new ConsultScreen(conditions);
+                        consultScreen.Show();
+                    }
+                    else
+                    {
+                        consult_instance.Show();
+                    }
+                        this.Close();
+                    
                 }
             }
 
@@ -167,9 +181,11 @@ namespace LanguageProject
             command.ExecuteNonQuery();
                 
             conn.Close();
-            
-            
-            
+
+            MessageBox.Show("Summary Uploaded Successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.None);
+
+
+
         }
 
         private void summary_txtbox_TextChanged(object sender, EventArgs e)
@@ -221,12 +237,24 @@ namespace LanguageProject
             List<string> list_of_diseases = new List<string>();
 
             list_of_diseases = list.return_list();
-
-            consult_instance.Show();
-            consult_instance.update_lists(list_of_diseases);
+            //crashes when going straight to create new from start screen
             
-          //  ConsultScreen consult = new ConsultScreen(list_of_diseases);
-          //  consult.Show();
+
+            if (consult_instance == null)
+            {
+         
+                ConsultScreen consultScreen = new ConsultScreen(list_of_diseases);
+                consultScreen.Show();
+            }
+            else
+            {
+              
+                consult_instance.Show();
+                consult_instance.update_lists(list_of_diseases);
+            }
+            //this.Close();
+
+
         }
 
         private void cancel_btn_Click(object sender, EventArgs e)

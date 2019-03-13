@@ -69,6 +69,8 @@
             this.edit_btn_flash_timer = new System.Windows.Forms.Timer(this.components);
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.displaying_condition_label = new System.Windows.Forms.Label();
+            this.print_btn = new System.Windows.Forms.Button();
+            this.printDialog1 = new System.Windows.Forms.PrintDialog();
             this.tag_search_groupbox.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -327,7 +329,7 @@
             this.print_selected_btn.Name = "print_selected_btn";
             this.print_selected_btn.Size = new System.Drawing.Size(85, 23);
             this.print_selected_btn.TabIndex = 25;
-            this.print_selected_btn.Text = "Print Selected";
+            this.print_selected_btn.Text = "Print Preview";
             this.print_selected_btn.UseVisualStyleBackColor = true;
             this.print_selected_btn.Click += new System.EventHandler(this.print_selected_btn_Click);
             // 
@@ -429,6 +431,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.print_btn);
             this.groupBox1.Controls.Add(this.print_selected_btn);
             this.groupBox1.Controls.Add(this.view_selected_btn);
             this.groupBox1.Controls.Add(this.ready_4_print_listview);
@@ -466,6 +469,21 @@
             this.displaying_condition_label.TabIndex = 33;
             this.displaying_condition_label.Text = "Displaying Condition:";
             // 
+            // print_btn
+            // 
+            this.print_btn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.print_btn.Location = new System.Drawing.Point(6, 89);
+            this.print_btn.Name = "print_btn";
+            this.print_btn.Size = new System.Drawing.Size(85, 23);
+            this.print_btn.TabIndex = 28;
+            this.print_btn.Text = "Print Selected";
+            this.print_btn.UseVisualStyleBackColor = true;
+            this.print_btn.Click += new System.EventHandler(this.print_btn_Click);
+            // 
+            // printDialog1
+            // 
+            this.printDialog1.UseEXDialog = true;
+            // 
             // ConsultScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -489,6 +507,7 @@
             this.Name = "ConsultScreen";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ConsultScreen";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ConsultScreen_FormClosing);
             this.Load += new System.EventHandler(this.ConsultScreen_Load);
             this.ResizeBegin += new System.EventHandler(this.ConsultScreen_ResizeBegin);
             this.ResizeEnd += new System.EventHandler(this.ConsultScreen_ResizeEnd);
@@ -543,5 +562,7 @@
         private System.Windows.Forms.Label tag_returns_label;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label displaying_condition_label;
+        private System.Windows.Forms.Button print_btn;
+        private System.Windows.Forms.PrintDialog printDialog1;
     }
 }

@@ -16,7 +16,7 @@ namespace LanguageProject
     public partial class ConsultScreen : Form
     {
         List<string> list_of_diseases = new List<string>();
-        
+
         int current_form_height;
         int current_textbox_height;
         private int checkPrint;
@@ -30,7 +30,7 @@ namespace LanguageProject
             list_of_diseases = diseases;
             searchbox_consult_screen.Text = disease;
             assign_autocomplete();
-           // symbol_list_logic();
+            // symbol_list_logic();
 
             //pull summary data about disease
             get_disease_summary(disease);
@@ -38,7 +38,7 @@ namespace LanguageProject
             this.consult_screen_search_result_textbox.DragDrop += new DragEventHandler(this.consult_screen_search_result_textbox_DragDrop);
         }
 
-       
+
         public void update_lists(List<string> diseases)
         {
             list_of_diseases = diseases;
@@ -50,8 +50,8 @@ namespace LanguageProject
             InitializeComponent();
             this.CenterToScreen();
             //list_of_diseases = diseases;
-           
-          //  symbol_list_logic();
+
+            //  symbol_list_logic();
             this.consult_screen_search_result_textbox.DragDrop += new DragEventHandler(this.consult_screen_search_result_textbox_DragDrop);
             update_lists(diseases);
             assign_autocomplete();
@@ -166,7 +166,7 @@ namespace LanguageProject
 
             int number_images_return = tagged_images.Count();
 
-            tag_returns_label.Text = "Images Found: "+number_images_return;
+            tag_returns_label.Text = "Images Found: " + number_images_return;
 
             Console.WriteLine("tagged image length: " + number_images_return);
 
@@ -191,7 +191,7 @@ namespace LanguageProject
 
             // select Simple_Summary from language_simplification.diseases where Name = "Diabetes";
 
-            string get_disease_summary = "select * from diseases where Name = '" + disease + "';" ;
+            string get_disease_summary = "select * from diseases where Name = '" + disease + "';";
             ConnectDB newConn = new ConnectDB();
             MySqlConnection conn = newConn.connect_db();
             MySqlCommand command = new MySqlCommand(get_disease_summary, conn);
@@ -222,7 +222,7 @@ namespace LanguageProject
 
                     content = sr.ReadToEnd();
 
-                   
+
                 }
                 Console.WriteLine("Reading into content for selected condition");
                 consult_screen_search_result_textbox.Rtf = content;
@@ -337,7 +337,7 @@ namespace LanguageProject
 
                 }
             }
-            
+
 
 
         }
@@ -364,11 +364,11 @@ namespace LanguageProject
                 Console.WriteLine("added to dictionary");
                 return true;
             }
-            
+
 
         }
 
-        
+
 
 
 
@@ -378,7 +378,7 @@ namespace LanguageProject
             string summary_text = current_summary_text;
             string text_to_add = new_text;
 
-            
+
 
             try
             {
@@ -410,14 +410,14 @@ namespace LanguageProject
 
 
 
-            
+
         }
 
         private void add_new_summary_btn_Click(object sender, EventArgs e)
         {
             NewDisease newDisease = new NewDisease(this);
             newDisease.Show();
-           // this.Close();
+            // this.Close();
         }
 
         private void display_summary_fullscreen_btn_Click(object sender, EventArgs e)
@@ -433,23 +433,23 @@ namespace LanguageProject
             // current_form_height = this.Size.Height;
             // current_textbox_height = consult_screen_search_result_textbox.Height;
 
-            
+
         }
 
         private void ConsultScreen_ResizeEnd(object sender, EventArgs e)
         {
-           // int change = this.Size.Height - current_form_height;
+            // int change = this.Size.Height - current_form_height;
 
-           // consult_screen_search_result_textbox.Height += change;
+            // consult_screen_search_result_textbox.Height += change;
 
-          //  Console.WriteLine("form height change : " + change);
+            //  Console.WriteLine("form height change : " + change);
         }
 
         private void consult_screen_search_result_textbox_SizeChanged(object sender, EventArgs e)
         {
-           // current_form_height = this.Size.Height;
+            // current_form_height = this.Size.Height;
 
-            
+
         }
 
         private void print_summary_btn_Click(object sender, EventArgs e)
@@ -462,8 +462,8 @@ namespace LanguageProject
             checkPrint = 0;
             printPreviewDialog1.ShowDialog();
 
-            
-           
+
+
         }
 
 
@@ -514,7 +514,7 @@ namespace LanguageProject
             ToolTip tt2 = new ToolTip();
             tt2.SetToolTip(searchbox_consult_screen, "Search for a condition, with an already created simplified summary, in this searchbox.");
             //not working
-            
+
         }
 
         private void confirm_search_result_btn_MouseHover(object sender, EventArgs e)
@@ -523,13 +523,13 @@ namespace LanguageProject
             tt1.SetToolTip(confirm_search_result_btn, "This button confirms you are happy with the summary and will send it to be printed.");
         }
 
-       
+
 
         private void menuItem5_Click(object sender, EventArgs e)
         {
             NewDisease newDisease = new NewDisease(this);
             newDisease.Show();
-           // this.Close();
+            // this.Close();
         }
 
         private void add_external_image_menu_item_Click(object sender, EventArgs e)
@@ -540,13 +540,13 @@ namespace LanguageProject
 
         private void about_menu_item_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Developed By: Ryan Burrett." +"  "+"Email: rburrett@dundee.ac.uk with any questions/issues. ", "About", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            DialogResult result = MessageBox.Show("Developed By: Ryan Burrett." + "  " + "Email: rburrett@dundee.ac.uk with any questions/issues. ", "About", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
         }
 
         private void printDocument1_BeginPrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
-             checkPrint = 0;
+            checkPrint = 0;
         }
 
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
@@ -554,14 +554,14 @@ namespace LanguageProject
             // Print the content of RichTextBox. Store the last character printed.
             checkPrint = consult_screen_search_result_textbox.Print(checkPrint, consult_screen_search_result_textbox.TextLength, e);
 
-            
+
 
             // Check for more pages
             if (checkPrint < consult_screen_search_result_textbox.TextLength)
                 e.HasMorePages = true;
             else
                 e.HasMorePages = false;
-            
+
         }
 
         private void print_selected_btn_Click(object sender, EventArgs e)
@@ -570,19 +570,19 @@ namespace LanguageProject
             if (ready_4_print_listview.SelectedItems.Count > 0)
             {
                 var item = ready_4_print_listview.SelectedItems[0].Text;
-              
+
                 Console.WriteLine(item);
-                
+
                 //get condition summary from dictionary using name
 
                 if (dictionary_conditions.TryGetValue(item, out string summary))
                 {
                     //assign it to an invisible rtb
 
-                    
+
 
                     print_waiting_zone_rtb.Rtf = summary;
-                   // Console.WriteLine(summary);
+                    // Console.WriteLine(summary);
                 }
             }
 
@@ -591,7 +591,7 @@ namespace LanguageProject
             checkPrint = 0;
             printPreviewDialog2.ShowDialog();
 
-            
+
         }
 
         private void print_selected_document_BeginPrint(object sender, System.Drawing.Printing.PrintEventArgs e)
@@ -631,14 +631,14 @@ namespace LanguageProject
 
                 if (dictionary_conditions.TryGetValue(item, out string summary))
                 {
-                    
+
 
 
 
                     consult_screen_search_result_textbox.Rtf = summary;
                     displaying_condition_label.Text = "Displaying Condition: " + item;
 
-                   // Console.WriteLine(summary);
+                    // Console.WriteLine(summary);
                 }
             }
 
@@ -649,17 +649,17 @@ namespace LanguageProject
             if (tag_search_groupbox.Visible == false)
             {
                 tag_search_groupbox.Visible = true;
-                
+
                 consult_screen_search_result_textbox.ReadOnly = false;
                 edit_btn_flash_timer.Stop();
                 edit_btn.BackColor = Color.PaleGreen;
                 edit_btn.Text = "Edit Active";
-                
+
             }
             else
             {
                 tag_search_groupbox.Visible = false;
-                
+
                 consult_screen_search_result_textbox.ReadOnly = true;
                 edit_btn.BackColor = Color.IndianRed;
                 edit_btn.Text = "Edit Inactive";
@@ -722,6 +722,17 @@ namespace LanguageProject
 
 
             }
+        }
+
+        private void print_btn_Click(object sender, EventArgs e)
+        {
+            if (printDialog1.ShowDialog() == DialogResult.OK)
+                printDocument1.Print();
+        }
+
+        private void ConsultScreen_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

@@ -54,17 +54,33 @@ namespace LanguageProject
 
             //get current text in search box
             string search = start_screen_searchbox.Text;
-            if (list_of_diseases.Contains(search))
+            bool found = false;
+            foreach (string disease in list_of_diseases) {
+                if
+                ( string.Equals(search, disease, StringComparison.OrdinalIgnoreCase))
+                {
+                    found = true;
+                    break;
+                }
+                
+
+            }
+            
+            if (found == false)
             {
+                
+                
+                 Console.WriteLine("invalid");
+                 MessageBox.Show("Not Valid Search, Please match search with an autocomplete suggestion.", "Not valid Search", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                
+            }
+ 
+            
                 ConsultScreen newCounsult = new ConsultScreen(search, list_of_diseases);
                 newCounsult.Show();
                 this.Hide();
-            }
-            else
-            {
-                Console.WriteLine("invalid");
-                MessageBox.Show("Not Valid Search, Please match search with an autocomplete suggestion.", "Not valid Search", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
+            
+           
             
 
         }

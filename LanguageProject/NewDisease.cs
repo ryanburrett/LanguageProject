@@ -16,14 +16,27 @@ namespace LanguageProject
     public partial class NewDisease : Form
     {
         string text;
+        private ConsultScreen consult_instance;
 
-        public NewDisease()
+        public NewDisease(ConsultScreen consult_instance)
         {
             InitializeComponent();
             this.CenterToScreen();
            // symbol_list_logic();
             this.summary_txtbox.DragDrop += new DragEventHandler(this.summary_txtbox_DragDrop);
             assign_autocomplete();
+            this.consult_instance = consult_instance;
+            consult_instance.Hide();
+        }
+
+        public NewDisease()
+        {
+            InitializeComponent();
+            this.CenterToScreen();
+            // symbol_list_logic();
+            this.summary_txtbox.DragDrop += new DragEventHandler(this.summary_txtbox_DragDrop);
+            assign_autocomplete();
+            
         }
 
         private void assign_autocomplete()
@@ -112,6 +125,8 @@ namespace LanguageProject
                 if (dr == DialogResult.OK)
                 {
                     write_to_db();
+                    consult_instance.Show();
+                    this.Close();
                 }
             }
 
@@ -207,9 +222,11 @@ namespace LanguageProject
 
             list_of_diseases = list.return_list();
 
-          
-            ConsultScreen consult = new ConsultScreen(list_of_diseases);
-            consult.Show();
+            consult_instance.Show();
+            consult_instance.update_lists(list_of_diseases);
+            
+          //  ConsultScreen consult = new ConsultScreen(list_of_diseases);
+          //  consult.Show();
         }
 
         private void cancel_btn_Click(object sender, EventArgs e)

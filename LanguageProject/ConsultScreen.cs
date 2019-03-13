@@ -39,15 +39,22 @@ namespace LanguageProject
         }
 
        
+        public void update_lists(List<string> diseases)
+        {
+            list_of_diseases = diseases;
+            assign_autocomplete();
+        }
 
         public ConsultScreen(List<string> diseases)
         {
             InitializeComponent();
             this.CenterToScreen();
-            list_of_diseases = diseases;
-            assign_autocomplete();
+            //list_of_diseases = diseases;
+           
           //  symbol_list_logic();
             this.consult_screen_search_result_textbox.DragDrop += new DragEventHandler(this.consult_screen_search_result_textbox_DragDrop);
+            update_lists(diseases);
+            assign_autocomplete();
         }
 
         private void symbol_list_logic()
@@ -408,9 +415,9 @@ namespace LanguageProject
 
         private void add_new_summary_btn_Click(object sender, EventArgs e)
         {
-            NewDisease newDisease = new NewDisease();
+            NewDisease newDisease = new NewDisease(this);
             newDisease.Show();
-            this.Close();
+           // this.Close();
         }
 
         private void display_summary_fullscreen_btn_Click(object sender, EventArgs e)
@@ -520,9 +527,9 @@ namespace LanguageProject
 
         private void menuItem5_Click(object sender, EventArgs e)
         {
-            NewDisease newDisease = new NewDisease();
+            NewDisease newDisease = new NewDisease(this);
             newDisease.Show();
-            this.Close();
+           // this.Close();
         }
 
         private void add_external_image_menu_item_Click(object sender, EventArgs e)

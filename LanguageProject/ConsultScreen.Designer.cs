@@ -66,10 +66,10 @@
             this.tag_search_autobox = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.print_btn = new System.Windows.Forms.Button();
             this.edit_btn_flash_timer = new System.Windows.Forms.Timer(this.components);
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.displaying_condition_label = new System.Windows.Forms.Label();
-            this.print_btn = new System.Windows.Forms.Button();
             this.printDialog1 = new System.Windows.Forms.PrintDialog();
             this.tag_search_groupbox.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -371,14 +371,17 @@
             // edit_btn
             // 
             this.edit_btn.BackColor = System.Drawing.Color.IndianRed;
-            this.edit_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.edit_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.edit_btn.Location = new System.Drawing.Point(816, 170);
             this.edit_btn.Name = "edit_btn";
-            this.edit_btn.Size = new System.Drawing.Size(111, 31);
+            this.edit_btn.Size = new System.Drawing.Size(136, 31);
             this.edit_btn.TabIndex = 28;
-            this.edit_btn.Text = "Edit Inactive";
+            this.edit_btn.Text = "Click to Enable Edit";
             this.edit_btn.UseVisualStyleBackColor = false;
             this.edit_btn.Click += new System.EventHandler(this.edit_btn_Click);
+            this.edit_btn.MouseEnter += new System.EventHandler(this.edit_btn_MouseEnter);
+            this.edit_btn.MouseLeave += new System.EventHandler(this.edit_btn_MouseLeave);
+            this.edit_btn.MouseHover += new System.EventHandler(this.edit_btn_MouseHover);
             // 
             // tag_search_groupbox
             // 
@@ -442,6 +445,17 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Finished Summaries";
             // 
+            // print_btn
+            // 
+            this.print_btn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.print_btn.Location = new System.Drawing.Point(6, 89);
+            this.print_btn.Name = "print_btn";
+            this.print_btn.Size = new System.Drawing.Size(85, 23);
+            this.print_btn.TabIndex = 28;
+            this.print_btn.Text = "Print Selected";
+            this.print_btn.UseVisualStyleBackColor = true;
+            this.print_btn.Click += new System.EventHandler(this.print_btn_Click);
+            // 
             // edit_btn_flash_timer
             // 
             this.edit_btn_flash_timer.Enabled = true;
@@ -468,17 +482,6 @@
             this.displaying_condition_label.Size = new System.Drawing.Size(105, 13);
             this.displaying_condition_label.TabIndex = 33;
             this.displaying_condition_label.Text = "Displaying Condition:";
-            // 
-            // print_btn
-            // 
-            this.print_btn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.print_btn.Location = new System.Drawing.Point(6, 89);
-            this.print_btn.Name = "print_btn";
-            this.print_btn.Size = new System.Drawing.Size(85, 23);
-            this.print_btn.TabIndex = 28;
-            this.print_btn.Text = "Print Selected";
-            this.print_btn.UseVisualStyleBackColor = true;
-            this.print_btn.Click += new System.EventHandler(this.print_btn_Click);
             // 
             // printDialog1
             // 

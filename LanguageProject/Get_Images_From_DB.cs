@@ -117,11 +117,13 @@ namespace LanguageProject
                     }
                     catch (Exception)
                     {
+                        MessageBox.Show("ERROR WHILE TRYING TO CAST TO BYTE ARRAY FROM SQL READER", "Not valid", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
-                        
+
+
                     }
-                        
-                    
+
+
 
 
                 }

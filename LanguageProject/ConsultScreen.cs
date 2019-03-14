@@ -17,8 +17,7 @@ namespace LanguageProject
     {
         List<string> list_of_diseases = new List<string>();
 
-        int current_form_height;
-        int current_textbox_height;
+        
         private int checkPrint;
         Dictionary<string, string> dictionary_conditions = new Dictionary<string, string>();
 
@@ -113,7 +112,7 @@ namespace LanguageProject
         {
             //send that tag search away ayy
             //search for any images that have that tag 
-
+            tag_search_btn.Enabled = false;
             string search_term = tag_search_autobox.Text;
             List<Image> tagged_images = new List<Image>();
 
@@ -173,7 +172,7 @@ namespace LanguageProject
             //clear current listview elements and display matches to tag search 
 
             // symbol_listview.Clear();
-
+            tag_search_btn.Enabled = true;
 
         }
 
@@ -269,7 +268,7 @@ namespace LanguageProject
 
         private void confirm_search_result_btn_Click(object sender, EventArgs e)
         {
-            if (consult_screen_search_result_textbox.Text != "")
+            if (consult_screen_search_result_textbox.Text != "" && displaying_condition_label.Text.Length > 21)
             {
                 DialogResult result = MessageBox.Show("Confirm you happy with the summary and it is ready to print?", "Confirm Simplified Summary", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
 
@@ -653,7 +652,7 @@ namespace LanguageProject
                 consult_screen_search_result_textbox.ReadOnly = false;
                 edit_btn_flash_timer.Stop();
                 edit_btn.BackColor = Color.PaleGreen;
-                edit_btn.Text = "Edit Active";
+                edit_btn.Text = "Click to Disable Edit";
 
             }
             else
@@ -662,7 +661,7 @@ namespace LanguageProject
 
                 consult_screen_search_result_textbox.ReadOnly = true;
                 edit_btn.BackColor = Color.IndianRed;
-                edit_btn.Text = "Edit Inactive";
+                edit_btn.Text = "Click to Enable Edit";
             }
         }
 
@@ -727,12 +726,34 @@ namespace LanguageProject
         private void print_btn_Click(object sender, EventArgs e)
         {
             if (printDialog1.ShowDialog() == DialogResult.OK)
-                printDocument1.Print();
+                print_selected_document.Print();
         }
 
         private void ConsultScreen_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void edit_btn_MouseHover(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void edit_btn_MouseLeave(object sender, EventArgs e)
+        {
+            if (edit_btn.Text.Equals("Click to Enable Edit"))
+            {
+                edit_btn.BackColor = Color.IndianRed;
+            }
+            else
+            {
+                edit_btn.BackColor = Color.PaleGreen;
+            }
+        }
+
+        private void edit_btn_MouseEnter(object sender, EventArgs e)
+        {
+            edit_btn.BackColor = Color.LightGray;
         }
     }
 }

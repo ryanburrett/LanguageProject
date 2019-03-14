@@ -298,6 +298,7 @@ namespace LanguageProject
 
         private void tag_search_btn_Click(object sender, EventArgs e)
         {
+            tag_search_btn.Enabled = false;
             //send that tag search away ayy
             //search for any images that have that tag 
 
@@ -359,9 +360,9 @@ namespace LanguageProject
 
             //clear current listview elements and display matches to tag search 
 
-           // symbol_listview.Clear();
+            // symbol_listview.Clear();
 
-
+            tag_search_btn.Enabled = true;
         }
 
        
@@ -435,16 +436,18 @@ namespace LanguageProject
 
         private void summary_txtbox_MouseHover(object sender, EventArgs e)
         {
-            ToolTip tt1 = new ToolTip();
-            tt1.SetToolTip(summary_txtbox, "This is where to type the simplified summary explaining the condition. You are encouraged to use images and keep difficult words to a minimum.");
-
+           // ToolTip tt1 = new ToolTip();
+           // tt1.SetToolTip(summary_txtbox, "This is where to type the simplified summary explaining the condition. You are encouraged to use images and keep difficult words to a minimum.");
+           //buggs out when images are placed, gets called too much 
         }
 
         private void tag_search_autobox_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyData == Keys.Enter)
             {
+                tag_search_btn.Enabled = false;
                 tag_search_btn_Click(sender, e);
+                
             }
         }
 

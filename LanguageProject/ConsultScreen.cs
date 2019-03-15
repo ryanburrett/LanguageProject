@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows;
 using System.IO;
+using System.Net.Mail;
 
 namespace LanguageProject
 {
@@ -754,6 +755,35 @@ namespace LanguageProject
         private void edit_btn_MouseEnter(object sender, EventArgs e)
         {
             edit_btn.BackColor = Color.LightGray;
+        }
+
+        private void email_summary_btn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                MailMessage mail = new MailMessage();
+                SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
+                mail.From = new MailAddress("ryanburrett17@gmail.com");
+                mail.To.Add("ryanburrett17@gmail.com");
+                mail.Subject = "Test Mail - 1";
+                mail.Body = "mail with attachment";
+
+             //   Attachment attachment;
+              //  attachment = new System.Net.Mail.Attachment("your attachment file");
+               // mail.Attachments.Add(attachment);
+
+                SmtpServer.Port = 587;
+                SmtpServer.Credentials = new System.Net.NetworkCredential("username", "password");
+
+                SmtpServer.EnableSsl = true;
+                
+                SmtpServer.Send(mail);
+                MessageBox.Show("mail Send");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
         }
     }
 }

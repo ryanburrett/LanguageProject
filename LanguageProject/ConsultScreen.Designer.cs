@@ -71,6 +71,7 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.displaying_condition_label = new System.Windows.Forms.Label();
             this.printDialog1 = new System.Windows.Forms.PrintDialog();
+            this.email_summary_btn = new System.Windows.Forms.Button();
             this.tag_search_groupbox.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -487,12 +488,24 @@
             // 
             this.printDialog1.UseEXDialog = true;
             // 
+            // email_summary_btn
+            // 
+            this.email_summary_btn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.email_summary_btn.Location = new System.Drawing.Point(560, 43);
+            this.email_summary_btn.Name = "email_summary_btn";
+            this.email_summary_btn.Size = new System.Drawing.Size(85, 23);
+            this.email_summary_btn.TabIndex = 29;
+            this.email_summary_btn.Text = "Email Selected";
+            this.email_summary_btn.UseVisualStyleBackColor = true;
+            this.email_summary_btn.Click += new System.EventHandler(this.email_summary_btn_Click);
+            // 
             // ConsultScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.SlateGray;
             this.ClientSize = new System.Drawing.Size(1114, 690);
+            this.Controls.Add(this.email_summary_btn);
             this.Controls.Add(this.displaying_condition_label);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox1);
@@ -567,5 +580,6 @@
         private System.Windows.Forms.Label displaying_condition_label;
         private System.Windows.Forms.Button print_btn;
         private System.Windows.Forms.PrintDialog printDialog1;
+        private System.Windows.Forms.Button email_summary_btn;
     }
 }

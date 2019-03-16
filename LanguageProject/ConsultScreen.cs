@@ -11,6 +11,9 @@ using System.Windows.Forms;
 using System.Windows;
 using System.IO;
 using System.Net.Mail;
+using MailKit;
+using MailKit.Security;
+using MimeKit;
 
 namespace LanguageProject
 {
@@ -452,19 +455,7 @@ namespace LanguageProject
 
         }
 
-        private void print_summary_btn_Click(object sender, EventArgs e)
-        {
-            // PrintDialog pd = new PrintDialog();
-
-            //  pd.ShowDialog();
-
-            // pageSetupDialog1.ShowDialog();
-            checkPrint = 0;
-            printPreviewDialog1.ShowDialog();
-
-
-
-        }
+        
 
 
         private void symbol_listview_ItemDrag(object sender, ItemDragEventArgs e)
@@ -544,29 +535,12 @@ namespace LanguageProject
 
         }
 
-        private void printDocument1_BeginPrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+       
+
+        
+
+        private void get_selected_condition_ready_4_print()
         {
-            checkPrint = 0;
-        }
-
-        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
-        {
-            // Print the content of RichTextBox. Store the last character printed.
-            checkPrint = consult_screen_search_result_textbox.Print(checkPrint, consult_screen_search_result_textbox.TextLength, e);
-
-
-
-            // Check for more pages
-            if (checkPrint < consult_screen_search_result_textbox.TextLength)
-                e.HasMorePages = true;
-            else
-                e.HasMorePages = false;
-
-        }
-
-        private void print_selected_btn_Click(object sender, EventArgs e)
-        {
-
             if (ready_4_print_listview.SelectedItems.Count > 0)
             {
                 var item = ready_4_print_listview.SelectedItems[0].Text;
@@ -585,10 +559,15 @@ namespace LanguageProject
                     // Console.WriteLine(summary);
                 }
             }
+        }
+
+        private void print_selected_btn_Click(object sender, EventArgs e)
+        {
 
 
+            get_selected_condition_ready_4_print();
 
-            checkPrint = 0;
+            
             printPreviewDialog2.ShowDialog();
 
 
@@ -596,13 +575,18 @@ namespace LanguageProject
 
         private void print_selected_document_BeginPrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
+            
             checkPrint = 0;
         }
 
         private void print_selected_document_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
+            //tweaked code from https://support.microsoft.com/en-us/help/812425
 
+
+            get_selected_condition_ready_4_print();
             // Print the content of RichTextBox. Store the last character printed.
+            
             checkPrint = print_waiting_zone_rtb.Print(checkPrint, print_waiting_zone_rtb.TextLength, e);
 
 
@@ -613,7 +597,7 @@ namespace LanguageProject
             else
                 e.HasMorePages = false;
 
-
+            checkPrint = 0;
 
 
 
@@ -759,30 +743,49 @@ namespace LanguageProject
 
         private void email_summary_btn_Click(object sender, EventArgs e)
         {
-            try
+            //validation needed also
+            // needs to get selected item from list and then get the summary rtf and print it to file and then add pdf file to attachment 
+            
+
+            int port = 587;
+            string host = "smtp.gmail.com";
+            string username = "ryanburrett17@gmail.com";
+            string password = "letcjayhsmlsnfdh";
+            string mailFrom = "ryanburrett17@gmail.com";
+
+            // user inputted string
+            string mailTo = "rburrett@dundee.ac.uk";
+
+            string mailTitle = "Testtitle";
+            string mailMessage = @" 
+This message is being generated and sent from an Honours Project called Langauage Simplification for care settings.
+                           
+Developed by Ryan Burrett (rburrett@dundee.ac.uk) 
+Advised by John Arnott (j.l.arnott@dundee.ac.uk)
+
+
+Attached is the condition summary that you requested. It is in PDF format.
+
+
+                             ";
+
+            var message = new MimeMessage();
+            message.From.Add(new MailboxAddress(mailFrom));
+            message.To.Add(new MailboxAddress(mailTo));
+            message.Subject = mailTitle;
+            message.Body = new TextPart("plain") { Text = mailMessage  };
+
+
+
+            //sending email
+            //note that it is using the mailkit smtpclient and NOT .net smtpclient as it is deprecated 
+            using (var client = new MailKit.Net.Smtp.SmtpClient())
             {
-                MailMessage mail = new MailMessage();
-                SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
-                mail.From = new MailAddress("ryanburrett17@gmail.com");
-                mail.To.Add("ryanburrett17@gmail.com");
-                mail.Subject = "Test Mail - 1";
-                mail.Body = "mail with attachment";
+                client.Connect(host, port, SecureSocketOptions.StartTls);
+                client.Authenticate(username, password);
 
-             //   Attachment attachment;
-              //  attachment = new System.Net.Mail.Attachment("your attachment file");
-               // mail.Attachments.Add(attachment);
-
-                SmtpServer.Port = 587;
-                SmtpServer.Credentials = new System.Net.NetworkCredential("username", "password");
-
-                SmtpServer.EnableSsl = true;
-                
-                SmtpServer.Send(mail);
-                MessageBox.Show("mail Send");
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.ToString());
+                client.Send(message);
+                client.Disconnect(true);
             }
         }
     }

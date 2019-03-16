@@ -31,7 +31,6 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConsultScreen));
             this.confirm_search_result_btn = new System.Windows.Forms.Button();
-            this.print_summary_btn = new System.Windows.Forms.Button();
             this.display_summary_fullscreen_btn = new System.Windows.Forms.Button();
             this.add_new_summary_btn = new System.Windows.Forms.Button();
             this.consult_search_btn = new System.Windows.Forms.Button();
@@ -41,7 +40,6 @@
             this.symbol_listview = new System.Windows.Forms.ListView();
             this.label5 = new System.Windows.Forms.Label();
             this.tag_search_btn = new System.Windows.Forms.Button();
-            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.mainMenu1 = new System.Windows.Forms.MainMenu(this.components);
             this.menuItem1 = new System.Windows.Forms.MenuItem();
             this.new_summary_menu_item = new System.Windows.Forms.MenuItem();
@@ -50,12 +48,10 @@
             this.about_menu_item = new System.Windows.Forms.MenuItem();
             this.Tutorial_menu_item = new System.Windows.Forms.MenuItem();
             this.consult_screen_search_result_textbox = new RichTextBoxPrintCtrl.RichTextBoxPrintCtrl();
-            this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
-            this.pageSetupDialog1 = new System.Windows.Forms.PageSetupDialog();
             this.ready_4_print_listview = new System.Windows.Forms.ListView();
             this.condition_column = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.status_column = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.print_selected_btn = new System.Windows.Forms.Button();
+            this.print_preview_btn = new System.Windows.Forms.Button();
             this.print_selected_document = new System.Drawing.Printing.PrintDocument();
             this.printPreviewDialog2 = new System.Windows.Forms.PrintPreviewDialog();
             this.print_waiting_zone_rtb = new RichTextBoxPrintCtrl.RichTextBoxPrintCtrl();
@@ -91,23 +87,6 @@
             this.confirm_search_result_btn.UseVisualStyleBackColor = false;
             this.confirm_search_result_btn.Click += new System.EventHandler(this.confirm_search_result_btn_Click);
             this.confirm_search_result_btn.MouseHover += new System.EventHandler(this.confirm_search_result_btn_MouseHover);
-            // 
-            // print_summary_btn
-            // 
-            this.print_summary_btn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.print_summary_btn.BackColor = System.Drawing.SystemColors.Control;
-            this.print_summary_btn.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.print_summary_btn.FlatAppearance.BorderSize = 2;
-            this.print_summary_btn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.print_summary_btn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray;
-            this.print_summary_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.print_summary_btn.Location = new System.Drawing.Point(264, 8);
-            this.print_summary_btn.Name = "print_summary_btn";
-            this.print_summary_btn.Size = new System.Drawing.Size(112, 31);
-            this.print_summary_btn.TabIndex = 8;
-            this.print_summary_btn.Text = "Print";
-            this.print_summary_btn.UseVisualStyleBackColor = false;
-            this.print_summary_btn.Click += new System.EventHandler(this.print_summary_btn_Click);
             // 
             // display_summary_fullscreen_btn
             // 
@@ -217,10 +196,6 @@
             this.tag_search_btn.UseVisualStyleBackColor = true;
             this.tag_search_btn.Click += new System.EventHandler(this.tag_search_btn_Click);
             // 
-            // printDocument1
-            // 
-            this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
-            // 
             // mainMenu1
             // 
             this.mainMenu1.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
@@ -281,21 +256,6 @@
             this.consult_screen_search_result_textbox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.consult_screen_search_result_textbox_KeyDown);
             this.consult_screen_search_result_textbox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.consult_screen_search_result_textbox_KeyPress);
             // 
-            // printPreviewDialog1
-            // 
-            this.printPreviewDialog1.AutoScrollMargin = new System.Drawing.Size(0, 0);
-            this.printPreviewDialog1.AutoScrollMinSize = new System.Drawing.Size(0, 0);
-            this.printPreviewDialog1.ClientSize = new System.Drawing.Size(400, 300);
-            this.printPreviewDialog1.Document = this.printDocument1;
-            this.printPreviewDialog1.Enabled = true;
-            this.printPreviewDialog1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog1.Icon")));
-            this.printPreviewDialog1.Name = "printPreviewDialog1";
-            this.printPreviewDialog1.Visible = false;
-            // 
-            // pageSetupDialog1
-            // 
-            this.pageSetupDialog1.Document = this.printDocument1;
-            // 
             // ready_4_print_listview
             // 
             this.ready_4_print_listview.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -323,16 +283,16 @@
             this.status_column.Text = "Status";
             this.status_column.Width = 98;
             // 
-            // print_selected_btn
+            // print_preview_btn
             // 
-            this.print_selected_btn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.print_selected_btn.Location = new System.Drawing.Point(6, 31);
-            this.print_selected_btn.Name = "print_selected_btn";
-            this.print_selected_btn.Size = new System.Drawing.Size(85, 23);
-            this.print_selected_btn.TabIndex = 25;
-            this.print_selected_btn.Text = "Print Preview";
-            this.print_selected_btn.UseVisualStyleBackColor = true;
-            this.print_selected_btn.Click += new System.EventHandler(this.print_selected_btn_Click);
+            this.print_preview_btn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.print_preview_btn.Location = new System.Drawing.Point(6, 31);
+            this.print_preview_btn.Name = "print_preview_btn";
+            this.print_preview_btn.Size = new System.Drawing.Size(85, 23);
+            this.print_preview_btn.TabIndex = 25;
+            this.print_preview_btn.Text = "Print Preview";
+            this.print_preview_btn.UseVisualStyleBackColor = true;
+            this.print_preview_btn.Click += new System.EventHandler(this.print_selected_btn_Click);
             // 
             // print_selected_document
             // 
@@ -390,7 +350,6 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tag_search_groupbox.Controls.Add(this.tag_returns_label);
             this.tag_search_groupbox.Controls.Add(this.tag_search_autobox);
-            this.tag_search_groupbox.Controls.Add(this.print_summary_btn);
             this.tag_search_groupbox.Controls.Add(this.tag_search_btn);
             this.tag_search_groupbox.Controls.Add(this.label5);
             this.tag_search_groupbox.Controls.Add(this.symbol_listview);
@@ -436,7 +395,7 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.print_btn);
-            this.groupBox1.Controls.Add(this.print_selected_btn);
+            this.groupBox1.Controls.Add(this.print_preview_btn);
             this.groupBox1.Controls.Add(this.view_selected_btn);
             this.groupBox1.Controls.Add(this.ready_4_print_listview);
             this.groupBox1.Location = new System.Drawing.Point(651, 12);
@@ -540,7 +499,6 @@
 
         #endregion
         private System.Windows.Forms.Button confirm_search_result_btn;
-        private System.Windows.Forms.Button print_summary_btn;
         private System.Windows.Forms.Button display_summary_fullscreen_btn;
         private System.Windows.Forms.Button add_new_summary_btn;
         private System.Windows.Forms.Button consult_search_btn;
@@ -550,7 +508,6 @@
         private System.Windows.Forms.ListView symbol_listview;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button tag_search_btn;
-        private System.Drawing.Printing.PrintDocument printDocument1;
         private System.Windows.Forms.MainMenu mainMenu1;
         private System.Windows.Forms.MenuItem menuItem1;
         private System.Windows.Forms.MenuItem new_summary_menu_item;
@@ -559,12 +516,10 @@
         private System.Windows.Forms.MenuItem about_menu_item;
         private System.Windows.Forms.MenuItem Tutorial_menu_item;
         private RichTextBoxPrintCtrl.RichTextBoxPrintCtrl consult_screen_search_result_textbox;
-        private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
-        private System.Windows.Forms.PageSetupDialog pageSetupDialog1;
         private System.Windows.Forms.ListView ready_4_print_listview;
         private System.Windows.Forms.ColumnHeader condition_column;
         private System.Windows.Forms.ColumnHeader status_column;
-        private System.Windows.Forms.Button print_selected_btn;
+        private System.Windows.Forms.Button print_preview_btn;
         private System.Drawing.Printing.PrintDocument print_selected_document;
         private System.Windows.Forms.PrintPreviewDialog printPreviewDialog2;
         private RichTextBoxPrintCtrl.RichTextBoxPrintCtrl print_waiting_zone_rtb;

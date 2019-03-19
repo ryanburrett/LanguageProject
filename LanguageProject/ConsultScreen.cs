@@ -272,6 +272,7 @@ namespace LanguageProject
 
         private void confirm_search_result_btn_Click(object sender, EventArgs e)
         {
+            // checking label length to make sure it displaying a condtion in the summary rtb. better ways to do this more gracefully 
             if (consult_screen_search_result_textbox.Text != "" && displaying_condition_label.Text.Length > 21)
             {
                 DialogResult result = MessageBox.Show("Confirm you happy with the summary and it is ready to print?", "Confirm Simplified Summary", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
@@ -309,14 +310,17 @@ namespace LanguageProject
                     string full_label_text = displaying_condition_label.Text;
 
                     string[] word = full_label_text.Split(':');
-
+                    string rdy_to_print = "Ready to Print";
                     //always is 1st index with current implementation 
                     string current_condition_name = word[1];
                     current_condition_name = current_condition_name.Substring(1);
 
 
-                    var text = new string[] { current_condition_name, "Ready to Print" };
-                    var add = new ListViewItem(text);
+                    var text = new string[] { current_condition_name, rdy_to_print };
+                   
+                    var new_condition_submitted_2_listview = new ListViewItem(text);
+
+                    new_condition_submitted_2_listview.SubItems[1].Name = "Status";
 
 
                     bool add_text_to_list = manage_dictionary(current_condition_name, consult_screen_search_result_textbox.Rtf);
@@ -327,13 +331,27 @@ namespace LanguageProject
 
 
 
-                        ready_4_print_listview.Items.Add(add);
-
+                        ready_4_print_listview.Items.Add(new_condition_submitted_2_listview);
+                        
                     }
                     else
                     {
-                        Console.WriteLine("i got a match with an already placed condtion");
+                        // this resets the status message to 'ready to print' if the user submits the same condition and the status message was changed
+                        //use case for this would be the user printed the summary. wasnt happy with something, changed the summary, resubmitted to print it again. this tells user its 
+                        //ready for print again.
 
+
+                        //needs fixed 
+                        ready_4_print_listview.Items.RemoveByKey(current_condition_name);
+
+                      //  int a = ready_4_print_listview.Items.IndexOfKey(current_condition_name);
+
+                        ready_4_print_listview.Items.Add(new_condition_submitted_2_listview);
+                        //    string a = ready_4_print_listview.Items[current_condition_name].SubItems["Status"].Text;
+
+
+                        Console.WriteLine("i got a match with an already placed condtion");
+                        
                     }
 
 
@@ -363,7 +381,7 @@ namespace LanguageProject
             {
 
                 dictionary_conditions.Add(condition_name, condition_summary);
-                //needs validation to make sure 2 conditions cannot be added twice
+                
                 Console.WriteLine("added to dictionary");
                 return true;
             }
@@ -541,8 +559,7 @@ namespace LanguageProject
 
         private void get_selected_condition_ready_4_print()
         {
-            if (ready_4_print_listview.SelectedItems.Count > 0)
-            {
+            
                 var item = ready_4_print_listview.SelectedItems[0].Text;
 
                 Console.WriteLine(item);
@@ -558,18 +575,19 @@ namespace LanguageProject
                     print_waiting_zone_rtb.Rtf = summary;
                     // Console.WriteLine(summary);
                 }
-            }
         }
-
+        
+        //print preview, needs rename 
         private void print_selected_btn_Click(object sender, EventArgs e)
         {
+            if (ready_4_print_listview.SelectedItems.Count > 0)
+            {
+
+                get_selected_condition_ready_4_print();
 
 
-            get_selected_condition_ready_4_print();
-
-            
-            printPreviewDialog2.ShowDialog();
-
+                printPreviewDialog2.ShowDialog();
+            }
 
         }
 
@@ -583,7 +601,7 @@ namespace LanguageProject
         {
             //tweaked code from https://support.microsoft.com/en-us/help/812425
 
-
+            // get summary ready for print 
             get_selected_condition_ready_4_print();
             // Print the content of RichTextBox. Store the last character printed.
             
@@ -599,7 +617,17 @@ namespace LanguageProject
 
             checkPrint = 0;
 
+            //update ready_4_print listview status 
 
+
+
+        }
+
+        private void update_ready_4_print_listview()
+        {
+            string printed_txt = "Printed";
+            ready_4_print_listview.SelectedItems[0].SubItems[1].Text = printed_txt;
+           // Console.WriteLine(item);
 
 
         }
@@ -710,8 +738,11 @@ namespace LanguageProject
 
         private void print_btn_Click(object sender, EventArgs e)
         {
-            if (printDialog1.ShowDialog() == DialogResult.OK)
-                print_selected_document.Print();
+            if (ready_4_print_listview.SelectedItems.Count > 0)
+            {
+                if (printDialog1.ShowDialog() == DialogResult.OK)
+                    print_selected_document.Print();
+            }
         }
 
         private void ConsultScreen_FormClosing(object sender, FormClosingEventArgs e)
@@ -745,7 +776,23 @@ namespace LanguageProject
         {
             //validation needed also
             // needs to get selected item from list and then get the summary rtf and print it to file and then add pdf file to attachment 
-            
+            string email_address = "";
+
+            using (Send_Email dialogForm = new Send_Email())
+            {
+                DialogResult dr = dialogForm.ShowDialog(this);
+                if (dr == DialogResult.OK)
+                {
+                    email_address = dialogForm.get_email();
+                }
+                dialogForm.Close();
+            }
+
+
+            string file_location = format_condtion_for_email();
+
+
+
 
             int port = 587;
             string host = "smtp.gmail.com";
@@ -754,31 +801,49 @@ namespace LanguageProject
             string mailFrom = "ryanburrett17@gmail.com";
 
             // user inputted string
-            string mailTo = "rburrett@dundee.ac.uk";
+            string mailTo = email_address;
 
-            string mailTitle = "Testtitle";
-            string mailMessage = @" 
+            string mailTitle = "Condition Summary";
+            var mailMessage = new TextPart("plain") { Text= @" 
 This message is being generated and sent from an Honours Project called Langauage Simplification for care settings.
                            
 Developed by Ryan Burrett (rburrett@dundee.ac.uk) 
 Advised by John Arnott (j.l.arnott@dundee.ac.uk)
 
 
-Attached is the condition summary that you requested. It is in PDF format.
+Attached is the condition summary that you requested. It is in RichTextFormat.
 
 
-                             ";
+                             " };
+
+
+
+            // get attachment for condition
+            var attachment = new MimePart("text/rtf", "text/rtf")
+            {
+                Content = new MimeContent(File.OpenRead(file_location)),
+                ContentDisposition = new ContentDisposition(ContentDisposition.Attachment),
+                ContentTransferEncoding = ContentEncoding.Base64,
+                FileName = Path.GetFileName(file_location)
+            };
+
+
+            var multipart = new Multipart("mixed");
+            multipart.Add(mailMessage);
+            multipart.Add(attachment);
+
 
             var message = new MimeMessage();
             message.From.Add(new MailboxAddress(mailFrom));
             message.To.Add(new MailboxAddress(mailTo));
             message.Subject = mailTitle;
-            message.Body = new TextPart("plain") { Text = mailMessage  };
+            message.Body = multipart;
 
 
 
             //sending email
-            //note that it is using the mailkit smtpclient and NOT .net smtpclient as it is deprecated 
+            //note that it is using the mailkit smtpclient and NOT .net smtpclient as it is deprecated per microsofts recommendation
+            
             using (var client = new MailKit.Net.Smtp.SmtpClient())
             {
                 client.Connect(host, port, SecureSocketOptions.StartTls);
@@ -787,6 +852,41 @@ Attached is the condition summary that you requested. It is in PDF format.
                 client.Send(message);
                 client.Disconnect(true);
             }
+        }
+
+        private string format_condtion_for_email()
+        {
+            string filepath = ".rtf";
+            if (ready_4_print_listview.SelectedItems.Count > 0)
+            {
+                var item = ready_4_print_listview.SelectedItems[0].Text;
+                Console.WriteLine(item);
+
+                filepath = item + ".rtf";
+
+                //get condition summary from dictionary using name
+
+                if (dictionary_conditions.TryGetValue(item, out string summary))
+                {
+
+
+                    using (StreamWriter writetext = new StreamWriter(filepath))
+                    {
+                        writetext.WriteLine(summary);
+                    }
+
+
+
+
+                }
+            }
+
+            return filepath;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            update_ready_4_print_listview();
         }
     }
 }

@@ -68,6 +68,7 @@
             this.displaying_condition_label = new System.Windows.Forms.Label();
             this.printDialog1 = new System.Windows.Forms.PrintDialog();
             this.email_summary_btn = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.tag_search_groupbox.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -286,7 +287,7 @@
             // print_preview_btn
             // 
             this.print_preview_btn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.print_preview_btn.Location = new System.Drawing.Point(6, 31);
+            this.print_preview_btn.Location = new System.Drawing.Point(6, 42);
             this.print_preview_btn.Name = "print_preview_btn";
             this.print_preview_btn.Size = new System.Drawing.Size(85, 23);
             this.print_preview_btn.TabIndex = 25;
@@ -321,7 +322,7 @@
             // view_selected_btn
             // 
             this.view_selected_btn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.view_selected_btn.Location = new System.Drawing.Point(6, 60);
+            this.view_selected_btn.Location = new System.Drawing.Point(6, 65);
             this.view_selected_btn.Name = "view_selected_btn";
             this.view_selected_btn.Size = new System.Drawing.Size(85, 23);
             this.view_selected_btn.TabIndex = 27;
@@ -394,6 +395,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.email_summary_btn);
             this.groupBox1.Controls.Add(this.print_btn);
             this.groupBox1.Controls.Add(this.print_preview_btn);
             this.groupBox1.Controls.Add(this.view_selected_btn);
@@ -408,7 +410,7 @@
             // print_btn
             // 
             this.print_btn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.print_btn.Location = new System.Drawing.Point(6, 89);
+            this.print_btn.Location = new System.Drawing.Point(6, 19);
             this.print_btn.Name = "print_btn";
             this.print_btn.Size = new System.Drawing.Size(85, 23);
             this.print_btn.TabIndex = 28;
@@ -450,7 +452,7 @@
             // email_summary_btn
             // 
             this.email_summary_btn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.email_summary_btn.Location = new System.Drawing.Point(560, 43);
+            this.email_summary_btn.Location = new System.Drawing.Point(6, 88);
             this.email_summary_btn.Name = "email_summary_btn";
             this.email_summary_btn.Size = new System.Drawing.Size(85, 23);
             this.email_summary_btn.TabIndex = 29;
@@ -458,13 +460,23 @@
             this.email_summary_btn.UseVisualStyleBackColor = true;
             this.email_summary_btn.Click += new System.EventHandler(this.email_summary_btn_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(577, 56);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 34;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // ConsultScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.SlateGray;
             this.ClientSize = new System.Drawing.Size(1114, 690);
-            this.Controls.Add(this.email_summary_btn);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.displaying_condition_label);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox1);
@@ -536,5 +548,6 @@
         private System.Windows.Forms.Button print_btn;
         private System.Windows.Forms.PrintDialog printDialog1;
         private System.Windows.Forms.Button email_summary_btn;
+        private System.Windows.Forms.Button button1;
     }
 }

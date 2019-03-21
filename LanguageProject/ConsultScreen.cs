@@ -14,6 +14,7 @@ using System.Net.Mail;
 using MailKit;
 using MailKit.Security;
 using MimeKit;
+using System.Threading;
 
 namespace LanguageProject
 {
@@ -713,10 +714,7 @@ namespace LanguageProject
             }
         }
 
-        private void edit_btn_flash_timer_Tick(object sender, EventArgs e)
-        {
-
-        }
+     
 
         private void consult_screen_search_result_textbox_KeyDown(object sender, KeyEventArgs e)
         {
@@ -747,6 +745,12 @@ namespace LanguageProject
 
         private void ConsultScreen_FormClosing(object sender, FormClosingEventArgs e)
         {
+
+            //should wait for tasks to complete here
+            //better method than this 
+            this.Hide();
+            Thread.Sleep(20000);
+
             Application.Exit();
         }
 
@@ -772,28 +776,66 @@ namespace LanguageProject
             edit_btn.BackColor = Color.LightGray;
         }
 
-        private void email_summary_btn_Click(object sender, EventArgs e)
+        private string get_email_address_from_other_form()
+        {
+            string email_address = "";
+            using (Send_Email dialogForm = new Send_Email())
+            {
+                DialogResult send_btn = dialogForm.ShowDialog(this);
+                if (send_btn == DialogResult.OK)
+                {
+                   email_address = dialogForm.get_email();
+                }
+                else
+                {
+                    return null;
+                }
+
+            }
+
+            return email_address;
+        }
+
+        private async void email_summary_btn_Click(object sender, EventArgs e)
         {
             //validation needed also
             // needs to get selected item from list and then get the summary rtf and print it to file and then add pdf file to attachment 
-            string email_address = "";
 
-            using (Send_Email dialogForm = new Send_Email())
+            if (ready_4_print_listview.SelectedItems.Count > 0)
             {
-                DialogResult dr = dialogForm.ShowDialog(this);
-                if (dr == DialogResult.OK)
+
+
+                string file_location = null;
+                string email_address = get_email_address_from_other_form();
+
+                if (email_address != null)
                 {
-                    email_address = dialogForm.get_email();
+
+                    file_location = format_condtion_for_email();
+
+
+
+
+                    if (file_location != null)
+                    {
+
+                        // running asynchronously as the sending of the email stopped program responsiveness until email was completely sent
+                        // Task.WaitAll(send_email_task);
+                        await Task.Factory.StartNew(() => send_email(email_address, file_location));
+                    }
                 }
-                dialogForm.Close();
+
+
+
+
             }
 
+        }
 
-            string file_location = format_condtion_for_email();
-
-
-
-
+        private void send_email(string email, string file_loc)
+        {
+            Stream file_stream = File.OpenRead(file_loc);
+            
             int port = 587;
             string host = "smtp.gmail.com";
             string username = "ryanburrett17@gmail.com";
@@ -801,17 +843,17 @@ namespace LanguageProject
             string mailFrom = "ryanburrett17@gmail.com";
 
             // user inputted string
-            string mailTo = email_address;
+            string mailTo = email;
 
             string mailTitle = "Condition Summary";
-            var mailMessage = new TextPart("plain") { Text= @" 
+            var mailMessage = new TextPart("plain") { Text = @" 
 This message is being generated and sent from an Honours Project called Langauage Simplification for care settings.
                            
 Developed by Ryan Burrett (rburrett@dundee.ac.uk) 
 Advised by John Arnott (j.l.arnott@dundee.ac.uk)
 
 
-Attached is the condition summary that you requested. It is in RichTextFormat.
+Attached is the condition summary that you requested. It is in Rich Text Format.
 
 
                              " };
@@ -821,10 +863,10 @@ Attached is the condition summary that you requested. It is in RichTextFormat.
             // get attachment for condition
             var attachment = new MimePart("text/rtf", "text/rtf")
             {
-                Content = new MimeContent(File.OpenRead(file_location)),
+                Content = new MimeContent(file_stream),
                 ContentDisposition = new ContentDisposition(ContentDisposition.Attachment),
                 ContentTransferEncoding = ContentEncoding.Base64,
-                FileName = Path.GetFileName(file_location)
+                FileName = Path.GetFileName(file_loc)
             };
 
 
@@ -832,27 +874,44 @@ Attached is the condition summary that you requested. It is in RichTextFormat.
             multipart.Add(mailMessage);
             multipart.Add(attachment);
 
+            try
+            {
+                var message = new MimeMessage();
+                message.From.Add(new MailboxAddress(mailFrom));
+                message.To.Add(new MailboxAddress(mailTo));
+                message.Subject = mailTitle;
+                message.Body = multipart;
 
-            var message = new MimeMessage();
-            message.From.Add(new MailboxAddress(mailFrom));
-            message.To.Add(new MailboxAddress(mailTo));
-            message.Subject = mailTitle;
-            message.Body = multipart;
-
-
+            
 
             //sending email
             //note that it is using the mailkit smtpclient and NOT .net smtpclient as it is deprecated per microsofts recommendation
             
-            using (var client = new MailKit.Net.Smtp.SmtpClient())
-            {
-                client.Connect(host, port, SecureSocketOptions.StartTls);
-                client.Authenticate(username, password);
+                using (var client = new MailKit.Net.Smtp.SmtpClient())
+                {
+                    client.Connect(host, port, SecureSocketOptions.StartTls);
+                    client.Authenticate(username, password);
 
-                client.Send(message);
-                client.Disconnect(true);
+
+                    
+
+                    client.Send(message);
+                    MessageBox.Show("Successfully Sent Email", "Success", MessageBoxButtons.OK,MessageBoxIcon.None);
+                    client.Disconnect(true);
+                    file_stream.Dispose();
+                    File.Delete(file_loc);
+                }
             }
+            catch (Exception)
+            {
+                MessageBox.Show("There was an error when trying to send the email, try again.", "Email Error", MessageBoxButtons.OK,MessageBoxIcon.Error);
+                file_stream.Dispose();
+                File.Delete(file_loc);
+            }
+           
         }
+        
+        
 
         private string format_condtion_for_email()
         {
@@ -862,18 +921,41 @@ Attached is the condition summary that you requested. It is in RichTextFormat.
                 var item = ready_4_print_listview.SelectedItems[0].Text;
                 Console.WriteLine(item);
 
-                filepath = item + ".rtf";
+                int random_num = generate_random_num();
+
+                filepath = item + random_num + ".rtf";
 
                 //get condition summary from dictionary using name
 
                 if (dictionary_conditions.TryGetValue(item, out string summary))
                 {
 
-
-                    using (StreamWriter writetext = new StreamWriter(filepath))
+                    try
                     {
-                        writetext.WriteLine(summary);
+                        //writing condition to file which is then read back into program when sending email
+                        
+                        using (StreamWriter writetext = new StreamWriter(filepath))
+                        {
+                            writetext.WriteLine(summary);
+                        }
                     }
+                    catch (Exception)
+                    {
+
+                        //if someone emails the same condition before the first email is fully sent, this catch is triggered as the file is currently being used by email
+                        //method while sending
+                        //as a result a new file isn't written
+                        //after the first task is completed, the email method actually reuses the first file that was created as data point
+                        //due to the nature of how fast someone has to resend an email to trigger this catch
+                        // functionally it actually does not change. the user will recieve 2 emails that are identical in condition summary content.
+                        // no user can change a condition fast enough to resend an email and have this catch trigger
+                        //
+                        // future work would look at an elegant solution in code for this edge use case but for now I am leaving it 
+                        Console.WriteLine("Resent the same condtion too fast, unable to write ");
+                      
+                        //issue was solved by allowing it to access different files by generating random file names 
+                    }
+                    
 
 
 
@@ -882,6 +964,20 @@ Attached is the condition summary that you requested. It is in RichTextFormat.
             }
 
             return filepath;
+        }
+
+        private int generate_random_num()
+        {
+
+            Random rnd = new Random(Guid.NewGuid().GetHashCode());
+            int random_num1 = rnd.Next();
+            int random_num2 = rnd.Next();
+
+            int rand = random_num1 + random_num2;
+
+
+
+            return rand;
         }
 
         private void button1_Click(object sender, EventArgs e)

@@ -32,6 +32,7 @@
             this.email_send_button = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.invalid_email_label = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // user_input_email_txtbox
@@ -73,12 +74,25 @@
             this.checkBox1.Text = "Include Text-2-Speech File";
             this.checkBox1.UseVisualStyleBackColor = true;
             // 
+            // invalid_email_label
+            // 
+            this.invalid_email_label.AutoSize = true;
+            this.invalid_email_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.invalid_email_label.ForeColor = System.Drawing.Color.Red;
+            this.invalid_email_label.Location = new System.Drawing.Point(102, 131);
+            this.invalid_email_label.Name = "invalid_email_label";
+            this.invalid_email_label.Size = new System.Drawing.Size(157, 15);
+            this.invalid_email_label.TabIndex = 4;
+            this.invalid_email_label.Text = "Invalid Email, Try Again";
+            this.invalid_email_label.Visible = false;
+            // 
             // Send_Email
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightBlue;
             this.ClientSize = new System.Drawing.Size(473, 259);
+            this.Controls.Add(this.invalid_email_label);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.email_send_button);
@@ -97,5 +111,6 @@
         private System.Windows.Forms.Button email_send_button;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.Label invalid_email_label;
     }
 }

@@ -57,10 +57,12 @@
             this.hard_word_label = new System.Windows.Forms.Label();
             this.images_found_label = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txt2speech_btn = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txt2speech_btn)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -287,6 +289,7 @@
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.txt2speech_btn);
             this.groupBox1.Controls.Add(this.groupBox3);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label1);
@@ -355,6 +358,19 @@
             this.groupBox2.TabIndex = 36;
             this.groupBox2.TabStop = false;
             // 
+            // txt2speech_btn
+            // 
+            this.txt2speech_btn.BackColor = System.Drawing.Color.Transparent;
+            this.txt2speech_btn.BackgroundImage = global::LanguageProject.Properties.Resources.txt2speech;
+            this.txt2speech_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.txt2speech_btn.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.txt2speech_btn.Location = new System.Drawing.Point(25, 310);
+            this.txt2speech_btn.Name = "txt2speech_btn";
+            this.txt2speech_btn.Size = new System.Drawing.Size(100, 50);
+            this.txt2speech_btn.TabIndex = 38;
+            this.txt2speech_btn.TabStop = false;
+            this.txt2speech_btn.Click += new System.EventHandler(this.txt2speech_btn_Click);
+            // 
             // NewDisease
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -377,6 +393,7 @@
             this.groupBox3.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txt2speech_btn)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -412,5 +429,6 @@
         private System.Windows.Forms.Label summary_word_count_lebel;
         private System.Windows.Forms.Label hard_word_label;
         private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.PictureBox txt2speech_btn;
     }
 }

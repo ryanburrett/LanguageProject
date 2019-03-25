@@ -984,5 +984,10 @@ Attached is the condition summary that you requested. It is in Rich Text Format.
         {
             update_ready_4_print_listview();
         }
+
+        private void txt2speech_btn_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

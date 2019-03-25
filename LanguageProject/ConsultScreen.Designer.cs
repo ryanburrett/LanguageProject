@@ -69,10 +69,12 @@
             this.displaying_condition_label = new System.Windows.Forms.Label();
             this.printDialog1 = new System.Windows.Forms.PrintDialog();
             this.button1 = new System.Windows.Forms.Button();
+            this.txt2speech_btn = new System.Windows.Forms.PictureBox();
             this.tag_search_groupbox.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txt2speech_btn)).BeginInit();
             this.SuspendLayout();
             // 
             // confirm_search_result_btn
@@ -160,7 +162,7 @@
             this.panel1.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.panel1.AutoSize = true;
             this.panel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.panel1.Location = new System.Drawing.Point(83, 66);
+            this.panel1.Location = new System.Drawing.Point(83, 55);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(0, 0);
             this.panel1.TabIndex = 14;
@@ -171,7 +173,7 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.symbol_listview.Location = new System.Drawing.Point(8, 82);
             this.symbol_listview.Name = "symbol_listview";
-            this.symbol_listview.Size = new System.Drawing.Size(250, 354);
+            this.symbol_listview.Size = new System.Drawing.Size(250, 333);
             this.symbol_listview.TabIndex = 19;
             this.symbol_listview.UseCompatibleStateImageBehavior = false;
             this.symbol_listview.ItemDrag += new System.Windows.Forms.ItemDragEventHandler(this.symbol_listview_ItemDrag);
@@ -250,7 +252,7 @@
             this.consult_screen_search_result_textbox.Location = new System.Drawing.Point(3, 16);
             this.consult_screen_search_result_textbox.Name = "consult_screen_search_result_textbox";
             this.consult_screen_search_result_textbox.ReadOnly = true;
-            this.consult_screen_search_result_textbox.Size = new System.Drawing.Size(781, 489);
+            this.consult_screen_search_result_textbox.Size = new System.Drawing.Size(781, 468);
             this.consult_screen_search_result_textbox.TabIndex = 0;
             this.consult_screen_search_result_textbox.Text = "";
             this.consult_screen_search_result_textbox.TextChanged += new System.EventHandler(this.consult_screen_search_result_textbox_TextChanged);
@@ -356,7 +358,7 @@
             this.tag_search_groupbox.Controls.Add(this.symbol_listview);
             this.tag_search_groupbox.Location = new System.Drawing.Point(816, 207);
             this.tag_search_groupbox.Name = "tag_search_groupbox";
-            this.tag_search_groupbox.Size = new System.Drawing.Size(269, 442);
+            this.tag_search_groupbox.Size = new System.Drawing.Size(269, 421);
             this.tag_search_groupbox.TabIndex = 29;
             this.tag_search_groupbox.TabStop = false;
             this.tag_search_groupbox.Visible = false;
@@ -388,7 +390,7 @@
             this.groupBox2.Controls.Add(this.consult_screen_search_result_textbox);
             this.groupBox2.Location = new System.Drawing.Point(12, 141);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(787, 508);
+            this.groupBox2.Size = new System.Drawing.Size(787, 487);
             this.groupBox2.TabIndex = 30;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Summary";
@@ -469,12 +471,26 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // txt2speech_btn
+            // 
+            this.txt2speech_btn.BackColor = System.Drawing.Color.Transparent;
+            this.txt2speech_btn.BackgroundImage = global::LanguageProject.Properties.Resources.txt2speech;
+            this.txt2speech_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.txt2speech_btn.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.txt2speech_btn.Location = new System.Drawing.Point(535, 91);
+            this.txt2speech_btn.Name = "txt2speech_btn";
+            this.txt2speech_btn.Size = new System.Drawing.Size(100, 50);
+            this.txt2speech_btn.TabIndex = 35;
+            this.txt2speech_btn.TabStop = false;
+            this.txt2speech_btn.Click += new System.EventHandler(this.txt2speech_btn_Click);
+            // 
             // ConsultScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.SlateGray;
-            this.ClientSize = new System.Drawing.Size(1114, 690);
+            this.ClientSize = new System.Drawing.Size(1114, 669);
+            this.Controls.Add(this.txt2speech_btn);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.displaying_condition_label);
             this.Controls.Add(this.groupBox3);
@@ -503,6 +519,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txt2speech_btn)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -548,5 +565,6 @@
         private System.Windows.Forms.PrintDialog printDialog1;
         private System.Windows.Forms.Button email_summary_btn;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.PictureBox txt2speech_btn;
     }
 }

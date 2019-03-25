@@ -462,5 +462,26 @@ namespace LanguageProject
         {
 
         }
+
+        private void txt2speech_btn_Click(object sender, EventArgs e)
+        {
+            //get text from rtb and send query away to google api,
+            //store returned result in database 
+            // 
+
+            store_txt_2_speech();
+            play_txt_2_speech();
+        }
+
+        private void play_txt_2_speech()
+        {
+            Get_Text_2_Speech test = new Get_Text_2_Speech();
+            test.speech_test();
+        }
+
+        private void store_txt_2_speech()
+        {
+            
+        }
     }
 }

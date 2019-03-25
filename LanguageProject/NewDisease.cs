@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -125,7 +126,8 @@ namespace LanguageProject
                 if (dr == DialogResult.OK)
                 {
                     write_to_db();
-                    // this crashes if consult screen has not been opened, going directly to creating a new summary will crash
+                   
+
 
                     if (consult_instance == null)
                     {
@@ -150,7 +152,7 @@ namespace LanguageProject
         {
             string condition = condition_txtbox.Text;
             string summary = summary_txtbox.Rtf;
-
+            byte[] audio = get_txt_2_speech_from_api();
             byte[] bytes = Encoding.Default.GetBytes(summary);
             
 
@@ -172,9 +174,10 @@ namespace LanguageProject
             ConnectDB newConn = new ConnectDB();
             MySqlConnection conn = newConn.connect_db();
             MySqlCommand command = new MySqlCommand();
-            command.CommandText = "INSERT INTO diseases (Name, Simple_Summary) VALUES (@condition, @summary)";
+            command.CommandText = "INSERT INTO diseases (Name, Simple_Summary,audio_description) VALUES (@condition, @summary,@audio)";
             command.Parameters.AddWithValue("condition", condition);
             command.Parameters.AddWithValue("summary", bytes);
+            command.Parameters.AddWithValue("audio", audio);
             command.Connection = conn;
 
             conn.Open();
@@ -469,19 +472,29 @@ namespace LanguageProject
             //store returned result in database 
             // 
 
-            store_txt_2_speech();
-            play_txt_2_speech();
-        }
-
-        private void play_txt_2_speech()
-        {
-            Get_Text_2_Speech test = new Get_Text_2_Speech();
-            test.speech_test();
-        }
-
-        private void store_txt_2_speech()
-        {
+            byte[] sound_2_play = get_txt_2_speech_from_api();
+            play_txt_2_speech(sound_2_play);
             
+        }
+
+       
+
+        private byte[] get_txt_2_speech_from_api()
+        {
+            Get_Text_2_Speech api_request = new Get_Text_2_Speech();
+            byte[] sound = api_request.send_api_speech_request(summary_txtbox.Text);
+
+            return sound;
+        }
+
+        private void play_txt_2_speech(byte[] sound)
+        {
+            using (MemoryStream ms = new MemoryStream(sound))
+            {
+
+                SoundPlayer player = new SoundPlayer(ms);
+                player.Play();
+            }
         }
     }
 }

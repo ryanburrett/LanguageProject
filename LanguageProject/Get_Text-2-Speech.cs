@@ -4,7 +4,9 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Google.Apis.Auth.OAuth2;
 using Google.Cloud.TextToSpeech.V1;
+using Grpc.Auth;
 
 namespace LanguageProject
 {
@@ -13,18 +15,25 @@ namespace LanguageProject
         //will get text 2 speech from database for specified parameter 
         // will take only conditoin name parameter 
 
-        public void speech_test()
+        public byte[] send_api_speech_request(string text_2_send)
         {
 
-            Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS", "C:\\Users\\Ryan\\Downloads\\SQL Database-7634c32e98e1.json");
+            
+
+
+            var credential = GoogleCredential.FromFile("SQLDatabase-7634c32e98e1.json").CreateScoped(TextToSpeechClient.DefaultScopes);
+            var channel = new Grpc.Core.Channel(TextToSpeechClient.DefaultEndpoint.ToString(),credential.ToChannelCredentials());
+
 
             // Instantiate a client
-            TextToSpeechClient client = TextToSpeechClient.Create();
+            TextToSpeechClient client = TextToSpeechClient.Create(channel);
+
+            
 
             // Set the text input to be synthesized.
             SynthesisInput input = new SynthesisInput
             {
-                Text = "Hello, World! My Name is Ryan Burrett"
+                Text = text_2_send
             };
 
             // Build the voice request, select the language code ("en-US"),
@@ -32,13 +41,13 @@ namespace LanguageProject
             VoiceSelectionParams voice = new VoiceSelectionParams
             {
                 LanguageCode = "en-US",
-                SsmlGender = SsmlVoiceGender.Neutral
+                SsmlGender = SsmlVoiceGender.Female
             };
 
             // Select the type of audio file you want returned.
             AudioConfig config = new AudioConfig
             {
-                AudioEncoding = AudioEncoding.Mp3
+                AudioEncoding = AudioEncoding.Linear16
             };
 
             // Perform the Text-to-Speech request, passing the text input
@@ -50,15 +59,10 @@ namespace LanguageProject
                 AudioConfig = config
             });
 
-            // Write the binary AudioContent of the response to an MP3 file.
-            using (Stream output = File.Create("sample.mp3"))
-            {
-                response.AudioContent.WriteTo(output);
-                Console.WriteLine($"Audio content written to file 'sample.mp3'");
-            }
-        
+          
 
-
+            byte[] sounds = response.AudioContent.ToByteArray();
+            return sounds;
 
     }
     }

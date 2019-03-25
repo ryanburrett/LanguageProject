@@ -971,13 +971,11 @@ Attached is the condition summary that you requested. It is in Rich Text Format.
 
             Random rnd = new Random(Guid.NewGuid().GetHashCode());
             int random_num1 = rnd.Next();
-            int random_num2 = rnd.Next();
-
-            int rand = random_num1 + random_num2;
+           
 
 
 
-            return rand;
+            return random_num1;
         }
 
         private void button1_Click(object sender, EventArgs e)

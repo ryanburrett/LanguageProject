@@ -111,7 +111,7 @@ namespace LanguageProject
         private void submit_btn_Click(object sender, EventArgs e)
         {
             //check for valid input in text boxes
-
+            uploading_label.Text = "Uploading Summary...";
             if (condition_txtbox.Text == "" || summary_txtbox.Text == "")
             {
                 // invalid
@@ -125,11 +125,12 @@ namespace LanguageProject
 
                 if (dr == DialogResult.OK)
                 {
+                    
                     write_to_db();
                    
 
 
-                    if (consult_instance == null)
+                   /* if (consult_instance == null)
                     {
                         List<string> conditions = new List<string>();
                         List_of_Diseases list = new List_of_Diseases();
@@ -140,16 +141,18 @@ namespace LanguageProject
                     else
                     {
                         consult_instance.Show();
-                    }
+                    }*/
                         this.Close();
                     
                 }
             }
+            uploading_label.Text = "";
 
         }
 
         private void write_to_db()
         {
+            uploading_label.Text = "Uploading Summary...";
             string condition = condition_txtbox.Text;
             string summary = summary_txtbox.Rtf;
             byte[] audio = get_txt_2_speech_from_api();
@@ -186,7 +189,7 @@ namespace LanguageProject
             conn.Close();
 
             MessageBox.Show("Summary Uploaded Successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.None);
-
+            uploading_label.Text = "";
 
 
         }

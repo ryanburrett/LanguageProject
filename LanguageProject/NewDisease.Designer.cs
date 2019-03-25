@@ -58,6 +58,7 @@
             this.images_found_label = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.txt2speech_btn = new System.Windows.Forms.PictureBox();
+            this.uploading_label = new System.Windows.Forms.Label();
             this.tableLayoutPanel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -289,6 +290,7 @@
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.uploading_label);
             this.groupBox1.Controls.Add(this.txt2speech_btn);
             this.groupBox1.Controls.Add(this.groupBox3);
             this.groupBox1.Controls.Add(this.label3);
@@ -371,6 +373,15 @@
             this.txt2speech_btn.TabStop = false;
             this.txt2speech_btn.Click += new System.EventHandler(this.txt2speech_btn_Click);
             // 
+            // uploading_label
+            // 
+            this.uploading_label.AutoSize = true;
+            this.uploading_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uploading_label.Location = new System.Drawing.Point(551, 29);
+            this.uploading_label.Name = "uploading_label";
+            this.uploading_label.Size = new System.Drawing.Size(0, 33);
+            this.uploading_label.TabIndex = 39;
+            // 
             // NewDisease
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -430,5 +441,6 @@
         private System.Windows.Forms.Label hard_word_label;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.PictureBox txt2speech_btn;
+        private System.Windows.Forms.Label uploading_label;
     }
 }

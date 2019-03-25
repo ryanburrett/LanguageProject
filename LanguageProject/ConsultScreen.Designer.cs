@@ -70,6 +70,7 @@
             this.printDialog1 = new System.Windows.Forms.PrintDialog();
             this.button1 = new System.Windows.Forms.Button();
             this.txt2speech_btn = new System.Windows.Forms.PictureBox();
+            this.speech_label = new System.Windows.Forms.Label();
             this.tag_search_groupbox.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -463,7 +464,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(577, 56);
+            this.button1.Location = new System.Drawing.Point(576, 32);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 34;
@@ -477,12 +478,20 @@
             this.txt2speech_btn.BackgroundImage = global::LanguageProject.Properties.Resources.txt2speech;
             this.txt2speech_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.txt2speech_btn.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.txt2speech_btn.Location = new System.Drawing.Point(535, 91);
+            this.txt2speech_btn.Location = new System.Drawing.Point(545, 75);
             this.txt2speech_btn.Name = "txt2speech_btn";
             this.txt2speech_btn.Size = new System.Drawing.Size(100, 50);
             this.txt2speech_btn.TabIndex = 35;
             this.txt2speech_btn.TabStop = false;
             this.txt2speech_btn.Click += new System.EventHandler(this.txt2speech_btn_Click);
+            // 
+            // speech_label
+            // 
+            this.speech_label.AutoSize = true;
+            this.speech_label.Location = new System.Drawing.Point(573, 128);
+            this.speech_label.Name = "speech_label";
+            this.speech_label.Size = new System.Drawing.Size(0, 13);
+            this.speech_label.TabIndex = 1;
             // 
             // ConsultScreen
             // 
@@ -490,6 +499,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.SlateGray;
             this.ClientSize = new System.Drawing.Size(1114, 669);
+            this.Controls.Add(this.speech_label);
             this.Controls.Add(this.txt2speech_btn);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.displaying_condition_label);
@@ -566,5 +576,6 @@
         private System.Windows.Forms.Button email_summary_btn;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.PictureBox txt2speech_btn;
+        private System.Windows.Forms.Label speech_label;
     }
 }

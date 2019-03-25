@@ -15,6 +15,7 @@ using MailKit;
 using MailKit.Security;
 using MimeKit;
 using System.Threading;
+using System.Media;
 
 namespace LanguageProject
 {
@@ -23,10 +24,11 @@ namespace LanguageProject
         List<string> list_of_diseases = new List<string>();
 
         
-        private int checkPrint;
+        int checkPrint;
         Dictionary<string, string> dictionary_conditions = new Dictionary<string, string>();
 
-
+        public string GLOBAL_current_condition_displayed { get; private set; }
+        public bool GLOBAL_send_api_request_FLAG = false;
         public ConsultScreen(string disease, List<string> diseases)
         {
             InitializeComponent();
@@ -38,10 +40,30 @@ namespace LanguageProject
 
             //pull summary data about disease
             get_disease_summary(disease);
+            GLOBAL_current_condition_displayed = disease;
+            
+            
             displaying_condition_label.Text = "Displaying Condition: " + disease;
             this.consult_screen_search_result_textbox.DragDrop += new DragEventHandler(this.consult_screen_search_result_textbox_DragDrop);
         }
 
+        private void play_audio_stream(byte[] audio)
+        {
+            if (audio != null)
+            {
+                using (MemoryStream ms = new MemoryStream(audio))
+                {
+
+                    SoundPlayer player = new SoundPlayer(ms);
+                    player.Play();
+                    
+                }
+            }
+            else
+            {
+                Console.WriteLine("audio query returned Null");
+            }
+        }
 
         public void update_lists(List<string> diseases)
         {
@@ -189,6 +211,7 @@ namespace LanguageProject
             }
         }
 
+        
 
         public void get_disease_summary(string disease)
         {
@@ -262,6 +285,8 @@ namespace LanguageProject
             if (list_of_diseases.Contains(search))
             {
                 get_disease_summary(search);
+                GLOBAL_current_condition_displayed = search;
+                GLOBAL_send_api_request_FLAG = false;
                 displaying_condition_label.Text = "Displaying Condition: " + search;
             }
             else
@@ -315,7 +340,7 @@ namespace LanguageProject
                     //always is 1st index with current implementation 
                     string current_condition_name = word[1];
                     current_condition_name = current_condition_name.Substring(1);
-
+                    GLOBAL_current_condition_displayed = current_condition_name;
 
                     var text = new string[] { current_condition_name, rdy_to_print };
                    
@@ -650,7 +675,8 @@ namespace LanguageProject
 
                     consult_screen_search_result_textbox.Rtf = summary;
                     displaying_condition_label.Text = "Displaying Condition: " + item;
-
+                    GLOBAL_current_condition_displayed = item;
+                    
                     // Console.WriteLine(summary);
                 }
             }
@@ -659,6 +685,10 @@ namespace LanguageProject
 
         private void edit_btn_Click(object sender, EventArgs e)
         {
+            //set api request flag to true
+            // now sending live api requests to google for text 2 speech
+            GLOBAL_send_api_request_FLAG = true;
+
             if (tag_search_groupbox.Visible == false)
             {
                 tag_search_groupbox.Visible = true;
@@ -667,6 +697,7 @@ namespace LanguageProject
                 edit_btn_flash_timer.Stop();
                 edit_btn.BackColor = Color.PaleGreen;
                 edit_btn.Text = "Click to Disable Edit";
+                
 
             }
             else
@@ -681,7 +712,7 @@ namespace LanguageProject
 
         private void consult_screen_search_result_textbox_TextChanged(object sender, EventArgs e)
         {
-
+           
         }
 
         private void ConsultScreen_Load(object sender, EventArgs e)
@@ -748,8 +779,8 @@ namespace LanguageProject
 
             //should wait for tasks to complete here
             //better method than this 
-            this.Hide();
-            Thread.Sleep(20000);
+          //  this.Hide();
+          //  Thread.Sleep(20000);
 
             Application.Exit();
         }
@@ -983,9 +1014,34 @@ Attached is the condition summary that you requested. It is in Rich Text Format.
             update_ready_4_print_listview();
         }
 
+        
+
         private void txt2speech_btn_Click(object sender, EventArgs e)
         {
+            //get audio from database
+            // send current condition away from 
+            // check for api flag status. this allows an api call when the user has manually editted the condition on the consult screen
 
+            if (GLOBAL_send_api_request_FLAG == false)
+            {
+                
+                DB_Get_Audio test = new DB_Get_Audio();
+                speech_label.Text = "Loading Audio";
+                byte[] audio_array = test.get_audio_from_db(GLOBAL_current_condition_displayed);
+                speech_label.Text = "Playing...";
+                play_audio_stream(audio_array);
+            }
+            else
+            {
+                //send an api call instead 
+                Get_Text_2_Speech api_audio = new Get_Text_2_Speech();
+                speech_label.Text = "Loading Audio";
+                byte[] audio = api_audio.send_api_speech_request(consult_screen_search_result_textbox.Text);
+                speech_label.Text = "Playing...";
+                play_audio_stream(audio);
+            }
+
+            
         }
     }
 }

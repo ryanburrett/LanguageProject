@@ -133,6 +133,7 @@
     <Compile Include="ConsultScreen.Designer.cs">
       <DependentUpon>ConsultScreen.cs</DependentUpon>
     </Compile>
+    <Compile Include="DB_Get_Audio.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -147,7 +148,7 @@
     </Compile>
     <Compile Include="Get_Current_Tags.cs" />
     <Compile Include="Get_Images_From_DB.cs" />
-    <Compile Include="Get_Text-2-Speech.cs" />
+    <Compile Include="API_Get_Text-2-Speech.cs" />
     <Compile Include="InsertNewImageDB.cs">
       <SubType>Form</SubType>
     </Compile>

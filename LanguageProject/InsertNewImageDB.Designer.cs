@@ -36,8 +36,12 @@
             this.additional_tags_txtbox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.tag_search_txtbox = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // insert_btn
@@ -54,7 +58,7 @@
             // get_image_btn
             // 
             this.get_image_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.get_image_btn.Location = new System.Drawing.Point(54, 77);
+            this.get_image_btn.Location = new System.Drawing.Point(59, 116);
             this.get_image_btn.Name = "get_image_btn";
             this.get_image_btn.Size = new System.Drawing.Size(130, 73);
             this.get_image_btn.TabIndex = 1;
@@ -85,14 +89,14 @@
             // list_of_tags_checked_listbox
             // 
             this.list_of_tags_checked_listbox.FormattingEnabled = true;
-            this.list_of_tags_checked_listbox.Location = new System.Drawing.Point(804, 66);
+            this.list_of_tags_checked_listbox.Location = new System.Drawing.Point(725, 36);
             this.list_of_tags_checked_listbox.Name = "list_of_tags_checked_listbox";
             this.list_of_tags_checked_listbox.Size = new System.Drawing.Size(171, 274);
             this.list_of_tags_checked_listbox.TabIndex = 4;
             // 
             // additional_tags_txtbox
             // 
-            this.additional_tags_txtbox.Location = new System.Drawing.Point(804, 375);
+            this.additional_tags_txtbox.Location = new System.Drawing.Point(725, 362);
             this.additional_tags_txtbox.Name = "additional_tags_txtbox";
             this.additional_tags_txtbox.Size = new System.Drawing.Size(283, 20);
             this.additional_tags_txtbox.TabIndex = 5;
@@ -100,7 +104,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(564, 378);
+            this.label1.Location = new System.Drawing.Point(504, 365);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(215, 13);
             this.label1.TabIndex = 6;
@@ -109,11 +113,38 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(801, 36);
+            this.label2.Location = new System.Drawing.Point(765, 20);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(82, 13);
             this.label2.TabIndex = 7;
             this.label2.Text = "Availaible Tags:";
+            // 
+            // tag_search_txtbox
+            // 
+            this.tag_search_txtbox.Location = new System.Drawing.Point(22, 50);
+            this.tag_search_txtbox.Name = "tag_search_txtbox";
+            this.tag_search_txtbox.Size = new System.Drawing.Size(143, 20);
+            this.tag_search_txtbox.TabIndex = 8;
+            this.tag_search_txtbox.TextChanged += new System.EventHandler(this.tag_search_txtbox_TextChanged);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(19, 16);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(147, 13);
+            this.label3.TabIndex = 9;
+            this.label3.Text = "Search Tags (case sensitive):";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.tag_search_txtbox);
+            this.groupBox2.Controls.Add(this.label3);
+            this.groupBox2.Location = new System.Drawing.Point(917, 36);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(200, 100);
+            this.groupBox2.TabIndex = 10;
+            this.groupBox2.TabStop = false;
             // 
             // InsertNewImageDB
             // 
@@ -121,6 +152,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SlateGray;
             this.ClientSize = new System.Drawing.Size(1129, 582);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.additional_tags_txtbox);
@@ -132,6 +164,8 @@
             this.Text = "InsertNewImageDB";
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -147,5 +181,8 @@
         private System.Windows.Forms.TextBox additional_tags_txtbox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox tag_search_txtbox;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.GroupBox groupBox2;
     }
 }

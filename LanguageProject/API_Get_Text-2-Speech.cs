@@ -12,14 +12,14 @@ namespace LanguageProject
 {
     class Get_Text_2_Speech
     {
-        //will get text 2 speech from database for specified parameter 
-        // will take only conditoin name parameter 
+        //will get text 2 speech from api 
+        
 
         public byte[] send_api_speech_request(string text_2_send)
         {
 
             
-
+            //code taken from google tutorial on text to speech requests 
 
             var credential = GoogleCredential.FromFile("SQLDatabase-7634c32e98e1.json").CreateScoped(TextToSpeechClient.DefaultScopes);
             var channel = new Grpc.Core.Channel(TextToSpeechClient.DefaultEndpoint.ToString(),credential.ToChannelCredentials());

@@ -900,6 +900,13 @@ Attached is the condition summary that you requested. It is in Rich Text Format.
                 FileName = Path.GetFileName(file_loc)
             };
 
+            var audio_attachment = new MimePart("audio", ".wav")
+            {
+
+                //look at mimepart documentation
+
+            };
+
 
             var multipart = new Multipart("mixed");
             multipart.Add(mailMessage);
@@ -1002,10 +1009,7 @@ Attached is the condition summary that you requested. It is in Rich Text Format.
 
             Random rnd = new Random(Guid.NewGuid().GetHashCode());
             int random_num1 = rnd.Next();
-           
-
-
-
+    
             return random_num1;
         }
 
@@ -1021,19 +1025,34 @@ Attached is the condition summary that you requested. It is in Rich Text Format.
             //get audio from database
             // send current condition away from 
             // check for api flag status. this allows an api call when the user has manually editted the condition on the consult screen
-
+            //
+            //
+            // 26/03/19 The storage of audio files in the current design of the consult screen seems needless and its better to directly call api requests when refactored 
             if (GLOBAL_send_api_request_FLAG == false)
             {
-                
+                Console.WriteLine("GETTING AUDIO FROM DATABASE");
                 DB_Get_Audio test = new DB_Get_Audio();
                 speech_label.Text = "Loading Audio";
                 byte[] audio_array = test.get_audio_from_db(GLOBAL_current_condition_displayed);
-                speech_label.Text = "Playing...";
-                play_audio_stream(audio_array);
+                if (audio_array != null)
+                {
+                    speech_label.Text = "Playing...";
+                    play_audio_stream(audio_array);
+                }
+                else
+                {
+                    Console.WriteLine("API AUDIO CALLED");
+                    Get_Text_2_Speech api_audio = new Get_Text_2_Speech();
+                    speech_label.Text = "Loading Audio";
+                    byte[] audio = api_audio.send_api_speech_request(consult_screen_search_result_textbox.Text);
+                    speech_label.Text = "Playing...";
+                    play_audio_stream(audio);
+                }
             }
             else
             {
                 //send an api call instead 
+                Console.WriteLine("API AUDIO CALLED");
                 Get_Text_2_Speech api_audio = new Get_Text_2_Speech();
                 speech_label.Text = "Loading Audio";
                 byte[] audio = api_audio.send_api_speech_request(consult_screen_search_result_textbox.Text);

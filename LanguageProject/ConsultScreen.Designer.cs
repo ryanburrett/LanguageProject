@@ -83,7 +83,7 @@
             this.confirm_search_result_btn.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.confirm_search_result_btn.BackColor = System.Drawing.Color.ForestGreen;
             this.confirm_search_result_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.confirm_search_result_btn.Location = new System.Drawing.Point(388, 90);
+            this.confirm_search_result_btn.Location = new System.Drawing.Point(488, 91);
             this.confirm_search_result_btn.Name = "confirm_search_result_btn";
             this.confirm_search_result_btn.Size = new System.Drawing.Size(126, 51);
             this.confirm_search_result_btn.TabIndex = 1;
@@ -478,9 +478,9 @@
             this.txt2speech_btn.BackgroundImage = global::LanguageProject.Properties.Resources.txt2speech;
             this.txt2speech_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.txt2speech_btn.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.txt2speech_btn.Location = new System.Drawing.Point(545, 75);
+            this.txt2speech_btn.Location = new System.Drawing.Point(388, 91);
             this.txt2speech_btn.Name = "txt2speech_btn";
-            this.txt2speech_btn.Size = new System.Drawing.Size(100, 50);
+            this.txt2speech_btn.Size = new System.Drawing.Size(69, 50);
             this.txt2speech_btn.TabIndex = 35;
             this.txt2speech_btn.TabStop = false;
             this.txt2speech_btn.Click += new System.EventHandler(this.txt2speech_btn_Click);
@@ -488,7 +488,7 @@
             // speech_label
             // 
             this.speech_label.AutoSize = true;
-            this.speech_label.Location = new System.Drawing.Point(573, 128);
+            this.speech_label.Location = new System.Drawing.Point(385, 67);
             this.speech_label.Name = "speech_label";
             this.speech_label.Size = new System.Drawing.Size(0, 13);
             this.speech_label.TabIndex = 1;

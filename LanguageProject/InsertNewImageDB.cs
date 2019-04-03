@@ -25,10 +25,15 @@ namespace LanguageProject
             InitializeComponent();
             this.CenterToScreen();
             //get current tags 
-            Get_Current_Tags current_tags = new Get_Current_Tags();
-            tag_list = current_tags.get_tags();
+            get_tags_from_db();
             //set list data to checked listbox
             fill_checkedListbox();
+        }
+
+        private void get_tags_from_db()
+        {
+            Get_Current_Tags current_tags = new Get_Current_Tags();
+            tag_list = current_tags.get_tags();
         }
 
         private void fill_checkedListbox()
@@ -85,6 +90,7 @@ namespace LanguageProject
                 List<string> combined_tag_list = new List<string>();
                 combined_tag_list = selected_tags.Concat(addi_tag_list).ToList();
                 //combined_tag_list.ForEach(Console.WriteLine);
+                combined_tag_list.Sort();
                 if (combined_tag_list.Any()) {
                     DialogResult result = MessageBox.Show("Confirm you would like to add this image and tags to database", "Confirm Image Addition", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
 
@@ -150,6 +156,41 @@ namespace LanguageProject
             }
 
             
+        }
+
+        private void tag_search_txtbox_TextChanged(object sender, EventArgs e)
+        {
+
+            List<string> searched_tags = new List<string>();
+            //cl;earing tags 
+            list_of_tags_checked_listbox.Items.Clear();
+
+            //check for empty search
+            if (tag_search_txtbox.Text == "")
+            {
+                get_tags_from_db();
+                fill_checkedListbox();
+            }
+
+            string search_term = tag_search_txtbox.Text;
+
+            foreach (string tag in tag_list)
+            {
+               
+                if (tag.Contains(search_term))
+                {
+                    
+                    searched_tags.Add(tag);
+                    //replacing tags with searched tags 
+                    list_of_tags_checked_listbox.Items.Add(tag);
+                }
+            }
+
+         
+            
+            
+          
+
         }
     }
 }

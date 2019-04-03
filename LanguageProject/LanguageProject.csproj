@@ -134,6 +134,13 @@
       <DependentUpon>ConsultScreen.cs</DependentUpon>
     </Compile>
     <Compile Include="DB_Get_Audio.cs" />
+    <Compile Include="Delete_Condition.cs" />
+    <Compile Include="Edit_Condition.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Edit_Condition.Designer.cs">
+      <DependentUpon>Edit_Condition.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

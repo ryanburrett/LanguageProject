@@ -69,8 +69,9 @@
             this.displaying_condition_label = new System.Windows.Forms.Label();
             this.printDialog1 = new System.Windows.Forms.PrintDialog();
             this.button1 = new System.Windows.Forms.Button();
-            this.txt2speech_btn = new System.Windows.Forms.PictureBox();
             this.speech_label = new System.Windows.Forms.Label();
+            this.txt2speech_btn = new System.Windows.Forms.PictureBox();
+            this.menuItem3 = new System.Windows.Forms.MenuItem();
             this.tag_search_groupbox.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -163,7 +164,7 @@
             this.panel1.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.panel1.AutoSize = true;
             this.panel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.panel1.Location = new System.Drawing.Point(83, 55);
+            this.panel1.Location = new System.Drawing.Point(83, 45);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(0, 0);
             this.panel1.TabIndex = 14;
@@ -174,7 +175,7 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.symbol_listview.Location = new System.Drawing.Point(8, 82);
             this.symbol_listview.Name = "symbol_listview";
-            this.symbol_listview.Size = new System.Drawing.Size(250, 333);
+            this.symbol_listview.Size = new System.Drawing.Size(250, 312);
             this.symbol_listview.TabIndex = 19;
             this.symbol_listview.UseCompatibleStateImageBehavior = false;
             this.symbol_listview.ItemDrag += new System.Windows.Forms.ItemDragEventHandler(this.symbol_listview_ItemDrag);
@@ -211,7 +212,8 @@
             this.menuItem1.Index = 0;
             this.menuItem1.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
             this.new_summary_menu_item,
-            this.add_external_image_menu_item});
+            this.add_external_image_menu_item,
+            this.menuItem3});
             this.menuItem1.Text = "Options";
             // 
             // new_summary_menu_item
@@ -253,7 +255,7 @@
             this.consult_screen_search_result_textbox.Location = new System.Drawing.Point(3, 16);
             this.consult_screen_search_result_textbox.Name = "consult_screen_search_result_textbox";
             this.consult_screen_search_result_textbox.ReadOnly = true;
-            this.consult_screen_search_result_textbox.Size = new System.Drawing.Size(781, 468);
+            this.consult_screen_search_result_textbox.Size = new System.Drawing.Size(781, 447);
             this.consult_screen_search_result_textbox.TabIndex = 0;
             this.consult_screen_search_result_textbox.Text = "";
             this.consult_screen_search_result_textbox.TextChanged += new System.EventHandler(this.consult_screen_search_result_textbox_TextChanged);
@@ -352,6 +354,7 @@
             // 
             this.tag_search_groupbox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.tag_search_groupbox.BackColor = System.Drawing.Color.LightSteelBlue;
             this.tag_search_groupbox.Controls.Add(this.tag_returns_label);
             this.tag_search_groupbox.Controls.Add(this.tag_search_autobox);
             this.tag_search_groupbox.Controls.Add(this.tag_search_btn);
@@ -359,7 +362,7 @@
             this.tag_search_groupbox.Controls.Add(this.symbol_listview);
             this.tag_search_groupbox.Location = new System.Drawing.Point(816, 207);
             this.tag_search_groupbox.Name = "tag_search_groupbox";
-            this.tag_search_groupbox.Size = new System.Drawing.Size(269, 421);
+            this.tag_search_groupbox.Size = new System.Drawing.Size(269, 400);
             this.tag_search_groupbox.TabIndex = 29;
             this.tag_search_groupbox.TabStop = false;
             this.tag_search_groupbox.Visible = false;
@@ -388,16 +391,18 @@
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox2.BackColor = System.Drawing.Color.LightSteelBlue;
             this.groupBox2.Controls.Add(this.consult_screen_search_result_textbox);
             this.groupBox2.Location = new System.Drawing.Point(12, 141);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(787, 487);
+            this.groupBox2.Size = new System.Drawing.Size(787, 466);
             this.groupBox2.TabIndex = 30;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Summary";
             // 
             // groupBox1
             // 
+            this.groupBox1.BackColor = System.Drawing.Color.LightSteelBlue;
             this.groupBox1.Controls.Add(this.email_summary_btn);
             this.groupBox1.Controls.Add(this.print_btn);
             this.groupBox1.Controls.Add(this.print_preview_btn);
@@ -439,6 +444,7 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.BackColor = System.Drawing.Color.LightSteelBlue;
             this.groupBox3.Controls.Add(this.searchbox_consult_screen);
             this.groupBox3.Controls.Add(this.label3);
             this.groupBox3.Controls.Add(this.add_new_summary_btn);
@@ -472,6 +478,17 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // speech_label
+            // 
+            this.speech_label.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.speech_label.AutoSize = true;
+            this.speech_label.Location = new System.Drawing.Point(398, 75);
+            this.speech_label.Name = "speech_label";
+            this.speech_label.Size = new System.Drawing.Size(0, 13);
+            this.speech_label.TabIndex = 1;
+            this.speech_label.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
             // txt2speech_btn
             // 
             this.txt2speech_btn.BackColor = System.Drawing.Color.Transparent;
@@ -485,20 +502,18 @@
             this.txt2speech_btn.TabStop = false;
             this.txt2speech_btn.Click += new System.EventHandler(this.txt2speech_btn_Click);
             // 
-            // speech_label
+            // menuItem3
             // 
-            this.speech_label.AutoSize = true;
-            this.speech_label.Location = new System.Drawing.Point(385, 67);
-            this.speech_label.Name = "speech_label";
-            this.speech_label.Size = new System.Drawing.Size(0, 13);
-            this.speech_label.TabIndex = 1;
+            this.menuItem3.Index = 2;
+            this.menuItem3.Text = "Edit Image Tags/Keywords (Admin)";
+            this.menuItem3.Click += new System.EventHandler(this.menuItem3_Click);
             // 
             // ConsultScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.BackColor = System.Drawing.Color.SlateGray;
-            this.ClientSize = new System.Drawing.Size(1114, 669);
+            this.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.ClientSize = new System.Drawing.Size(1114, 648);
             this.Controls.Add(this.speech_label);
             this.Controls.Add(this.txt2speech_btn);
             this.Controls.Add(this.button1);
@@ -577,5 +592,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.PictureBox txt2speech_btn;
         private System.Windows.Forms.Label speech_label;
+        private System.Windows.Forms.MenuItem menuItem3;
     }
 }

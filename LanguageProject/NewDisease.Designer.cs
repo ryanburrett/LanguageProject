@@ -52,18 +52,18 @@
             this.tutorial_menu_item = new System.Windows.Forms.MenuItem();
             this.tag_search_autobox = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.uploading_label = new System.Windows.Forms.Label();
+            this.txt2speech_btn = new System.Windows.Forms.PictureBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.summary_word_count_lebel = new System.Windows.Forms.Label();
             this.hard_word_label = new System.Windows.Forms.Label();
             this.images_found_label = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.txt2speech_btn = new System.Windows.Forms.PictureBox();
-            this.uploading_label = new System.Windows.Forms.Label();
             this.tableLayoutPanel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txt2speech_btn)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txt2speech_btn)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -304,6 +304,28 @@
             this.groupBox1.TabIndex = 34;
             this.groupBox1.TabStop = false;
             // 
+            // uploading_label
+            // 
+            this.uploading_label.AutoSize = true;
+            this.uploading_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uploading_label.Location = new System.Drawing.Point(551, 29);
+            this.uploading_label.Name = "uploading_label";
+            this.uploading_label.Size = new System.Drawing.Size(0, 33);
+            this.uploading_label.TabIndex = 39;
+            // 
+            // txt2speech_btn
+            // 
+            this.txt2speech_btn.BackColor = System.Drawing.Color.Transparent;
+            this.txt2speech_btn.BackgroundImage = global::LanguageProject.Properties.Resources.txt2speech;
+            this.txt2speech_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.txt2speech_btn.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.txt2speech_btn.Location = new System.Drawing.Point(25, 310);
+            this.txt2speech_btn.Name = "txt2speech_btn";
+            this.txt2speech_btn.Size = new System.Drawing.Size(100, 50);
+            this.txt2speech_btn.TabIndex = 38;
+            this.txt2speech_btn.TabStop = false;
+            this.txt2speech_btn.Click += new System.EventHandler(this.txt2speech_btn_Click);
+            // 
             // groupBox3
             // 
             this.groupBox3.Anchor = System.Windows.Forms.AnchorStyles.Left;
@@ -360,28 +382,6 @@
             this.groupBox2.TabIndex = 36;
             this.groupBox2.TabStop = false;
             // 
-            // txt2speech_btn
-            // 
-            this.txt2speech_btn.BackColor = System.Drawing.Color.Transparent;
-            this.txt2speech_btn.BackgroundImage = global::LanguageProject.Properties.Resources.txt2speech;
-            this.txt2speech_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.txt2speech_btn.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.txt2speech_btn.Location = new System.Drawing.Point(25, 310);
-            this.txt2speech_btn.Name = "txt2speech_btn";
-            this.txt2speech_btn.Size = new System.Drawing.Size(100, 50);
-            this.txt2speech_btn.TabIndex = 38;
-            this.txt2speech_btn.TabStop = false;
-            this.txt2speech_btn.Click += new System.EventHandler(this.txt2speech_btn_Click);
-            // 
-            // uploading_label
-            // 
-            this.uploading_label.AutoSize = true;
-            this.uploading_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uploading_label.Location = new System.Drawing.Point(551, 29);
-            this.uploading_label.Name = "uploading_label";
-            this.uploading_label.Size = new System.Drawing.Size(0, 33);
-            this.uploading_label.TabIndex = 39;
-            // 
             // NewDisease
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -400,11 +400,11 @@
             this.tableLayoutPanel2.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txt2speech_btn)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txt2speech_btn)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -46,5 +46,45 @@ namespace LanguageProject
 
             return tag_list_no_dupes;
         }
+
+        public Dictionary<int, string> get_ids_and_tags()
+        {
+
+            Dictionary<int, string> tag_dictionary = new Dictionary<int, string>();
+
+
+            ConnectDB newConn = new ConnectDB();
+            MySqlConnection conn = newConn.connect_db();
+            MySqlCommand command = new MySqlCommand();
+            command.CommandText = "SELECT * FROM tags";
+            command.Connection = conn;
+
+            conn.Open();
+            using (MySqlDataReader reader = command.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    int id = reader.GetInt32("id");
+                    string tag = reader.GetString("tag_name");
+                    tag_dictionary.Add(id, tag);
+                    Console.WriteLine("ADDED TAG: "+tag+" WHICH HAS ID: "+ id);
+                }
+
+                
+                
+            }
+
+            conn.Close();
+
+
+            return tag_dictionary;
+
+            // in future it will be worth sanatizing tags for duplicates. although this could be user validated on creation on new tags and therefore this check 
+            // perhaps will not be needed 
+
+            
+
+           
+        }
     }
 }

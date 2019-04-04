@@ -1027,12 +1027,12 @@ Attached is the condition summary that you requested. It is in Rich Text Format.
             // check for api flag status. this allows an api call when the user has manually editted the condition on the consult screen
             //
             //
-            // 26/03/19 The storage of audio files in the current design of the consult screen seems needless and its better to directly call api requests when refactored 
+            // 26/03/19 The storage of audio files in the current design of the consult screen seems needless and its better to directly do api requests when refactored 
             if (GLOBAL_send_api_request_FLAG == false)
             {
                 Console.WriteLine("GETTING AUDIO FROM DATABASE");
                 DB_Get_Audio test = new DB_Get_Audio();
-                speech_label.Text = "Loading Audio";
+                speech_label.Text = "Loading...";
                 byte[] audio_array = test.get_audio_from_db(GLOBAL_current_condition_displayed);
                 if (audio_array != null)
                 {
@@ -1041,9 +1041,9 @@ Attached is the condition summary that you requested. It is in Rich Text Format.
                 }
                 else
                 {
-                    Console.WriteLine("API AUDIO CALLED");
+                    Console.WriteLine("API AUDIO CALLED AFTER DATABASE RETURNED NULL");
                     Get_Text_2_Speech api_audio = new Get_Text_2_Speech();
-                    speech_label.Text = "Loading Audio";
+                    speech_label.Text = "Loading...";
                     byte[] audio = api_audio.send_api_speech_request(consult_screen_search_result_textbox.Text);
                     speech_label.Text = "Playing...";
                     play_audio_stream(audio);
@@ -1054,13 +1054,19 @@ Attached is the condition summary that you requested. It is in Rich Text Format.
                 //send an api call instead 
                 Console.WriteLine("API AUDIO CALLED");
                 Get_Text_2_Speech api_audio = new Get_Text_2_Speech();
-                speech_label.Text = "Loading Audio";
+                speech_label.Text = "Loading...";
                 byte[] audio = api_audio.send_api_speech_request(consult_screen_search_result_textbox.Text);
                 speech_label.Text = "Playing...";
                 play_audio_stream(audio);
             }
 
             
+        }
+
+        private void menuItem3_Click(object sender, EventArgs e)
+        {
+            Edit_Image_Tags edit_image_window = new Edit_Image_Tags();
+            edit_image_window.Show();
         }
     }
 }

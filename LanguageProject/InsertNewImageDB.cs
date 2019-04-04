@@ -90,7 +90,7 @@ namespace LanguageProject
                 List<string> combined_tag_list = new List<string>();
                 combined_tag_list = selected_tags.Concat(addi_tag_list).ToList();
                 //combined_tag_list.ForEach(Console.WriteLine);
-                combined_tag_list.Sort();
+                
                 if (combined_tag_list.Any()) {
                     DialogResult result = MessageBox.Show("Confirm you would like to add this image and tags to database", "Confirm Image Addition", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
 

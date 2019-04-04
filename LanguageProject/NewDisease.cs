@@ -305,7 +305,7 @@ namespace LanguageProject
         private void tag_search_btn_Click(object sender, EventArgs e)
         {
             tag_search_btn.Enabled = false;
-            //send that tag search away ayy
+            //send that tag search away 
             //search for any images that have that tag 
 
             string search_term = tag_search_autobox.Text;

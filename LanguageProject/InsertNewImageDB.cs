@@ -38,6 +38,8 @@ namespace LanguageProject
 
         private void fill_checkedListbox()
         {
+            list_of_tags_checked_listbox.Items.Clear();
+
             foreach (string tag in tag_list)
             {
                 list_of_tags_checked_listbox.Items.Add(tag);
@@ -99,6 +101,12 @@ namespace LanguageProject
                         //clear_form(); //to add fucntion
                         Add_Image_To_DB newImage = new Add_Image_To_DB(loaded_image, combined_tag_list);
 
+                        //redrawing tag list
+                        //get current tags 
+                        get_tags_from_db();
+                        //set list data to checked listbox
+                        fill_checkedListbox();
+                        additional_tags_txtbox.Clear();
                     }
                 }
                 else

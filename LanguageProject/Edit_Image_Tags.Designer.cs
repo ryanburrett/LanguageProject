@@ -41,6 +41,7 @@
             this.update_btn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.additional_tags_txtbox = new System.Windows.Forms.TextBox();
+            this.delete_image_btn = new System.Windows.Forms.Button();
             this.tag_search_groupbox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.selected_image_picbox)).BeginInit();
             this.selected_image_groupbox.SuspendLayout();
@@ -179,12 +180,24 @@
             this.additional_tags_txtbox.Size = new System.Drawing.Size(283, 20);
             this.additional_tags_txtbox.TabIndex = 36;
             // 
+            // delete_image_btn
+            // 
+            this.delete_image_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.delete_image_btn.Location = new System.Drawing.Point(411, 263);
+            this.delete_image_btn.Name = "delete_image_btn";
+            this.delete_image_btn.Size = new System.Drawing.Size(125, 60);
+            this.delete_image_btn.TabIndex = 38;
+            this.delete_image_btn.Text = "Delete Image";
+            this.delete_image_btn.UseVisualStyleBackColor = true;
+            this.delete_image_btn.Click += new System.EventHandler(this.delete_image_btn_Click);
+            // 
             // Edit_Image_Tags
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSteelBlue;
             this.ClientSize = new System.Drawing.Size(1192, 584);
+            this.Controls.Add(this.delete_image_btn);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.additional_tags_txtbox);
             this.Controls.Add(this.update_btn);
@@ -218,5 +231,6 @@
         private System.Windows.Forms.Button update_btn;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox additional_tags_txtbox;
+        private System.Windows.Forms.Button delete_image_btn;
     }
 }

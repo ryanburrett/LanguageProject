@@ -463,5 +463,39 @@ namespace LanguageProject
 
 
         }
+
+        private void delete_image_btn_Click(object sender, EventArgs e)
+        {
+            /* button to delete the currently selected image
+            // need to empty out tag_mapping table 
+            // delete image itself from database 
+
+            tag_ids_for_image_on_load is the list of ids we need to delete from database 
+
+            convert list to uint
+             */
+            List<uint> tag_ids_needing_deletion = new List<uint>();
+
+            foreach (int tag_id in tag_ids_for_image_on_load)
+            {
+                
+                
+             //converting to uint so it can be queried to databsae without issue
+               uint id = (uint)tag_id;
+               
+                
+               tag_ids_needing_deletion.Add(id);
+                
+            }
+
+            
+            Tag_Map_Query delete_tags = new Tag_Map_Query();
+            delete_tags.delete_tag_mapping_for_image(GLOBAL_selected_image_ID, tag_ids_needing_deletion);
+
+
+            //remove image from database 
+            Delete_Image delete_image = new Delete_Image();
+            delete_image.delete_image(GLOBAL_selected_image_ID);
+        }
     }
 }

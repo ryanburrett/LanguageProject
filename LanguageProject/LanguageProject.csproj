@@ -135,6 +135,7 @@
     </Compile>
     <Compile Include="DB_Get_Audio.cs" />
     <Compile Include="Delete_Condition.cs" />
+    <Compile Include="Delete_Image.cs" />
     <Compile Include="Edit_Image_Tags.cs">
       <SubType>Form</SubType>
     </Compile>

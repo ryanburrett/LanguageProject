@@ -134,19 +134,39 @@ namespace LanguageProject
             }
         }
 
+        private async Task<List<Image>> get_images_by_search(string term)
+        {
+
+            
+
+
+            Get_Images_From_DB get_tagged = new Get_Images_From_DB();
+
+            List<Image> images = new List<Image>();
+            images = get_tagged.get_by_tag(term);
+            return images;
+
+        }
 
         private void tag_search_btn_Click(object sender, EventArgs e)
         {
             //send that tag search away ayy
             //search for any images that have that tag 
             tag_search_btn.Enabled = false;
+
             string search_term = tag_search_autobox.Text;
             List<Image> tagged_images = new List<Image>();
 
-            Get_Images_From_DB get_tagged = new Get_Images_From_DB();
+
+            Task<List<Image>> task = get_images_by_search(search_term);
+
+            
+            tagged_images = task.Result;
+            
+
             try
             {
-                tagged_images = get_tagged.get_by_tag(search_term);
+               // tagged_images = get_tagged.get_by_tag(search_term);
                 symbol_listview.Clear();
             }
             catch (Exception)
@@ -1067,6 +1087,23 @@ Attached is the condition summary that you requested. It is in Rich Text Format.
         {
             Edit_Image_Tags edit_image_window = new Edit_Image_Tags();
             edit_image_window.Show();
+        }
+
+        private void menuItem4_Click(object sender, EventArgs e)
+        {
+            if (GLOBAL_current_condition_displayed != null)
+            {
+                // delete currently active summary 
+                Delete_Condition delete_condition_instance = new Delete_Condition(GLOBAL_current_condition_displayed);
+                
+                // cleaning up UI 
+                consult_screen_search_result_textbox.Clear();
+                List_of_Diseases list = new List_of_Diseases();
+                list_of_diseases = list.return_list();
+                update_lists(list_of_diseases);
+                GLOBAL_current_condition_displayed = null;
+                displaying_condition_label.Text = "Displaying Condition: ";
+            }
         }
     }
 }

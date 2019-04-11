@@ -72,6 +72,7 @@
             this.speech_label = new System.Windows.Forms.Label();
             this.txt2speech_btn = new System.Windows.Forms.PictureBox();
             this.menuItem3 = new System.Windows.Forms.MenuItem();
+            this.menuItem4 = new System.Windows.Forms.MenuItem();
             this.tag_search_groupbox.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -213,7 +214,8 @@
             this.menuItem1.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
             this.new_summary_menu_item,
             this.add_external_image_menu_item,
-            this.menuItem3});
+            this.menuItem3,
+            this.menuItem4});
             this.menuItem1.Text = "Options";
             // 
             // new_summary_menu_item
@@ -508,6 +510,12 @@
             this.menuItem3.Text = "Edit Image Tags/Keywords (Admin)";
             this.menuItem3.Click += new System.EventHandler(this.menuItem3_Click);
             // 
+            // menuItem4
+            // 
+            this.menuItem4.Index = 3;
+            this.menuItem4.Text = "Delete Currently Viewed Summary";
+            this.menuItem4.Click += new System.EventHandler(this.menuItem4_Click);
+            // 
             // ConsultScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -593,5 +601,6 @@
         private System.Windows.Forms.PictureBox txt2speech_btn;
         private System.Windows.Forms.Label speech_label;
         private System.Windows.Forms.MenuItem menuItem3;
+        private System.Windows.Forms.MenuItem menuItem4;
     }
 }

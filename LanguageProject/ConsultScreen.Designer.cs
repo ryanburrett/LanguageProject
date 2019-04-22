@@ -478,6 +478,7 @@
             this.button1.TabIndex = 34;
             this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Visible = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // speech_label
@@ -485,7 +486,7 @@
             this.speech_label.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.speech_label.AutoSize = true;
-            this.speech_label.Location = new System.Drawing.Point(398, 75);
+            this.speech_label.Location = new System.Drawing.Point(415, 75);
             this.speech_label.Name = "speech_label";
             this.speech_label.Size = new System.Drawing.Size(0, 13);
             this.speech_label.TabIndex = 1;
@@ -494,12 +495,13 @@
             // txt2speech_btn
             // 
             this.txt2speech_btn.BackColor = System.Drawing.Color.Transparent;
-            this.txt2speech_btn.BackgroundImage = global::LanguageProject.Properties.Resources.txt2speech;
-            this.txt2speech_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.txt2speech_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.txt2speech_btn.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.txt2speech_btn.Image = ((System.Drawing.Image)(resources.GetObject("txt2speech_btn.Image")));
             this.txt2speech_btn.Location = new System.Drawing.Point(388, 91);
             this.txt2speech_btn.Name = "txt2speech_btn";
-            this.txt2speech_btn.Size = new System.Drawing.Size(69, 50);
+            this.txt2speech_btn.Size = new System.Drawing.Size(94, 51);
+            this.txt2speech_btn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.txt2speech_btn.TabIndex = 35;
             this.txt2speech_btn.TabStop = false;
             this.txt2speech_btn.Click += new System.EventHandler(this.txt2speech_btn_Click);

@@ -83,6 +83,7 @@
             this.start_scrn_insert_image_btn.TabIndex = 4;
             this.start_scrn_insert_image_btn.Text = "Add Image";
             this.start_scrn_insert_image_btn.UseVisualStyleBackColor = true;
+            this.start_scrn_insert_image_btn.Visible = false;
             this.start_scrn_insert_image_btn.Click += new System.EventHandler(this.start_scrn_insert_image_btn_Click);
             // 
             // new_condition_btn

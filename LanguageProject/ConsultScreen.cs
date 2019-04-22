@@ -863,7 +863,7 @@ namespace LanguageProject
                 {
 
                     file_location = format_condtion_for_email();
-
+                    //audio_location = 
 
 
 
@@ -924,6 +924,10 @@ Attached is the condition summary that you requested. It is in Rich Text Format.
             {
 
                 //look at mimepart documentation
+               // Content = new MimeContent()
+               // ContentDisposition = new ContentDisposition(ContentDisposition.Attachment),
+              //  ContentTransferEncoding = ContentEncoding.Base64,
+               // FileName = Path.GetFileName(file_loc)
 
             };
 
@@ -931,6 +935,7 @@ Attached is the condition summary that you requested. It is in Rich Text Format.
             var multipart = new Multipart("mixed");
             multipart.Add(mailMessage);
             multipart.Add(attachment);
+            multipart.Add(audio_attachment);
 
             try
             {

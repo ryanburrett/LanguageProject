@@ -195,7 +195,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.symbol_listview.Location = new System.Drawing.Point(20, 91);
             this.symbol_listview.Name = "symbol_listview";
-            this.symbol_listview.Size = new System.Drawing.Size(250, 399);
+            this.symbol_listview.Size = new System.Drawing.Size(250, 336);
             this.symbol_listview.TabIndex = 14;
             this.symbol_listview.UseCompatibleStateImageBehavior = false;
             this.symbol_listview.ItemDrag += new System.Windows.Forms.ItemDragEventHandler(this.symbol_listview_ItemDrag);
@@ -362,7 +362,7 @@
             this.groupBox2.Controls.Add(this.tag_search_btn);
             this.groupBox2.Location = new System.Drawing.Point(893, 59);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(289, 496);
+            this.groupBox2.Size = new System.Drawing.Size(289, 433);
             this.groupBox2.TabIndex = 36;
             this.groupBox2.TabStop = false;
             // 

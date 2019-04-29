@@ -137,7 +137,6 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::LanguageProject.Properties.Resources.example_summary;
             this.pictureBox1.Location = new System.Drawing.Point(423, 98);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(546, 512);
@@ -153,7 +152,7 @@
             this.label4.Location = new System.Drawing.Point(19, 433);
             this.label4.MaximumSize = new System.Drawing.Size(350, 300);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(350, 100);
+            this.label4.Size = new System.Drawing.Size(350, 120);
             this.label4.TabIndex = 9;
             this.label4.Text = resources.GetString("label4.Text");
             // 

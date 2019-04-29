@@ -51,7 +51,7 @@
             // 
             this.tag_search_groupbox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.tag_search_groupbox.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.tag_search_groupbox.BackColor = System.Drawing.Color.SlateGray;
             this.tag_search_groupbox.Controls.Add(this.tag_returns_label);
             this.tag_search_groupbox.Controls.Add(this.tag_search_autobox);
             this.tag_search_groupbox.Controls.Add(this.tag_search_btn);
@@ -116,8 +116,8 @@
             // 
             // selected_image_picbox
             // 
+            this.selected_image_picbox.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.selected_image_picbox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.selected_image_picbox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.selected_image_picbox.Location = new System.Drawing.Point(3, 16);
             this.selected_image_picbox.Name = "selected_image_picbox";
             this.selected_image_picbox.Size = new System.Drawing.Size(223, 186);
@@ -137,6 +137,8 @@
             // 
             // list_of_tags_checked_listbox
             // 
+            this.list_of_tags_checked_listbox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.list_of_tags_checked_listbox.FormattingEnabled = true;
             this.list_of_tags_checked_listbox.Location = new System.Drawing.Point(710, 52);
             this.list_of_tags_checked_listbox.Name = "list_of_tags_checked_listbox";
@@ -146,17 +148,21 @@
             // 
             // label2
             // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(707, 36);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(707, 33);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(71, 13);
+            this.label2.Size = new System.Drawing.Size(88, 16);
             this.label2.TabIndex = 34;
             this.label2.Text = "Current Tags:";
             // 
             // update_btn
             // 
+            this.update_btn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.update_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.update_btn.Location = new System.Drawing.Point(435, 449);
+            this.update_btn.Location = new System.Drawing.Point(516, 484);
             this.update_btn.Name = "update_btn";
             this.update_btn.Size = new System.Drawing.Size(122, 55);
             this.update_btn.TabIndex = 35;
@@ -166,15 +172,18 @@
             // 
             // label1
             // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(922, 310);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(894, 307);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(215, 13);
+            this.label1.Size = new System.Drawing.Size(274, 16);
             this.label1.TabIndex = 37;
             this.label1.Text = "Enter Additional Tags: (seperate by comma )";
             // 
             // additional_tags_txtbox
             // 
+            this.additional_tags_txtbox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.additional_tags_txtbox.Location = new System.Drawing.Point(897, 335);
             this.additional_tags_txtbox.Name = "additional_tags_txtbox";
             this.additional_tags_txtbox.Size = new System.Drawing.Size(283, 20);
@@ -182,6 +191,7 @@
             // 
             // delete_image_btn
             // 
+            this.delete_image_btn.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.delete_image_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.delete_image_btn.Location = new System.Drawing.Point(411, 263);
             this.delete_image_btn.Name = "delete_image_btn";
@@ -195,7 +205,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.BackColor = System.Drawing.Color.SlateGray;
             this.ClientSize = new System.Drawing.Size(1192, 584);
             this.Controls.Add(this.delete_image_btn);
             this.Controls.Add(this.label1);

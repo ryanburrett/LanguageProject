@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Format_Guide));
             this.label1 = new System.Windows.Forms.Label();
             this.title_label = new System.Windows.Forms.Label();
             this.bullet_list_1 = new System.Windows.Forms.Label();
@@ -37,6 +38,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.Example_label = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -143,12 +145,25 @@
             this.pictureBox1.TabIndex = 8;
             this.pictureBox1.TabStop = false;
             // 
+            // label4
+            // 
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(19, 433);
+            this.label4.MaximumSize = new System.Drawing.Size(350, 300);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(350, 100);
+            this.label4.TabIndex = 9;
+            this.label4.Text = resources.GetString("label4.Text");
+            // 
             // Format_Guide
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSteelBlue;
             this.ClientSize = new System.Drawing.Size(1077, 622);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.Example_label);
             this.Controls.Add(this.label3);
@@ -179,5 +194,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label Example_label;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label label4;
     }
 }

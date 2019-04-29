@@ -279,9 +279,6 @@
     <None Include="Resources\txt_speech.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\diabetes example.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\example summary.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

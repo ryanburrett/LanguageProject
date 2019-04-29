@@ -107,7 +107,7 @@
             this.summary_txtbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.summary_txtbox.Location = new System.Drawing.Point(165, 87);
             this.summary_txtbox.Name = "summary_txtbox";
-            this.summary_txtbox.Size = new System.Drawing.Size(659, 231);
+            this.summary_txtbox.Size = new System.Drawing.Size(659, 253);
             this.summary_txtbox.TabIndex = 4;
             this.summary_txtbox.Text = "";
             this.summary_txtbox.TextChanged += new System.EventHandler(this.summary_txtbox_TextChanged);
@@ -118,7 +118,7 @@
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(321, 0);
+            this.label2.Location = new System.Drawing.Point(321, 12);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(478, 29);
             this.label2.TabIndex = 5;
@@ -128,9 +128,9 @@
             // 
             this.submit_btn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.submit_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.submit_btn.Location = new System.Drawing.Point(3, 30);
+            this.submit_btn.Location = new System.Drawing.Point(3, 3);
             this.submit_btn.Name = "submit_btn";
-            this.submit_btn.Size = new System.Drawing.Size(209, 39);
+            this.submit_btn.Size = new System.Drawing.Size(209, 31);
             this.submit_btn.TabIndex = 6;
             this.submit_btn.Text = "Submit";
             this.submit_btn.UseVisualStyleBackColor = true;
@@ -140,9 +140,9 @@
             // 
             this.cancel_btn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.cancel_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cancel_btn.Location = new System.Drawing.Point(218, 30);
+            this.cancel_btn.Location = new System.Drawing.Point(218, 3);
             this.cancel_btn.Name = "cancel_btn";
-            this.cancel_btn.Size = new System.Drawing.Size(209, 39);
+            this.cancel_btn.Size = new System.Drawing.Size(209, 31);
             this.cancel_btn.TabIndex = 7;
             this.cancel_btn.Text = "Cancel";
             this.cancel_btn.UseVisualStyleBackColor = true;
@@ -153,11 +153,12 @@
             this.progressBar1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.progressBar1.BackColor = System.Drawing.Color.Maroon;
             this.progressBar1.ForeColor = System.Drawing.Color.Lime;
-            this.progressBar1.Location = new System.Drawing.Point(165, 345);
+            this.progressBar1.Location = new System.Drawing.Point(165, 366);
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.progressBar1.Size = new System.Drawing.Size(659, 10);
             this.progressBar1.TabIndex = 8;
+            this.progressBar1.Visible = false;
             // 
             // label4
             // 
@@ -165,11 +166,12 @@
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(299, 428);
+            this.label4.Location = new System.Drawing.Point(299, 440);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(463, 20);
             this.label4.TabIndex = 9;
             this.label4.Text = "Progress bar represents the amount of text deemed appropriate ";
+            this.label4.Visible = false;
             // 
             // tableLayoutPanel2
             // 
@@ -178,13 +180,13 @@
             this.tableLayoutPanel2.ColumnCount = 2;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Controls.Add(this.cancel_btn, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.submit_btn, 0, 0);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(409, 433);
+            this.tableLayoutPanel2.Controls.Add(this.cancel_btn, 1, 0);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(326, 455);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(430, 100);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(430, 37);
             this.tableLayoutPanel2.TabIndex = 13;
             // 
             // symbol_listview
@@ -193,7 +195,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.symbol_listview.Location = new System.Drawing.Point(20, 91);
             this.symbol_listview.Name = "symbol_listview";
-            this.symbol_listview.Size = new System.Drawing.Size(250, 377);
+            this.symbol_listview.Size = new System.Drawing.Size(250, 399);
             this.symbol_listview.TabIndex = 14;
             this.symbol_listview.UseCompatibleStateImageBehavior = false;
             this.symbol_listview.ItemDrag += new System.Windows.Forms.ItemDragEventHandler(this.symbol_listview_ItemDrag);
@@ -295,7 +297,7 @@
             this.groupBox1.Controls.Add(this.progressBar1);
             this.groupBox1.Location = new System.Drawing.Point(12, 59);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(859, 345);
+            this.groupBox1.Size = new System.Drawing.Size(859, 367);
             this.groupBox1.TabIndex = 34;
             this.groupBox1.TabStop = false;
             // 
@@ -313,7 +315,7 @@
             this.groupBox3.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.groupBox3.Controls.Add(this.summary_word_count_lebel);
             this.groupBox3.Controls.Add(this.hard_word_label);
-            this.groupBox3.Location = new System.Drawing.Point(6, 154);
+            this.groupBox3.Location = new System.Drawing.Point(6, 165);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(153, 100);
             this.groupBox3.TabIndex = 37;
@@ -360,7 +362,7 @@
             this.groupBox2.Controls.Add(this.tag_search_btn);
             this.groupBox2.Location = new System.Drawing.Point(893, 59);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(289, 474);
+            this.groupBox2.Size = new System.Drawing.Size(289, 496);
             this.groupBox2.TabIndex = 36;
             this.groupBox2.TabStop = false;
             // 
@@ -375,7 +377,7 @@
             this.formatting_label.Size = new System.Drawing.Size(96, 16);
             this.formatting_label.TabIndex = 40;
             this.formatting_label.Text = "?Format Guide";
-            this.formatting_label.Click += new System.EventHandler(this.formatting_label_Click);
+            this.formatting_label.Click += new System.EventHandler(this.formatting_label_Click_1);
             // 
             // txt2speech_btn
             // 
@@ -395,7 +397,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SlateGray;
-            this.ClientSize = new System.Drawing.Size(1194, 545);
+            this.ClientSize = new System.Drawing.Size(1194, 504);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.tableLayoutPanel2);

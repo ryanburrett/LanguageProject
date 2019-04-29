@@ -37,8 +37,8 @@
             this.bullet_list_3 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.Example_label = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -135,15 +135,6 @@
             this.Example_label.TabIndex = 7;
             this.Example_label.Text = "Example Summary:";
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(423, 98);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(546, 512);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 8;
-            this.pictureBox1.TabStop = false;
-            // 
             // label4
             // 
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -155,6 +146,16 @@
             this.label4.Size = new System.Drawing.Size(350, 120);
             this.label4.TabIndex = 9;
             this.label4.Text = resources.GetString("label4.Text");
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::LanguageProject.Properties.Resources.example_summary;
+            this.pictureBox1.Location = new System.Drawing.Point(413, 98);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(546, 512);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 8;
+            this.pictureBox1.TabStop = false;
             // 
             // Format_Guide
             // 

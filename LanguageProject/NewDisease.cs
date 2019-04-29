@@ -511,5 +511,11 @@ namespace LanguageProject
             Format_Guide guide_instance = new Format_Guide();
             guide_instance.Show();
         }
+
+        private void formatting_label_Click_1(object sender, EventArgs e)
+        {
+            Format_Guide guide_instance = new Format_Guide();
+            guide_instance.Show();
+        }
     }
 }

@@ -67,6 +67,7 @@
             // 
             this.start_screen_searchbox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.start_screen_searchbox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.start_screen_searchbox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.start_screen_searchbox.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.start_screen_searchbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.start_screen_searchbox.FormattingEnabled = true;

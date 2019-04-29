@@ -42,6 +42,7 @@ namespace LanguageProject
 
         private void assign_autocomplete()
         {
+            // filling auto complete sources for controls on form
             Get_Current_Tags get_tag_instance = new Get_Current_Tags();
             List<string> list_of_tags = new List<string>();
             list_of_tags = get_tag_instance.get_tags();
@@ -198,14 +199,19 @@ namespace LanguageProject
         {
             //get text length
            int text_length = summary_txtbox.TextLength;
+
+            int max_chars = 500;
+
+            int percent_bar = text_length / max_chars * 100;
+            Console.WriteLine(percent_bar);
             //setting progress bar length propertional to text length
-            if (text_length <= 100)
+            if (percent_bar <= 100)
             {
-                progressBar1.Value = text_length;
+                progressBar1.Value = percent_bar;
             }
             else
             {
-                //indicate too much text but perhaps dont hard lock them from submit
+                summary_txtbox.BackColor = Color.Red;
                 
             }
 
@@ -243,7 +249,7 @@ namespace LanguageProject
             List<string> list_of_diseases = new List<string>();
 
             list_of_diseases = list.return_list();
-            //crashes when going straight to create new from start screen
+            
             
 
             if (consult_instance == null)
@@ -498,6 +504,12 @@ namespace LanguageProject
                 SoundPlayer player = new SoundPlayer(ms);
                 player.Play();
             }
+        }
+
+        private void formatting_label_Click(object sender, EventArgs e)
+        {
+            Format_Guide guide_instance = new Format_Guide();
+            guide_instance.Show();
         }
     }
 }

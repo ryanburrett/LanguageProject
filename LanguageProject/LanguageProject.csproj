@@ -163,6 +163,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Format_Guide.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Format_Guide.Designer.cs">
+      <DependentUpon>Format_Guide.cs</DependentUpon>
+    </Compile>
     <Compile Include="FullScreenPreview.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -199,7 +205,6 @@
     <Compile Include="StartScreen.Designer.cs">
       <DependentUpon>StartScreen.cs</DependentUpon>
     </Compile>
-    <Compile Include="Store_Text-2-Speech.cs" />
     <Compile Include="Tag_Map_Query.cs" />
     <EmbeddedResource Include="ConsultScreen.resx">
       <DependentUpon>ConsultScreen.cs</DependentUpon>
@@ -209,6 +214,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Format_Guide.resx">
+      <DependentUpon>Format_Guide.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FullScreenPreview.resx">
       <DependentUpon>FullScreenPreview.cs</DependentUpon>
@@ -266,6 +274,15 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\txt_speech.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\diabetes example.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\example summary.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Grpc.Core.1.13.1\build\net45\Grpc.Core.targets" Condition="Exists('..\packages\Grpc.Core.1.13.1\build\net45\Grpc.Core.targets')" />

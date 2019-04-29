@@ -44,9 +44,10 @@
             this.menuItem1 = new System.Windows.Forms.MenuItem();
             this.new_summary_menu_item = new System.Windows.Forms.MenuItem();
             this.add_external_image_menu_item = new System.Windows.Forms.MenuItem();
+            this.menuItem3 = new System.Windows.Forms.MenuItem();
+            this.menuItem4 = new System.Windows.Forms.MenuItem();
             this.menuItem2 = new System.Windows.Forms.MenuItem();
             this.about_menu_item = new System.Windows.Forms.MenuItem();
-            this.Tutorial_menu_item = new System.Windows.Forms.MenuItem();
             this.consult_screen_search_result_textbox = new RichTextBoxPrintCtrl.RichTextBoxPrintCtrl();
             this.ready_4_print_listview = new System.Windows.Forms.ListView();
             this.condition_column = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -71,8 +72,6 @@
             this.button1 = new System.Windows.Forms.Button();
             this.speech_label = new System.Windows.Forms.Label();
             this.txt2speech_btn = new System.Windows.Forms.PictureBox();
-            this.menuItem3 = new System.Windows.Forms.MenuItem();
-            this.menuItem4 = new System.Windows.Forms.MenuItem();
             this.tag_search_groupbox.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -142,6 +141,7 @@
             // searchbox_consult_screen
             // 
             this.searchbox_consult_screen.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.searchbox_consult_screen.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.searchbox_consult_screen.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchbox_consult_screen.FormattingEnabled = true;
             this.searchbox_consult_screen.Location = new System.Drawing.Point(6, 40);
@@ -165,7 +165,7 @@
             this.panel1.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.panel1.AutoSize = true;
             this.panel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.panel1.Location = new System.Drawing.Point(83, 45);
+            this.panel1.Location = new System.Drawing.Point(83, 24);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(0, 0);
             this.panel1.TabIndex = 14;
@@ -176,7 +176,7 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.symbol_listview.Location = new System.Drawing.Point(8, 82);
             this.symbol_listview.Name = "symbol_listview";
-            this.symbol_listview.Size = new System.Drawing.Size(250, 312);
+            this.symbol_listview.Size = new System.Drawing.Size(250, 270);
             this.symbol_listview.TabIndex = 19;
             this.symbol_listview.UseCompatibleStateImageBehavior = false;
             this.symbol_listview.ItemDrag += new System.Windows.Forms.ItemDragEventHandler(this.symbol_listview_ItemDrag);
@@ -230,12 +230,23 @@
             this.add_external_image_menu_item.Text = "Add External Images (Admin)";
             this.add_external_image_menu_item.Click += new System.EventHandler(this.add_external_image_menu_item_Click);
             // 
+            // menuItem3
+            // 
+            this.menuItem3.Index = 2;
+            this.menuItem3.Text = "Edit Image Tags/Keywords (Admin)";
+            this.menuItem3.Click += new System.EventHandler(this.menuItem3_Click);
+            // 
+            // menuItem4
+            // 
+            this.menuItem4.Index = 3;
+            this.menuItem4.Text = "Delete Currently Viewed Summary";
+            this.menuItem4.Click += new System.EventHandler(this.menuItem4_Click);
+            // 
             // menuItem2
             // 
             this.menuItem2.Index = 1;
             this.menuItem2.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-            this.about_menu_item,
-            this.Tutorial_menu_item});
+            this.about_menu_item});
             this.menuItem2.Text = "Help";
             // 
             // about_menu_item
@@ -243,11 +254,6 @@
             this.about_menu_item.Index = 0;
             this.about_menu_item.Text = "About";
             this.about_menu_item.Click += new System.EventHandler(this.about_menu_item_Click);
-            // 
-            // Tutorial_menu_item
-            // 
-            this.Tutorial_menu_item.Index = 1;
-            this.Tutorial_menu_item.Text = "Tutorial";
             // 
             // consult_screen_search_result_textbox
             // 
@@ -257,7 +263,7 @@
             this.consult_screen_search_result_textbox.Location = new System.Drawing.Point(3, 16);
             this.consult_screen_search_result_textbox.Name = "consult_screen_search_result_textbox";
             this.consult_screen_search_result_textbox.ReadOnly = true;
-            this.consult_screen_search_result_textbox.Size = new System.Drawing.Size(781, 447);
+            this.consult_screen_search_result_textbox.Size = new System.Drawing.Size(781, 405);
             this.consult_screen_search_result_textbox.TabIndex = 0;
             this.consult_screen_search_result_textbox.Text = "";
             this.consult_screen_search_result_textbox.TextChanged += new System.EventHandler(this.consult_screen_search_result_textbox_TextChanged);
@@ -364,7 +370,7 @@
             this.tag_search_groupbox.Controls.Add(this.symbol_listview);
             this.tag_search_groupbox.Location = new System.Drawing.Point(816, 207);
             this.tag_search_groupbox.Name = "tag_search_groupbox";
-            this.tag_search_groupbox.Size = new System.Drawing.Size(269, 400);
+            this.tag_search_groupbox.Size = new System.Drawing.Size(269, 358);
             this.tag_search_groupbox.TabIndex = 29;
             this.tag_search_groupbox.TabStop = false;
             this.tag_search_groupbox.Visible = false;
@@ -397,7 +403,7 @@
             this.groupBox2.Controls.Add(this.consult_screen_search_result_textbox);
             this.groupBox2.Location = new System.Drawing.Point(12, 141);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(787, 466);
+            this.groupBox2.Size = new System.Drawing.Size(787, 424);
             this.groupBox2.TabIndex = 30;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Summary";
@@ -506,24 +512,12 @@
             this.txt2speech_btn.TabStop = false;
             this.txt2speech_btn.Click += new System.EventHandler(this.txt2speech_btn_Click);
             // 
-            // menuItem3
-            // 
-            this.menuItem3.Index = 2;
-            this.menuItem3.Text = "Edit Image Tags/Keywords (Admin)";
-            this.menuItem3.Click += new System.EventHandler(this.menuItem3_Click);
-            // 
-            // menuItem4
-            // 
-            this.menuItem4.Index = 3;
-            this.menuItem4.Text = "Delete Currently Viewed Summary";
-            this.menuItem4.Click += new System.EventHandler(this.menuItem4_Click);
-            // 
             // ConsultScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.ClientSize = new System.Drawing.Size(1114, 648);
+            this.ClientSize = new System.Drawing.Size(1114, 606);
             this.Controls.Add(this.speech_label);
             this.Controls.Add(this.txt2speech_btn);
             this.Controls.Add(this.button1);
@@ -577,7 +571,6 @@
         private System.Windows.Forms.MenuItem add_external_image_menu_item;
         private System.Windows.Forms.MenuItem menuItem2;
         private System.Windows.Forms.MenuItem about_menu_item;
-        private System.Windows.Forms.MenuItem Tutorial_menu_item;
         private RichTextBoxPrintCtrl.RichTextBoxPrintCtrl consult_screen_search_result_textbox;
         private System.Windows.Forms.ListView ready_4_print_listview;
         private System.Windows.Forms.ColumnHeader condition_column;

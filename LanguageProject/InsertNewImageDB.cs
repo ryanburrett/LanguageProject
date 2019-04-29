@@ -75,7 +75,6 @@ namespace LanguageProject
                     selected_tags.Add(item_checked.ToString());
 
                 }
-               
 
                 //getting any additional tags 
                 string addi_tags = additional_tags_txtbox.Text;
@@ -83,9 +82,6 @@ namespace LanguageProject
                 List<string> addi_tag_list = new List<string>(addi_tags.Split(',').ToList<string>());  
                                                                                                        //removing whitespace 
                 addi_tag_list = addi_tag_list.Select(s => s.Trim()).ToList();
-
-               
-
 
                 //combine lists of tags
 
@@ -134,6 +130,12 @@ namespace LanguageProject
 
         private void button1_Click(object sender, EventArgs e)
         {
+
+            
+
+
+            
+
             //open file browser
 
             //opening file browser 
@@ -149,7 +151,7 @@ namespace LanguageProject
                     string filename = files.FileName;
                     Bitmap b = new Bitmap(filename);
                     pictureBox1.Image = b;
-                    // look into making size uniform in app
+                    
                 }
                 catch (Exception f)
                 {
@@ -162,13 +164,13 @@ namespace LanguageProject
 
 
             }
-
+        
             
-        }
+        } 
 
         private void tag_search_txtbox_TextChanged(object sender, EventArgs e)
         {
-
+            //added in sprint 3 
             List<string> searched_tags = new List<string>();
             //cl;earing tags 
             list_of_tags_checked_listbox.Items.Clear();

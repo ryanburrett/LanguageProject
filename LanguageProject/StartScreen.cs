@@ -37,11 +37,9 @@ namespace LanguageProject
         void assign_autocomplete()
         {
             // setting up auto complete using combobox and list of diseases
-            var autoObject = new AutoCompleteStringCollection();
-            autoObject.AddRange(list_of_diseases.ToArray());
-            start_screen_searchbox.AutoCompleteSource = AutoCompleteSource.CustomSource;
-
-            start_screen_searchbox.AutoCompleteCustomSource = autoObject;
+            AutoCompleteStringCollection autoComplete_Object = new AutoCompleteStringCollection();
+            autoComplete_Object.AddRange(list_of_diseases.ToArray());        
+            start_screen_searchbox.AutoCompleteCustomSource = autoComplete_Object;
             
         }
         private void start_screen_btn_Click(object sender, EventArgs e)

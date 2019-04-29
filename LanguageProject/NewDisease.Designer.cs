@@ -49,21 +49,21 @@
             this.add_images_to_db_menu_item = new System.Windows.Forms.MenuItem();
             this.menuItem1 = new System.Windows.Forms.MenuItem();
             this.about_menu_item = new System.Windows.Forms.MenuItem();
-            this.tutorial_menu_item = new System.Windows.Forms.MenuItem();
             this.tag_search_autobox = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.uploading_label = new System.Windows.Forms.Label();
-            this.txt2speech_btn = new System.Windows.Forms.PictureBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.summary_word_count_lebel = new System.Windows.Forms.Label();
             this.hard_word_label = new System.Windows.Forms.Label();
             this.images_found_label = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.formatting_label = new System.Windows.Forms.Label();
+            this.txt2speech_btn = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txt2speech_btn)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txt2speech_btn)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -107,7 +107,7 @@
             this.summary_txtbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.summary_txtbox.Location = new System.Drawing.Point(165, 87);
             this.summary_txtbox.Name = "summary_txtbox";
-            this.summary_txtbox.Size = new System.Drawing.Size(659, 273);
+            this.summary_txtbox.Size = new System.Drawing.Size(659, 231);
             this.summary_txtbox.TabIndex = 4;
             this.summary_txtbox.Text = "";
             this.summary_txtbox.TextChanged += new System.EventHandler(this.summary_txtbox_TextChanged);
@@ -118,7 +118,7 @@
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(321, 21);
+            this.label2.Location = new System.Drawing.Point(321, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(478, 29);
             this.label2.TabIndex = 5;
@@ -153,7 +153,7 @@
             this.progressBar1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.progressBar1.BackColor = System.Drawing.Color.Maroon;
             this.progressBar1.ForeColor = System.Drawing.Color.Lime;
-            this.progressBar1.Location = new System.Drawing.Point(165, 366);
+            this.progressBar1.Location = new System.Drawing.Point(165, 345);
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.progressBar1.Size = new System.Drawing.Size(659, 10);
@@ -165,7 +165,7 @@
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(299, 449);
+            this.label4.Location = new System.Drawing.Point(299, 428);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(463, 20);
             this.label4.TabIndex = 9;
@@ -180,7 +180,7 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.Controls.Add(this.cancel_btn, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.submit_btn, 0, 0);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(409, 475);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(409, 433);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -193,7 +193,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.symbol_listview.Location = new System.Drawing.Point(20, 91);
             this.symbol_listview.Name = "symbol_listview";
-            this.symbol_listview.Size = new System.Drawing.Size(250, 419);
+            this.symbol_listview.Size = new System.Drawing.Size(250, 377);
             this.symbol_listview.TabIndex = 14;
             this.symbol_listview.UseCompatibleStateImageBehavior = false;
             this.symbol_listview.ItemDrag += new System.Windows.Forms.ItemDragEventHandler(this.symbol_listview_ItemDrag);
@@ -258,8 +258,7 @@
             // 
             this.menuItem1.Index = 1;
             this.menuItem1.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-            this.about_menu_item,
-            this.tutorial_menu_item});
+            this.about_menu_item});
             this.menuItem1.Text = "Help";
             // 
             // about_menu_item
@@ -267,11 +266,6 @@
             this.about_menu_item.Index = 0;
             this.about_menu_item.Text = "About";
             this.about_menu_item.Click += new System.EventHandler(this.about_menu_item_Click);
-            // 
-            // tutorial_menu_item
-            // 
-            this.tutorial_menu_item.Index = 1;
-            this.tutorial_menu_item.Text = "Tutorial";
             // 
             // tag_search_autobox
             // 
@@ -290,6 +284,7 @@
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.formatting_label);
             this.groupBox1.Controls.Add(this.uploading_label);
             this.groupBox1.Controls.Add(this.txt2speech_btn);
             this.groupBox1.Controls.Add(this.groupBox3);
@@ -300,7 +295,7 @@
             this.groupBox1.Controls.Add(this.progressBar1);
             this.groupBox1.Location = new System.Drawing.Point(12, 59);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(859, 387);
+            this.groupBox1.Size = new System.Drawing.Size(859, 345);
             this.groupBox1.TabIndex = 34;
             this.groupBox1.TabStop = false;
             // 
@@ -313,25 +308,12 @@
             this.uploading_label.Size = new System.Drawing.Size(0, 33);
             this.uploading_label.TabIndex = 39;
             // 
-            // txt2speech_btn
-            // 
-            this.txt2speech_btn.BackColor = System.Drawing.Color.Transparent;
-            this.txt2speech_btn.BackgroundImage = global::LanguageProject.Properties.Resources.txt2speech;
-            this.txt2speech_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.txt2speech_btn.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.txt2speech_btn.Location = new System.Drawing.Point(25, 310);
-            this.txt2speech_btn.Name = "txt2speech_btn";
-            this.txt2speech_btn.Size = new System.Drawing.Size(100, 50);
-            this.txt2speech_btn.TabIndex = 38;
-            this.txt2speech_btn.TabStop = false;
-            this.txt2speech_btn.Click += new System.EventHandler(this.txt2speech_btn_Click);
-            // 
             // groupBox3
             // 
             this.groupBox3.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.groupBox3.Controls.Add(this.summary_word_count_lebel);
             this.groupBox3.Controls.Add(this.hard_word_label);
-            this.groupBox3.Location = new System.Drawing.Point(6, 175);
+            this.groupBox3.Location = new System.Drawing.Point(6, 154);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(153, 100);
             this.groupBox3.TabIndex = 37;
@@ -378,16 +360,42 @@
             this.groupBox2.Controls.Add(this.tag_search_btn);
             this.groupBox2.Location = new System.Drawing.Point(893, 59);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(289, 516);
+            this.groupBox2.Size = new System.Drawing.Size(289, 474);
             this.groupBox2.TabIndex = 36;
             this.groupBox2.TabStop = false;
+            // 
+            // formatting_label
+            // 
+            this.formatting_label.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.formatting_label.AutoSize = true;
+            this.formatting_label.Cursor = System.Windows.Forms.Cursors.Help;
+            this.formatting_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.formatting_label.Location = new System.Drawing.Point(728, 68);
+            this.formatting_label.Name = "formatting_label";
+            this.formatting_label.Size = new System.Drawing.Size(96, 16);
+            this.formatting_label.TabIndex = 40;
+            this.formatting_label.Text = "?Format Guide";
+            this.formatting_label.Click += new System.EventHandler(this.formatting_label_Click);
+            // 
+            // txt2speech_btn
+            // 
+            this.txt2speech_btn.BackColor = System.Drawing.Color.Transparent;
+            this.txt2speech_btn.BackgroundImage = global::LanguageProject.Properties.Resources.txt_speech;
+            this.txt2speech_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.txt2speech_btn.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.txt2speech_btn.Location = new System.Drawing.Point(25, 289);
+            this.txt2speech_btn.Name = "txt2speech_btn";
+            this.txt2speech_btn.Size = new System.Drawing.Size(100, 50);
+            this.txt2speech_btn.TabIndex = 38;
+            this.txt2speech_btn.TabStop = false;
+            this.txt2speech_btn.Click += new System.EventHandler(this.txt2speech_btn_Click);
             // 
             // NewDisease
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SlateGray;
-            this.ClientSize = new System.Drawing.Size(1194, 587);
+            this.ClientSize = new System.Drawing.Size(1194, 545);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.tableLayoutPanel2);
@@ -400,11 +408,11 @@
             this.tableLayoutPanel2.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txt2speech_btn)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txt2speech_btn)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -430,7 +438,6 @@
         private System.Windows.Forms.MenuItem exit_2_consult_screen_menu_item;
         private System.Windows.Forms.MenuItem menuItem1;
         private System.Windows.Forms.MenuItem about_menu_item;
-        private System.Windows.Forms.MenuItem tutorial_menu_item;
         private System.Windows.Forms.MenuItem exit_program_fully_menu_item;
         private System.Windows.Forms.MenuItem add_images_to_db_menu_item;
         private System.Windows.Forms.ComboBox tag_search_autobox;
@@ -442,5 +449,6 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.PictureBox txt2speech_btn;
         private System.Windows.Forms.Label uploading_label;
+        private System.Windows.Forms.Label formatting_label;
     }
 }

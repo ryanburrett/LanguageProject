@@ -47,6 +47,7 @@ namespace LanguageProject
             this.consult_screen_search_result_textbox.DragDrop += new DragEventHandler(this.consult_screen_search_result_textbox_DragDrop);
         }
 
+        //method to play text to speech audio 
         private void play_audio_stream(byte[] audio)
         {
             if (audio != null)
@@ -65,12 +66,14 @@ namespace LanguageProject
             }
         }
 
+        //method called to update lists of medical conditions, calls another method to enable auto complete feature
         public void update_lists(List<string> diseases)
         {
             list_of_diseases = diseases;
             assign_autocomplete();
         }
 
+        // alternative contructor
         public ConsultScreen(List<string> diseases)
         {
             InitializeComponent();
@@ -82,7 +85,7 @@ namespace LanguageProject
             update_lists(diseases);
             assign_autocomplete();
         }
-
+        // gets all images, not used in current version
         private void symbol_list_logic()
         {
 
@@ -134,7 +137,8 @@ namespace LanguageProject
             }
         }
 
-        private async Task<List<Image>> get_images_by_search(string term)
+        //method to get a list of images when the user searches 
+        private List<Image> get_images_by_search(string term)
         {
 
             
@@ -148,6 +152,8 @@ namespace LanguageProject
 
         }
 
+
+        // event method called when user clicks search button. gets all images that match the searched term
         private void tag_search_btn_Click(object sender, EventArgs e)
         {
             //send that tag search away ayy
@@ -157,12 +163,8 @@ namespace LanguageProject
             string search_term = tag_search_autobox.Text;
             List<Image> tagged_images = new List<Image>();
 
+            tagged_images = get_images_by_search(search_term);
 
-            Task<List<Image>> task = get_images_by_search(search_term);
-
-            
-            tagged_images = task.Result;
-            
 
             try
             {
@@ -199,7 +201,7 @@ namespace LanguageProject
 
             }
 
-
+            // filling listview with returned images 
             symbol_listview.LargeImageList = symbols;
             Console.WriteLine("symbol count : " + symbols.Images.Count);
             for (int i = 0; i < symbols.Images.Count; i++)
@@ -218,11 +220,12 @@ namespace LanguageProject
 
             //clear current listview elements and display matches to tag search 
 
-            // symbol_listview.Clear();
+            
             tag_search_btn.Enabled = true;
 
         }
 
+        //method to enable the ability to press enter to search
         private void tag_search_txtbox_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyData == Keys.Enter)
@@ -232,7 +235,7 @@ namespace LanguageProject
         }
 
         
-
+        // method to get simplified condition from database and display it
         public void get_disease_summary(string disease)
         {
 
@@ -276,14 +279,13 @@ namespace LanguageProject
             }
         }
 
+        //method used to set combobox autocomplete source to list of conditions and list of tags that have been retireive from database 
         void assign_autocomplete()
         {
             // setting up auto complete using combobox and list of diseases
-            var condition_collection = new AutoCompleteStringCollection();
-            condition_collection.AddRange(list_of_diseases.ToArray());
-            searchbox_consult_screen.AutoCompleteSource = AutoCompleteSource.CustomSource;
-
-            searchbox_consult_screen.AutoCompleteCustomSource = condition_collection;
+            AutoCompleteStringCollection autoComplete_Object = new AutoCompleteStringCollection();
+            autoComplete_Object.AddRange(list_of_diseases.ToArray());
+            searchbox_consult_screen.AutoCompleteCustomSource = autoComplete_Object;
 
 
             //setting up autocomplete for image tags
@@ -299,6 +301,7 @@ namespace LanguageProject
 
         }
 
+        // event method called when user searches for a new condition
         private void consult_search_btn_Click(object sender, EventArgs e)
         {
             string search = searchbox_consult_screen.Text;
@@ -316,6 +319,7 @@ namespace LanguageProject
             }
         }
 
+        //method called 
         private void confirm_search_result_btn_Click(object sender, EventArgs e)
         {
             // checking label length to make sure it displaying a condtion in the summary rtb. better ways to do this more gracefully 
@@ -325,31 +329,7 @@ namespace LanguageProject
 
                 if (result == DialogResult.OK)
                 {
-                    //look for existing text within the summary screen
-                    // if existing text is there then combine rtf files and format 
-                    // else just append text to rtb
-                    //
-                    // note that any reference to text is within rtb and includes images, otherwise this would be alot easier...
-
-
-                    /*   if (string.IsNullOrWhiteSpace(summary_preview_txtbox.Text))
-                       {
-                           // empty summary preview... add text.
-                           string disease_text = consult_screen_search_result_textbox.Rtf;
-                           summary_preview_txtbox.Rtf = disease_text;
-                       }
-                       else
-                       {
-                           //combine rtf files, to allow multiple submissions to summary box
-                           Console.WriteLine("running, combine rtf files...");
-                           string current_summary_text = summary_preview_txtbox.Rtf;
-                           string new_text = consult_screen_search_result_textbox.Rtf;
-
-                           string combined_rtfs = combine_rtf(current_summary_text, new_text);
-                           summary_preview_txtbox.Rtf = combined_rtfs;
-                       }
-
-           */
+                    
 
 
                     //getting the current condition summary that is displayed 
@@ -387,7 +367,7 @@ namespace LanguageProject
                         //ready for print again.
 
 
-                        //needs fixed 
+                        //needs fixed, if you are further developing this, replace all usage of listview. nightmare to work with. there are better alternative libraries out there. 
                         ready_4_print_listview.Items.RemoveByKey(current_condition_name);
 
                       //  int a = ready_4_print_listview.Items.IndexOfKey(current_condition_name);
@@ -871,7 +851,7 @@ namespace LanguageProject
                     {
 
                         // running asynchronously as the sending of the email stopped program responsiveness until email was completely sent
-                        // Task.WaitAll(send_email_task);
+                        
                         await Task.Factory.StartNew(() => send_email(email_address, file_location));
                     }
                 }
@@ -1005,22 +985,10 @@ Attached is the condition summary that you requested. It is in Rich Text Format.
                     catch (Exception)
                     {
 
-                        //if someone emails the same condition before the first email is fully sent, this catch is triggered as the file is currently being used by email
-                        //method while sending
-                        //as a result a new file isn't written
-                        //after the first task is completed, the email method actually reuses the first file that was created as data point
-                        //due to the nature of how fast someone has to resend an email to trigger this catch
-                        // functionally it actually does not change. the user will recieve 2 emails that are identical in condition summary content.
-                        // no user can change a condition fast enough to resend an email and have this catch trigger
-                        //
-                        // future work would look at an elegant solution in code for this edge use case but for now I am leaving it 
                         Console.WriteLine("Resent the same condtion too fast, unable to write ");
                       
-                        //issue was solved by allowing it to access different files by generating random file names 
+                        
                     }
-                    
-
-
 
 
                 }

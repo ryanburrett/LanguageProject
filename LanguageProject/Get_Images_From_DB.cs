@@ -82,7 +82,9 @@ namespace LanguageProject
             ConnectDB newConn = new ConnectDB();
             MySqlConnection conn = newConn.connect_db();
             MySqlCommand command = new MySqlCommand();
-            command.CommandText = "SELECT i.image from images i inner join image_tag_map tm on i.id = tm.image_id inner join tags t on tm.tag_id = t.id where t.tag_name = '"+tag+"';";
+            command.CommandText = "SELECT i.image from images i inner " +
+                "join image_tag_map tm on i.id = tm.image_id inner join tags t" +
+                " on tm.tag_id = t.id where t.tag_name = '"+tag+"';";
 
             command.Connection = conn;
             

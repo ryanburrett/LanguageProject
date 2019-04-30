@@ -915,7 +915,7 @@ Attached is the condition summary that you requested. It is in Rich Text Format.
             var multipart = new Multipart("mixed");
             multipart.Add(mailMessage);
             multipart.Add(attachment);
-            multipart.Add(audio_attachment);
+            //multipart.Add(audio_attachment);
 
             try
             {

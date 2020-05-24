@@ -80,7 +80,7 @@ Once you are happy with your created summary you can then submit it. This can be
 
 The application comes with some maintenance tools which can be used to manage the stored database content within the program. Stored Images, Keywords, Condition Summaries etc…
 
-# **Add New Images**
+### **Add New Images**
 
 You may come across a time when you need to add an image to the application. This maybe because you have searched for an image to represent something and no appropriate images can be found.
 
@@ -105,7 +105,7 @@ These tags/keywords allow users to search for the added image. You can select ta
 
 Once happy with the tags/keywords you can click the &quot;Insert&quot; button to add the image to he application. Once added you can then use the image in the future.
 
-# **Edit Image Tags/Keywords**
+### **Edit Image Tags/Keywords**
 
 This option allows the editing of an image&#39;s tags/keywords. If you need to change an images searchability then this option can be used to edit the search terms for when the image shows up.
 
@@ -117,6 +117,6 @@ You can also choose to delete images from the application from this page. This i
 
 Once changes are completed, you can click &quot;Update&quot; button, and this updates the backend of the application.
 
-# **Delete Summary**
+### **Delete Summary**
 
 An option exists to delete a condition summary required. You do this by searching for a condition on the consultation window. Opening the menu, as seen in Figure 8, you can click the &quot;Delete Currently Viewed Summary&quot;. This deletes the summary from the application and stops anyone from searching for it.

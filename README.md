@@ -28,22 +28,19 @@ You can enable the edit mode to change text or images to suit the patients needs
 
 You can also click the Text-To-Speech button to play to the patient. This is done by clicking the Text-To-Speech Icon.
 
-![](RackMultipart20200524-4-3v6jws_html_34e5f441603e4.png)
-
-[Figure 3] Text-To-Speech Icon
 
 If you are satisfied with the summary content, you can now start the process of giving it to the patient. This can be done several ways:
 
 1. Display the summary full screen. This covers any confidential information and allows you to guide a patient through the summary verbally.
 2. You can print the summary out and then give the patient it, to take away. This is done by submitting the summary. This is done by clicking the submit summary button
 
-![](RackMultipart20200524-4-3v6jws_html_9c8463554811a390.png)
+![dialog box on submission of summary](https://user-images.githubusercontent.com/35525550/82749334-68fd9980-9da0-11ea-83e0-2650e1b3c0e1.png)
 
-[Figure 4] Submit button confirmation on click
+[Figure 3] Submit button confirmation on click
 
 After a summary is submitted, it is considered done and is stored, ready to be given to the patient. An example of a submitted summary is below.
 
-![](RackMultipart20200524-4-3v6jws_html_9faaba4d572fb152.png)
+![confirmation of submitted conditon](https://user-images.githubusercontent.com/35525550/82749365-afeb8f00-9da0-11ea-935c-578c89ac7bf1.png)
 
 [Figure 4] Image of Finished, Submitted Summaries awaiting further action
 
@@ -51,17 +48,18 @@ Once submitted you can click the summary you want to perform an action for. To p
 
 1. The final way to give the patient a summary is to send them it through email. This is done the same way as printing; you have to submit the summary you want to send and then press the email button as seen in Figure 4.
 
-![](RackMultipart20200524-4-3v6jws_html_d739d804e698a505.png)
+![email selected](https://user-images.githubusercontent.com/35525550/82749376-c72a7c80-9da0-11ea-84e5-4bb494782f5c.png)
+
 
 [Figure 5] Showing Email User Interface
 
 You will be presented with a small window and will be requested to enter an email to send the selected summary to.
 
-**Creating a new condition summary**
+## Creating a new condition summary
 
 You may have a time when the condition you request isn&#39;t in the database and as such you have to create a new summary describing said condition. This can be done from the start screen by clicking &quot;Create New&quot; button, see Figure 1.
 
-You will be presented with the window to create a new summary. ![](RackMultipart20200524-4-3v6jws_html_840347d19810895f.png)
+You will be presented with the window to create a new summary. ![create condiiton](https://user-images.githubusercontent.com/35525550/82749433-21c3d880-9da1-11ea-90f8-90d3238b15cc.png)
 
 [Figure 6] Create New Condition Summary
 
@@ -71,29 +69,31 @@ To add an image to the summary, you drag and drop the image into the position yo
 
 If unsure about how to structure the summary, there is a helpful guide available. You can click the &quot;?Format Guide&quot; button to launch a window which gives some guidelines about structuring and formatting a summary to maximize its effectiveness at allowing a learning impaired understand the condition as best as possible.
 
-![](RackMultipart20200524-4-3v6jws_html_382ffc52822a977d.png)
+![formatting window](https://user-images.githubusercontent.com/35525550/82749445-32744e80-9da1-11ea-8ad1-a0d89e0f1170.png)
+
 
 [Figure 7] Formatting Guide Information Page
 
 Once you are happy with your created summary you can then submit it. This can be done by clicking the submit button, as seen in Figure 6.
 
-**Administrator Tools**
+## Administrator Tools
 
 The application comes with some maintenance tools which can be used to manage the stored database content within the program. Stored Images, Keywords, Condition Summaries etc…
 
-**Add New Images**
+# **Add New Images**
 
 You may come across a time when you need to add an image to the application. This maybe because you have searched for an image to represent something and no appropriate images can be found.
 
 To add an image to the application you can select the option from the menu bar on the consultation screen. The option called &quot;Add external Images&quot; is the option you want to click. See Figure 8.
 
-![](RackMultipart20200524-4-3v6jws_html_39e9f3770d67fb5.png)
+![deleting curerntly viewed summary](https://user-images.githubusercontent.com/35525550/82749478-6cddeb80-9da1-11ea-982c-f4945d717033.png)
+
 
 [Figure 8] Image showing the menu options on the consultation screen
 
 Upon clicking the option you will be presented with the add a new image user interface. This interface is shown in Figure 9.
 
-![](RackMultipart20200524-4-3v6jws_html_71f2b2295ee4a0cf.png)
+![add new image](https://user-images.githubusercontent.com/35525550/82749500-81ba7f00-9da1-11ea-9c3e-04d31cdd7a08.png)
 
 [Figure 9] Adding a new image to the application for future use when creating summaries
 
@@ -105,11 +105,11 @@ These tags/keywords allow users to search for the added image. You can select ta
 
 Once happy with the tags/keywords you can click the &quot;Insert&quot; button to add the image to he application. Once added you can then use the image in the future.
 
-**Edit Image Tags/Keywords**
+# **Edit Image Tags/Keywords**
 
 This option allows the editing of an image&#39;s tags/keywords. If you need to change an images searchability then this option can be used to edit the search terms for when the image shows up.
 
-![](RackMultipart20200524-4-3v6jws_html_24120c6beed2cc61.png)
+![editing an image](https://user-images.githubusercontent.com/35525550/82749542-be867600-9da1-11ea-881a-cb47e1db947e.png)
 
 You first search for an image you want to edit. You can then choose to change the tags/keywords by selecting options from the list or adding new tags/keywords by typing them into the textbox for additional tags/keywords.
 
@@ -117,6 +117,6 @@ You can also choose to delete images from the application from this page. This i
 
 Once changes are completed, you can click &quot;Update&quot; button, and this updates the backend of the application.
 
-**Delete Summary**
+# **Delete Summary**
 
 An option exists to delete a condition summary required. You do this by searching for a condition on the consultation window. Opening the menu, as seen in Figure 8, you can click the &quot;Delete Currently Viewed Summary&quot;. This deletes the summary from the application and stops anyone from searching for it.

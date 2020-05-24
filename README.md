@@ -8,17 +8,17 @@ The aim of this project was to improve the medical literacy of people with commu
 
 
 
-Language Simplification for Care Settings User Guide
+# Language Simplification for Care Settings User Guide
 
-**Start Screen**
+## Start Screen
 
 When launching the program you will be met with the start screen, this is the place where you search for a condition or start the process to create a new condition summary.
 
-![](RackMultipart20200524-4-3v6jws_html_1bd8326525373563.png)
+![start screen](https://user-images.githubusercontent.com/35525550/82749221-854d0680-9d9f-11ea-89f2-32d71b0513be.png)
 
 [Figure 1] Image of Start Screen Showing Available Buttons
 
-When searching for a condition, the application will try and autocomplete your search with conditions already in the system. Selecting the condition you want and clicking confirm will bring you to the Consultation screen. ![](RackMultipart20200524-4-3v6jws_html_548fa1f67f91687d.png)
+When searching for a condition, the application will try and autocomplete your search with conditions already in the system. Selecting the condition you want and clicking confirm will bring you to the Consultation screen. ![consulktation screen](https://user-images.githubusercontent.com/35525550/82749270-eb398e00-9d9f-11ea-8c4a-a8564ed38dbd.png)
 
 [Figure 2] Consultation Screen, showing a searched condition and an already submitted condition
 
